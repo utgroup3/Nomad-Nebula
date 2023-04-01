@@ -172,7 +172,48 @@ body {
   .login-container .button.is-light:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
+
+  /* profile */
+  .bio-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
   
+  .bio-container .profile-picture {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .bio-container .bio-left,
+  .bio-container .bio-right {
+    color: #ffffff;
+  }
+  
+  .profile-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-buttons .button {
+    margin: 0 0.5rem;
+  }
+  
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
    /* footer */
 .footer {
     background-color: #172341;
