@@ -1,0 +1,36 @@
+ <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-start">
+                            <figure class="image is-48x48">
+                                <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded">
+                            </figure>
+                            <p class="navbar-item">
+                                {{#if loggedIn}}
+                                    Hi, {{username}}
+                                {{else}}
+                                    Log in
+                                {{/if}}
+                            </p>
+                            {{#if loggedIn}}
+                                <a class="navbar-item" href="/profile">Profile</a>
+                                <a class="navbar-item" href="/horoscope">Horoscope</a>
+                                <a class="navbar-item" href="/community">Community</a>
+                                <a class="navbar-item" href="/new-post">New Post</a>
+                                <a class="navbar-item" href="/your-night-sky">Your Night Sky</a>
+                                <a class="navbar-item" href="/logout">Logout</a>
+                            {{else}}
+                                <a class="navbar-item" href="/community">Community</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>

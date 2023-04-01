@@ -1,14 +1,19 @@
-<div class="columns is-gapless">
-        <aside class="column is-narrow">
-            <div class="menu">
-                <p class="menu-label">
-                    Nomad Nebula
-                </p>
-                <ul class="menu-list">
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/map">Night Sky Map</a></li>
-                    <li><a href="/horoscope">Horoscope</a></li>
-                    <li><a href="/community">Community</a></li>
-                </ul>
+  <section class="hero is-fullheight has-background-dark">
+        <div class="hero-video-container">
+            <video class="hero-video" src="/pexels-ingrid-north-4478322-3840x2160-25fps.mp4" autoplay muted loop playsinline></video>
+        </div>
+
+{{> navbar}}
+
+div class="hero-body">
+            <div class="container has-text-centered">
+                <figure class="image is-128x128">
+                    <img src="logo.jpg" alt="Logo">
+                </figure>
+                <div class="buttons is-centered">
+                    <a href="/signup" class="button is-primary">Sign Up</a>
+                    <a href="/login" class="button is-light">Log In</a>
+                </div>
             </div>
-        </aside>
+        </div>
+    </section>
