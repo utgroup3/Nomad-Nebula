@@ -254,7 +254,36 @@ body {
   .horoscope-section p {
     color: #ffffff;
   }
-  
+
+  /* map */
+  .hero.is-dark {
+    background-image: linear-gradient(135deg, #061161 0%, #2a3b70 100%);
+}
+
+#mapContainer {
+    max-width: 960px;
+}
+
+.mapTitle {
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.iframe-container {
+    width: 100%;
+    height: calc(100vh - 128px); /* Adjust height according to your needs */
+    position: relative;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
    /* footer */
 .footer {
     background-color: #172341;
