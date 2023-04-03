@@ -30,32 +30,55 @@ body {
 
 /* navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    z-index: 1000;
-    background-color: #172341;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #172341;
+  z-index: 1000;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
 }
 
-.navbar-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    padding: 1.5rem;
+.navbar-brand {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #172341;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar-burger {
+  color: #ffffff;
+  display: flex !important;
+}
+
+.profile-picture {
+  margin-bottom: 1rem;
 }
 
 .navbar-item {
-    margin-bottom: 1rem;
-    color: #ffffff;
-    transition: color 0.3s;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  transition: color 0.3s;
 }
+
 .navbar-item:hover {
-    color: #a2c1ff;
+  color: #a2c1ff;
+}
+
+.is-hidden {
+  transform: translateX(-100%);
 }
 
 /* post */
