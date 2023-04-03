@@ -68,13 +68,16 @@ body {
   left: 0;
   height: 100%;
   width: 250px;
-  background-color: #172341;
+  background-color: #1723418e;
   z-index: 1000;
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-bottom-right-radius: 20%;
+  border-top-right-radius: 20%;
 }
 
 .navbar-brand {
@@ -97,7 +100,12 @@ body {
 }
 
 .profile-picture {
+margin-top: 30%;
   margin-bottom: 1rem;
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
 }
 
 .navbar-item {
