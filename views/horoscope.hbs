@@ -1,0 +1,22 @@
+<section class="section">
+        <div class="container">
+            <div class="horoscope-header">
+                <img src="{{zodiacSign.imageUrl}}" alt="{{zodiacSign.name}} Image" class="zodiac-sign-image">
+                <div class="horoscope-left">
+                    <p>{{zodiacSign.name}}</p>
+                </div>
+                <div class="horoscope-right">
+                    <p>Birthday: {{user.birthday}}</p>
+                    <p>Birth City: {{user.birthCity}}</p>
+                </div>
+            </div>
+            
+            {{!-- Horoscope sections --}}
+            {{#each horoscopeData}}
+                <div class="horoscope-section">
+                    <h3 class="title is-4">{{@key}}</h3>
+                    <p>{{this}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </section>
