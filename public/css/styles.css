@@ -1,6 +1,6 @@
 body {
-    background-color: #0a0f20;
-    color: #ffffff;
+  background-color: #0a0f20;
+  color: #ffffff;
 }
 
 /* header */
@@ -32,11 +32,13 @@ body {
 .hero-body .button.is-primary {
   background-color: #a2c1ff;
   color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .hero-body .button.is-light {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .hero-body .button.is-light:hover {
@@ -60,7 +62,7 @@ body {
   position: relative;
   bottom: -10%;
 }
-
+/* navbar */
 /* navbar */
 .navbar {
   position: fixed;
@@ -78,6 +80,7 @@ body {
   border: 3px solid rgba(255, 255, 255, 0.1);
   border-bottom-right-radius: 20%;
   border-top-right-radius: 20%;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .navbar-brand {
@@ -121,256 +124,258 @@ margin-top: 30%;
 .is-hidden {
   transform: translateX(-100%);
 }
-
 /* post */
 
 .post-box {
-    background-color: #172341;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+  background-color: #172341;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .post-box a {
-    color: #a2c1ff;
-    transition: color 0.3s;
+  color: #a2c1ff;
+  transition: color 0.3s;
 }
 
 .post-box a:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .post-box .icon {
-    color: #a2c1ff;
+  color: #a2c1ff;
 }
 
 .post-box .icon:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /* registration */
 .register-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    border-radius: 5px;
-    background-color: rgba(23, 35, 65, 0.9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-container .field:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-  
-  .register-container .label {
-    color: #ffffff;
-  }
-  
-  .register-container .input {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .register-container .input:focus {
-    border-color: #a2c1ff;
-    box-shadow: 0 0 0 1px #a2c1ff;
-  }
-  
-  .register-container .button.is-primary {
-    background-color: #a2c1ff;
-    color: #0a0f20;
-  }
-  
-  .register-container .button.is-light {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-  }
-  
-  .register-container .button.is-light:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .register-container .button:not(:last-child) {
-    margin-right: 1rem;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: rgba(23, 35, 65, 0.9);
+  box-shadow: 0 4px 6px rgba(255, 252, 252, 0.1);
+}
 
-  /* login */
-  .login-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    border-radius: 5px;
-    background-color: rgba(23, 35, 65, 0.9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-container .field:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-  
-  .login-container .label {
-    color: #ffffff;
-  }
-  
-  .login-container .input {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .login-container .input:focus {
-    border-color: #a2c1ff;
-    box-shadow: 0 0 0 1px #a2c1ff;
-  }
-  
-  .login-container .button.is-primary {
-    background-color: #a2c1ff;
-    color: #0a0f20;
-  }
-  
-  .login-container .button.is-light {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-  }
-  
-  .login-container .button.is-light:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+.register-container .field:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
 
-  /* profile */
-  .bio-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(23, 35, 65, 0.9);
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-  }
-  
-  .bio-container .profile-picture {
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .bio-container .bio-left,
-  .bio-container .bio-right {
-    color: #ffffff;
-  }
-  
-  .profile-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .profile-buttons .button {
-    margin: 0 0.5rem;
-  }
-  
-  .posts-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
+.register-container .label {
+  color: #ffffff;
+}
 
-  /* Horoscope page */
+.register-container .input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.register-container .input:focus {
+  border-color: #a2c1ff;
+  box-shadow: 0 0 0 1px #a2c1ff;
+}
+
+.register-container .button.is-primary {
+  background-color: #a2c1ff;
+  color: #0a0f20;
+}
+
+.register-container .button.is-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.register-container .button.is-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.register-container .button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+/* login */
+.login-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: rgba(23, 35, 65, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container .field:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.login-container .label {
+  color: #ffffff;
+}
+
+.login-container .input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-container .input:focus {
+  border-color: #a2c1ff;
+  box-shadow: 0 0 0 1px #a2c1ff;
+}
+
+.login-container .button.is-primary {
+  background-color: #a2c1ff;
+  color: #0a0f20;
+}
+
+.login-container .button.is-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.login-container .button.is-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* profile */
+.bio-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(23, 35, 65, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.bio-container .profile-picture {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bio-container .bio-left,
+.bio-container .bio-right {
+  color: #ffffff;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-buttons .button {
+  margin: 0 0.5rem;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Horoscope page */
 
 .horoscope-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(23, 35, 65, 0.9);
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-  }
-  
-  .horoscope-header .zodiac-sign-image {
-    width: 64px;
-    height: 64px;
-  }
-  
-  .horoscope-header .horoscope-left,
-  .horoscope-header .horoscope-right {
-    color: #ffffff;
-  }
-  
-  .horoscope-section {
-    background-color: rgba(23, 35, 65, 0.9);
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-  }
-  
-  .horoscope-section .title {
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-  }
-  
-  .horoscope-section p {
-    color: #ffffff;
-  }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(23, 35, 65, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
 
-  /* map */
-  .hero.is-dark {
-    background-image: linear-gradient(135deg, #061161 0%, #2a3b70 100%);
+.horoscope-header .zodiac-sign-image {
+  width: 64px;
+  height: 64px;
+}
+
+.horoscope-header .horoscope-left,
+.horoscope-header .horoscope-right {
+  color: #ffffff;
+}
+
+.horoscope-section {
+  background-color: rgba(23, 35, 65, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.horoscope-section .title {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.horoscope-section p {
+  color: #ffffff;
+}
+
+/* map */
+.hero.is-dark {
+  background-image: linear-gradient(135deg, #061161 0%, #2a3b70 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #mapContainer {
-    max-width: 960px;
+  max-width: 960px;
 }
 
 .mapTitle {
-    color: #ffffff;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .iframe-container {
-    width: 100%;
-    height: calc(100vh - 128px); /* Adjust height according to your needs */
-    position: relative;
+  width: 100%;
+  height: calc(100vh - 128px); /* Adjust height according to your needs */
+  position: relative;
 }
 
 .iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-   /* footer */
+ /* footer */
 .footer {
-    background-color: #172341;
-    padding: 1rem 0;
+  background-color: #172341;
+  padding: 1rem 0;
 }
 
 .footer p {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        height: auto;
-        position: static;
-    }
+  /* .navbar-wrapper {
+      position: static;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      background-color: #172341;
+  }
 
-    .navbar-menu {
-        flex-direction: row;
-        height: auto;
-        padding: 0;
-    }
-    .hero-video {
-        display: none;
-    }
+  .navbar-menu {
+      flex-direction: row;
+      height: auto;
+      padding: 0;
+  } */
+
 }
