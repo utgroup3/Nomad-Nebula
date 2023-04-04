@@ -23,7 +23,7 @@ router.post('/', withAuth, (req, res) => {
   // check session
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment_text,
+      comment_text: req.body.comment,
       post_id: req.body.post_id,
       // use the id from the session
       user_id: req.session.user_id,
@@ -55,7 +55,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
     await Comment.update(
       {
-        comment_text: req.body.comment_text,
+        comment: req.body.comment,
       },
       {
         where: {
@@ -70,45 +70,6 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-// router.put('/:id', withAuth, async (req, res) => {
-//   try {
-//   const commentData = await Comment.findByPk(req.params.id);
-//   if (!commentData) {
-//     res.status(404).json({ message: 'No comment found with this id' });
-//     return;
-//   }
-//   if (commentData.user_id !== req.session.user_id) {
-//     res.status(403).json({ message: 'You are not authorized to update this comment' });
-//     return;
-//   }
-//   Comment.update(
-//     {
-//       comment_text: req.body.comment_text,
-//     },
-//     {
-//       where: {
-//         id: req.params.id
-//       }
-//     }
-//   )
-//     .then(commentData => {
-//       if (!commentData) {
-//         res.status(404).json({ message: 'No post found with this id' });
-//         return;
-//       }
-//       res.json(commentData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // DELETE a comment by ID
 router.delete('/:id', withAuth, async (req, res) => {

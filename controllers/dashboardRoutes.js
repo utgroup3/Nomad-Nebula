@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Route to display all posts created by logged in user
@@ -10,14 +10,14 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
+      'content',
       'title',
-      'created_at'
+      'createdAt'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
         include: {
           model: User,
           attributes: ['username']
@@ -47,14 +47,14 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
+      'content',
       'title',
-      'created_at'
+      'createdAt'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
         include: {
           model: User,
           attributes: ['username']
@@ -89,14 +89,14 @@ router.get('/post/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
+      'content',
       'title',
-      'created_at'
+      'createdAt'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
         include: {
           model: User,
           attributes: ['username']
