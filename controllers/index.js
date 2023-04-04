@@ -1,5 +1,3 @@
-// HERE IS A TEMPLATE for ./controllers/index.js
-
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
