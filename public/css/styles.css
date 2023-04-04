@@ -42,7 +42,16 @@ body {
 }
 
 .hero-body .button.is-light:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+background-color: rgba(255, 255, 255, 0.2);
+box-shadow: 0 4px 30px #1cc2de;
+transition: ease-in-out 0.3s;
+}
+
+.hero-body .button.is-primary:hover {
+color: #ffffff;
+background-color: rgba(255, 255, 255, 0.2);
+transition: ease-in-out 0.3s;
+box-shadow: 0 4px 30px #1cc2de;
 }
 
 .hero-body .button:not(:last-child) {
@@ -70,7 +79,7 @@ body {
   left: 0;
   height: 100%;
   width: 250px;
-  background-color: #1723418e;
+  background-color: #172341d7;
   z-index: 1000;
   transition: transform 0.3s;
   display: flex;
@@ -81,6 +90,7 @@ body {
   border-bottom-right-radius: 20%;
   border-top-right-radius: 20%;
   font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 4px 20px #1cc2de;
 }
 
 .navbar-brand {
@@ -95,7 +105,14 @@ body {
   background-color: #172341;
   cursor: pointer;
   z-index: 1001;
+  border-radius: 50%;
 }
+
+.navbar-brand:hover {
+box-shadow: 0 4px 30px #1cc2de;
+transition: ease-in-out 0.3s;
+}
+
 
 .navbar-burger {
   color: #ffffff;
@@ -111,14 +128,21 @@ margin-top: 30%;
   border-radius: 50%;
 }
 
+.profile-picture:hover {
+box-shadow: 0 4px 20px #1cc2de;
+cursor: pointer;
+}
 .navbar-item {
   margin-bottom: 1rem;
   color: #ffffff;
-  transition: color 0.3s;
+  transition: color 0.6s;
 }
 
 .navbar-item:hover {
-  color: #a2c1ff;
+color: #fcfcfc;
+background-color: transparent !important;; 
+text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
+
 }
 
 .is-hidden {
@@ -150,48 +174,85 @@ margin-top: 30%;
 }
 
 /* registration */
+
 .register-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 1.5rem;
-  border-radius: 5px;
-  background-color: rgba(23, 35, 65, 0.9);
-  box-shadow: 0 4px 6px rgba(255, 252, 252, 0.1);
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.63);
+  box-shadow: 0 4px 6px #1cc2de;
 }
 
+.register-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: auto;
+  border-radius: 6px;
+}
+
+.register-video {
+  position: absolute;
+  min-width: 100%;
+  padding: auto;
+  border-radius: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+
+}
 .register-container .field:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
+.register-form {
+  margin-top: 9.5rem;
+  padding-top: 20px;
+}
 .register-container .label {
   color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
 }
 
 .register-container .input {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .register-container .input:focus {
-  border-color: #a2c1ff;
-  box-shadow: 0 0 0 1px #a2c1ff;
+  border-color: #1cc2de;
+  box-shadow: 0 4px 20px #1cc1de8e;
 }
 
 .register-container .button.is-primary {
   background-color: #a2c1ff;
   color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .register-container .button.is-light {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .register-container .button.is-light:hover {
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
 }
 
+.register-container .button.is-primary:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 4px 30px #1cc2de;
+}
 .register-container .button:not(:last-child) {
   margin-right: 1rem;
 }
@@ -323,9 +384,8 @@ margin-top: 30%;
 
 /* map */
 .hero.is-dark {
-  background-image: linear-gradient(135deg, #061161 0%, #2a3b70 100%);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #172341;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #mapContainer {
@@ -362,20 +422,30 @@ margin-top: 30%;
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
-  /* .navbar-wrapper {
-      position: static;
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      background-color: #172341;
-  }
 
-  .navbar-menu {
-      flex-direction: row;
-      height: auto;
-      padding: 0;
-  } */
-
+@media screen and (max-width: 1024px) {
+.register-form {
+    margin-top: 15rem;
 }
+}
+
+@media screen and (min-width: 1024px) {
+.register-form {
+    margin-top: 28rem;
+}
+}
+
+/* For small screens */
+@media screen and (max-width: 768px) {
+.register-form {
+    margin-top: 8.5rem;
+}
+}
+
+/* For extra-small screens */
+@media screen and (max-width: 480px) {
+.register-form {
+    margin-top: 3rem;
+}
+}
+
