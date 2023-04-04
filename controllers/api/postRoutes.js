@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const multer = require('multer');
+const path = require('path');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -65,16 +67,29 @@ router.get('/:id', (req, res) => {
 
 // CREATE a new post
 router.post('/', withAuth, (req, res) => {
-  Post.create({
-    title: req.body.title,
-    content: req.body.content,
-    user_id: req.session.user_id
-  })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  upload(req, res, async (err) => {
+    if (err) {
+      res.status(400).json({ msg: err });
+    } else {
+      try {
+        const postData = {
+          title: req.body.title,
+          content: req.body.content,
+          user_id: req.session.user_id
+        };
+
+        if (req.file) {
+          postData.image = 'uploads/' + req.file.filename;
+        }
+
+        const dbPostData = await Post.create(postData);
+        res.json(dbPostData);
+      } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+    }
+  });
 });
 
 // UPDATE a post by ID
