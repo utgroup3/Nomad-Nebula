@@ -1,21 +1,18 @@
 const User = require('../models/User');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
+const sharp = require('sharp');
 
-const storage = multer.diskStorage({
-    destination: './public/uploads/',
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-});
+const storage = multer.memoryStorage(); 
 
 const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1000000 },
-    fileFilter: function (req, file, cb) {
-      checkFileType(file, cb);
-    }
-  }).single('profilePicture');
+  storage: storage,
+  limits: { fileSize: 1000000 },
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  }
+}).single('profilePicture');
 
   function checkFileType(file, cb) {
     const filetypes = /jpeg|jpg|png/;
@@ -42,7 +39,13 @@ const upload = multer({
           user.birthday = req.body.birthday;
   
           if (req.file) {
-            user.profilePicture = 'uploads/' + req.file.filename;
+            const processedImageBuffer = await sharp(req.file.buffer)
+              .resize(200, 200) // Set desired dimensions
+              .png()
+              .toBuffer();
+            const filename = `profilePicture-${Date.now()}.png`; // Generate a unique filename
+            await fs.promises.writeFile(`./public/uploads/${filename}`, processedImageBuffer);
+            user.profilePicture = `uploads/${filename}`;
           }
   
           await user.save();
@@ -53,4 +56,4 @@ const upload = multer({
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-  };
+};
