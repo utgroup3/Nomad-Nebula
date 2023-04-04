@@ -32,15 +32,22 @@ User.init(
         birthday: {
             type: DataTypes.DATEONLY,
             allowNull: false,
-        },
-        password: {
+          },
+          location: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
+          profilePicture: {
+            type: DataTypes.STRING,
+          },
+          password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [3],
-            }
-        }
-    },
+              len: [3],
+            },
+          },
+        },
     {
         hooks: {
             beforeCreate: async (newUserData) => {
