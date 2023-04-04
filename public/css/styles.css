@@ -278,41 +278,22 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   margin: 0 auto;
   padding: 1.5rem;
   border-radius: 5px;
-  background-color: rgba(23, 35, 65, 0.9);
+padding-top: 10rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 10rem;
 }
+.login-form {
 
+  padding-top: 20px;
+}
 .login-container .field:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
-.login-container .label {
+.login-container p {
   color: #ffffff;
-}
-
-.login-container .input {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.login-container .input:focus {
-  border-color: #a2c1ff;
-  box-shadow: 0 0 0 1px #a2c1ff;
-}
-
-.login-container .button.is-primary {
-  background-color: #a2c1ff;
-  color: #0a0f20;
-}
-
-.login-container .button.is-light {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-.login-container .button.is-light:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 2px;
 }
 
 /* profile */
