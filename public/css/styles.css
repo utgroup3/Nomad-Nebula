@@ -3,6 +3,18 @@ body {
   color: #ffffff;
 }
 
+.button.is-primary {
+background-color: #536996;
+color: #0a0f20;
+font-family: 'Orbitron', sans-serif;
+}
+.button.is-primary:hover {
+color: #ffffff;
+background-color: rgba(255, 255, 255, 0.2);
+transition: ease-in-out 0.3s;
+box-shadow: 0 4px 30px #1cc2de;
+}
+
 .background-video {
 position: fixed;
 top: 0;
@@ -41,12 +53,6 @@ object-fit: cover;
   object-fit: cover;
 }
 
-.hero-body .button.is-primary {
-  background-color: #a2c1ff;
-  color: #0a0f20;
-  font-family: 'Orbitron', sans-serif;
-}
-
 .hero-body .button.is-light {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
@@ -57,13 +63,6 @@ object-fit: cover;
 background-color: rgba(255, 255, 255, 0.2);
 box-shadow: 0 4px 30px #1cc2de;
 transition: ease-in-out 0.3s;
-}
-
-.hero-body .button.is-primary:hover {
-color: #ffffff;
-background-color: rgba(255, 255, 255, 0.2);
-transition: ease-in-out 0.3s;
-box-shadow: 0 4px 30px #1cc2de;
 }
 
 .hero-body .button:not(:last-child) {
@@ -300,31 +299,53 @@ padding-top: 10rem;
 .bio-container {
   position: relative;
   display: flex;
+  max-width: 700px;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(23, 35, 65, 0.9);
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  height: 200px;
+  margin-top: 10rem;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px #1cc2de;
 }
 
 .bio-container .profile-picture {
-  position: absolute;
+  position: relative;
   top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 150px;
+  min-height: 150px;
+  margin-top: 10rem;
 }
 
 .bio-container .bio-left,
 .bio-container .bio-right {
   color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  margin-top: 1rem;
+  
+}
+.bio-container .bio-left {
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.bio-container .bio-right {
+  text-align: right;
+  position: absolute;
 }
 
 .profile-buttons {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .profile-buttons .button {
@@ -335,6 +356,21 @@ padding-top: 10rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  background-color: rgba(23, 35, 65, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
+}
+
+.posts-container .post {
+  background-color: rgba(77, 98, 151, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
 /* Horoscope page */
@@ -437,6 +473,13 @@ padding-top: 10rem;
 @media screen and (max-width: 768px) {
 .register-form {
     margin-top: 1rem;
+}
+.bio-container .bio-left {
+  display: none;
+  text-align: center !important;
+  padding: 1rem;
+  margin: 0 auto;
+  
 }
 }
 
