@@ -439,6 +439,89 @@ font-size: 40px;
 border-radius: 15px;
 }
 
+/* edit profile page */
+.edit-profile-container {
+  max-width: 700px !important;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  box-shadow: 0 4px 6px #1cc2de;
+}
+
+.edit-profile-form {
+  margin-top: 2rem;
+  padding-top: 20px;
+}
+
+.edit-profile-container .field:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.edit-profile-container .label {
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+
+.edit-profile-container .input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.edit-profile-container .input:focus {
+  border-color: #1cc2de;
+  box-shadow: 0 4px 20px #1cc1de8e;
+}
+
+.edit-profile-container .file-input {
+  display: none;
+}
+
+.edit-profile-container .file-cta {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+  padding: 0.625rem 1rem;
+}
+
+.edit-profile-container .file:hover .file-cta {
+  border-color: #1cc2de;
+  box-shadow: 0 4px 20px #1cc1de8e;
+}
+
+.edit-profile-container .button.is-primary {
+  background-color: #a2c1ff;
+  color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.edit-profile-container .button.is-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.edit-profile-container .button.is-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
+}
+
+.edit-profile-container .button.is-primary:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 4px 30px #1cc2de;
+}
+
+.edit-profile-container .button:not(:last-child) {
+  margin-right: 1rem;
+}
+
 /* Horoscope page */
 
 .horoscope-header {
