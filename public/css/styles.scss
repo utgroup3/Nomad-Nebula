@@ -456,3 +456,235 @@ body {
       border-radius: 15px;
     }
   }
+
+  /* edit profile page */
+.edit-profile-container {
+    max-width: 700px !important;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 6px;
+    background-color: rgba(23, 35, 65, 0.753);
+    box-shadow: 0 4px 6px $highlight-color;
+    
+    .edit-profile-form {
+      margin-top: 2rem;
+      padding-top: 20px;
+    }
+    
+    .field:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    
+    .label {
+      color: $text-color;
+      font-family: $primary-font;
+      letter-spacing: 2px;
+    }
+    
+    .input {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: $secondary-font;
+      
+      &:focus {
+        border-color: $highlight-color;
+        box-shadow: 0 4px 20px #1cc1de8e;
+      }
+    }
+    
+    .file-input {
+      display: none;
+    }
+    
+    .file-cta {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: $secondary-font;
+      padding: 0.625rem 1rem;
+    }
+    
+    .file:hover .file-cta {
+      border-color: $highlight-color;
+      box-shadow: 0 4px 20px #1cc1de8e;
+    }
+    
+    .button {
+      &.is-primary {
+        background-color: #a2c1ff;
+        color: #0a0f20;
+        font-family: $primary-font;
+      }
+      
+      &.is-light {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $text-color;
+        font-family: $primary-font;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 30px $highlight-color;
+          transition: ease-in-out 0.3s;
+        }
+      }
+      
+      &.is-primary:hover {
+        color: $text-color;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: ease-in-out 0.3s;
+        box-shadow: 0 4px 30px $highlight-color;
+      }
+      
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  /* Horoscope page */
+.horoscope-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    
+    .zodiac-sign-image {
+      width: 64px;
+      height: 64px;
+    }
+    
+    .horoscope-left,
+    .horoscope-right {
+      color: $text-color;
+    }
+  }
+  
+  .horoscope-section {
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  
+    .title {
+      color: $text-color;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: $text-color;
+      }
+    }
+    
+    /* map */
+.hero.is-dark {
+    background-color: #172341;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  #mapContainer {
+    max-width: 960px;
+  }
+  
+  .mapTitle {
+    color: $text-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .iframe-container {
+    width: 100%;
+    height: calc(100vh - 128px); 
+    position: relative;
+  
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* footer */
+.footer {
+    background-color: #172341;
+    padding: 1rem 0;
+    background-color: rgba(23, 35, 65, 0.397);
+  
+    p {
+      color: rgba(255, 255, 255, 0.527);
+      font-family: 'Rajdhani', sans-serif;
+    }
+  }
+  
+  /* Media queries */
+  @media screen and (max-width: 1024px) {
+    .register-form {
+      margin-top: 1rem;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .register-form {
+      margin-top: 2rem;
+    }
+  
+    .bio-container {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  
+    .posts-container {
+      max-width: 2000px;
+    }
+  }
+  
+  /* For small screens */
+  @media screen and (max-width: 768px) {
+    .register-form {
+      margin-top: 1rem;
+    }
+  
+    .bio-container {
+      flex-direction: column;
+  
+      .profile-picture {
+        top: -20%;
+        width: 100px;
+        height: 100px;
+      }
+  
+      .bio-left,
+      .bio-right {
+        text-align: center;
+      }
+  
+      .bio-left {
+        order: 1;
+      }
+  
+      .username {
+        order: 0;
+      }
+  
+      .bio-right {
+        order: 2;
+      }
+    }
+  }
+  
+  /* For extra-small screens */
+  @media screen and (max-width: 480px) {
+    .register-form {
+      margin-top: 3rem;
+    }
+  }
