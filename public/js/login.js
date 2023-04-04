@@ -4,8 +4,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Extract the username and password values from the form fields and trim whitespace
-    const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const username = document.querySelector('#username').value.trim();
+    const password = document.querySelector('#password').value.trim();    
   
     // Check if both fields are not empty
     if (username && password) {

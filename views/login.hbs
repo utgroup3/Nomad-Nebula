@@ -1,27 +1,27 @@
 <section class="section">
-        <div class="container">
-            <div class="login-container">
-                <h1 class="title is-3 has-text-white">Log In</h1>
-                <form action="/login" method="POST">
-                    <div class="field">
-                        <label class="label" for="username">Username</label>
-                        <div class="control">
-                            <input class="input" type="text" id="username" name="username" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="password">Password</label>
-                        <div class="control">
-                            <input class="input" type="password" id="password" name="password" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <button type="submit" class="button is-primary">Log In</button>
-                        </div>
-                    </div>
-                    <p class="has-text-white">Don't have an account? <a href="/signup" class="has-text-primary">Sign Up</a></p>
-                </form>
+  <div class="container">
+    <div class="login-container">
+      <h1 class="title is-3 has-text-white">Log In</h1>
+        <form action="/login" method="POST" class="login-form">
+          <div class="field">
+            <label class="label" for="username">Username</label>
+            <div class="control">
+              <input class="input" type="text" id="username" name="username" required>
             </div>
-        </div>
-    </section>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <div class="control">
+              <input class="input" type="password" id="password" name="password" required>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">Log In</button>
+            </div>
+          </div>
+        <p class="has-text-white">Don't have an account? <a href="/signup" class="has-text-primary">Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+</section>
