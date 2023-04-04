@@ -1,0 +1,198 @@
+$background-color: #0a0f20;
+$text-color: #ffffff;
+$highlight-color: #1cc2de;
+$primary-font: 'Orbitron', sans-serif;
+$accent-color: #536996;
+$secondary-font: 'Rajdhani', sans-serif;
+
+body {
+  color: $text-color;
+}
+
+.button {
+  &.is-primary {
+    background-color: $accent-color;
+    color: $background-color;
+    font-family: $primary-font;
+
+    &:hover {
+      color: $text-color;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: ease-in-out 0.3s;
+      box-shadow: 0 4px 30px $highlight-color;
+    }
+  }
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  object-fit: cover;
+}
+
+.hero {
+  &.has-background-dark {
+    background-color: $background-color;
+  }
+
+  .hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  .hero-body {
+    .button {
+      &.is-light {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $text-color;
+        font-family: $primary-font;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 30px $highlight-color;
+          transition: ease-in-out 0.3s;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    .logo {
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      position: relative;
+      top: -10%;
+      width: 150px;
+      height: 150px;
+    }
+
+    .buttons-wrapper {
+      position: relative;
+      bottom: -10%;
+    }
+  }
+}
+
+// Navbar
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #172341d7;
+  z-index: 1000;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-bottom-right-radius: 20%;
+  border-top-right-radius: 20%;
+  font-family: $primary-font;
+  box-shadow: 0 4px 20px $highlight-color;
+
+  &.is-hidden {
+    transform: translateX(-100%);
+  }
+
+  .navbar-brand {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #172341;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: 0 4px 30px $highlight-color;
+      transition: ease-in-out 0.3s;
+    }
+  }
+
+  .navbar-burger {
+    color: $text-color;
+    display: flex !important;
+  }
+
+  .profile-picture {
+    margin-top: 30%;
+    margin-bottom: 1rem;
+    width: 150px;
+    height: 150px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: 0 4px 20px $highlight-color;
+      cursor: pointer;
+    }
+  }
+
+  .navbar-item {
+    margin-bottom: 1rem;
+    color: $text-color;
+    transition: color 0.6s;
+
+    &:hover {
+      color: #fcfcfc;
+      background-color: transparent !important;
+      text-shadow: 0 0 5px $highlight-color, 0 0 10px $highlight-color, 0 0 20px $highlight-color, 0 0 40px $highlight-color;
+    }
+  }
+}
+
+// Post
+.post-box {
+  background-color: #172341;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $text-color;
+
+  a {
+    color: #a2c1ff;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  .icon {
+    color: #a2c1ff;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
