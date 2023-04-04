@@ -1,59 +1,57 @@
-<main class="column">
-  <section class="section">
-    <div class="container">
-      <section class="hero is-dark">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <h1 class="title">
-              Register
-            </h1>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <form action="/register" method="post">
-            <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
-                <input class="input" type="text" name="username" required>
-              </div>
+    <main class="column">
+        <section class="section">
+            <div class="container register-container">
+                <section class="hero is-dark">
+
+                    <section class="register-video-container">
+                        <video class="register-video" src="/img/REGISTER.mp4" autoplay muted loop playsinline></video>
+                    </section>
+
+                </section>
+                <section class="section">
+                    <div class="container register-form">
+                        <form action="/register" method="post">
+                            <div class="field">
+                                <label class="label">USERNAME</label>
+                                <div class="control">
+                                    <input class="input" type="text" name="username" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">PASSWORD</label>
+                                <div class="control">
+                                    <input class="input" type="password" name="password" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">LOCATION</label>
+                                <div class="control">
+                                    <input class="input" type="text" name="location" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">BIRTHDAY</label>
+                                <div class="control">
+                                    <input class="input" type="date" name="birthday" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">BIRTH CITY</label>
+                                <div class="control">
+                                    <input class="input" type="text" name="birthCity" required>
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button id="registerBtn" type="submit" class="button is-primary">REGISTER</button>
+                                </div>
+                                <div class="control">
+                                    <a href="/login" class="button is-light">LOGIN</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </div>
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input class="input" type="password" name="password" required>
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Location</label>
-              <div class="control">
-                <input class="input" type="text" name="location" required>
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Birthday</label>
-              <div class="control">
-                <input class="input" type="date" name="birthday" required>
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Birth City</label>
-              <div class="control">
-                <input class="input" type="text" name="birthCity" required>
-              </div>
-            </div>
-            <div class="field is-grouped">
-              <div class="control">
-                <button id="registerBtn" type="submit" class="button is-primary">Register</button>
-              </div>
-              <div class="control">
-                <a href="/login" class="button is-light">Already have an account? Log In</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-    </div>
-  </section>
-</main>
+        </section>
+    </main>
