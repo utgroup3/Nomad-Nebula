@@ -1,6 +1,18 @@
 body {
-  background-color: #0a0f20;
+
   color: #ffffff;
+}
+
+.background-video {
+position: fixed;
+top: 0;
+left: 0;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+object-fit: cover;
 }
 
 /* header */
@@ -176,7 +188,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 /* registration */
 
 .register-container {
-  max-width: 600px;
+  max-width: 700px !important;
   margin: 0 auto;
   padding: 1.5rem;
   border-radius: 6px;
