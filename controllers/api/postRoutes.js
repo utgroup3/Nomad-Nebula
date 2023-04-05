@@ -3,7 +3,7 @@ const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
-const upload = require('./path/to/imageUpload').single('image');
+const upload = require('../../public/js/imageUpload').single('image');
 
 // GET all posts
 router.get('/', (req, res) => {
