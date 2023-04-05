@@ -23,15 +23,25 @@
 
     {{> footer}}
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const burger = document.querySelector('.navbar-burger');
-            const menu = document.querySelector('.navbar');
+document.addEventListener('DOMContentLoaded', function () {
+  const burger = document.querySelector('.navbar-burger');
+  const menu = document.querySelector('.navbar');
 
-            burger.addEventListener('click', function () {
-                burger.classList.toggle('is-active');
-                menu.classList.toggle('is-hidden');
-            });
-        });
+  burger.addEventListener('click', function () {
+    burger.classList.toggle('is-active');
+    menu.classList.toggle('is-hidden');
+  });
+
+  document.querySelectorAll('.explanation-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const explanation = header.closest('.explanation');
+      explanation.classList.toggle('expanded');
+      
+      const arrowIcon = header.querySelector('.arrow-icon');
+      arrowIcon.classList.toggle('open');
+    });
+  });
+});
     </script>
 </body>
 
