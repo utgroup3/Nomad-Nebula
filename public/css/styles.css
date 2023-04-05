@@ -605,32 +605,6 @@ border-radius: 15px;
   font-family: 'Rajdhani', sans-serif;
 }
 
-
-@media screen and (max-width: 1024px) {
-  .register-form {
-      margin-top: 1rem;
-  }
-  
-}
-
-@media screen and (min-width: 1024px) {
-  .register-form {
-      margin-top: 2rem;
-  }
-  .bio-container h2 {
-    font-size: 3rem;
-  }
-  .posts-container {
-    max-width: 2000px;
-  }
-}
-
-/* For small screens */
-@media screen and (max-width: 768px) {
-  .register-form {
-      margin-top: 1rem;
-  }
-}
 .bio-container {
   flex-direction: column;
 }
@@ -656,13 +630,6 @@ border-radius: 15px;
 
 .bio-container .bio-right {
   order: 2;
-}
-
-/* For extra-small screens */
-@media screen and (max-width: 480px) {
-  .register-form {
-      margin-top: 3rem;
-  }
 }
 
 /* ZODIAC STUFF */
@@ -779,3 +746,35 @@ border-radius: 15px;
   display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  .register-form {
+      margin-top: 1rem;
+  }
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .register-form {
+      margin-top: 2rem;
+  }
+  .bio-container h2 {
+    font-size: 3rem;
+  }
+  .posts-container {
+    max-width: 2000px;
+  }
+}
+
+/* For small screens */
+@media screen and (max-width: 768px) {
+  .register-form {
+      margin-top: 1rem;
+  }
+}
+
+/* For extra-small screens */
+@media screen and (max-width: 480px) {
+  .register-form {
+      margin-top: 3rem;
+  }
+}
