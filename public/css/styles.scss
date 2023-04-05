@@ -541,7 +541,51 @@ body {
       }
     }
   }
-
+/* current sky */
+.explanation-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .explanation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-basis: 100%;
+    max-width: 900px !important;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 2.5rem;
+    border-radius: 6px;
+    background-color: rgba(23, 35, 65, 0.753);
+    box-shadow: 0 4px 6px $highlight-color;
+  }
+  
+  .explanation img {
+    max-width: 200px;
+    margin-right: 20px;
+  }
+  
+  .explanation-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+  
+  .explanation h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-family: $primary-font;
+    color: $highlight-color;
+  }
+  
+  .explanation p {
+    margin-top: 0;
+    font-size: 18px;
+    font-family: $secondary-font;
+    color: $text-color;
+  }
+  
   /* Horoscope page */
 .horoscope-header {
     position: relative;
