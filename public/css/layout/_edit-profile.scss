@@ -1,83 +1,83 @@
 .edit-profile-container {
-    max-width: 700px !important;
-    margin: 0 auto;
-    padding: 1.5rem;
-    border-radius: 6px;
-    background-color: rgba(23, 35, 65, 0.753);
-    box-shadow: 0 4px 6px $highlight-color;
-    
-    .edit-profile-form {
-      margin-top: 2rem;
-      padding-top: 20px;
-    }
-    
-    .field:not(:last-child) {
-      margin-bottom: 1.5rem;
-    }
-    
-    .label {
-      color: $text-color;
-      font-family: $primary-font;
-      letter-spacing: 2px;
-    }
-    
-    .input {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: $text-color;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-family: $secondary-font;
-      
-      &:focus {
-        border-color: $highlight-color;
-        box-shadow: 0 4px 20px #1cc1de8e;
-      }
-    }
-    
-    .file-input {
-      display: none;
-    }
-    
-    .file-cta {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: $text-color;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-family: $secondary-font;
-      padding: 0.625rem 1rem;
-    }
-    
-    .file:hover .file-cta {
+  max-width: 700px !important;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  box-shadow: 0 4px 6px $highlight-color;
+
+  .edit-profile-form {
+    margin-top: 2rem;
+    padding-top: 20px;
+  }
+
+  .field:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .label {
+    color: $text-color;
+    font-family: $primary-font;
+    letter-spacing: 2px;
+  }
+
+  .input {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $text-color;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: $secondary-font;
+
+    &:focus {
       border-color: $highlight-color;
       box-shadow: 0 4px 20px #1cc1de8e;
     }
-    
-    .button {
-      &.is-primary {
-        background-color: #a2c1ff;
-        color: #0a0f20;
-        font-family: $primary-font;
-      }
-      
-      &.is-light {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: $text-color;
-        font-family: $primary-font;
-        
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.2);
-          box-shadow: 0 4px 30px $highlight-color;
-          transition: ease-in-out 0.3s;
-        }
-      }
-      
-      &.is-primary:hover {
-        color: $text-color;
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .file-cta {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $text-color;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: $secondary-font;
+    padding: 0.625rem 1rem;
+  }
+
+  .file:hover .file-cta {
+    border-color: $highlight-color;
+    box-shadow: 0 4px 20px #1cc1de8e;
+  }
+
+  .button {
+    &.is-primary {
+      background-color: #a2c1ff;
+      color: #0a0f20;
+      font-family: $primary-font;
+    }
+
+    &.is-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+      font-family: $primary-font;
+
+      &:hover {
         background-color: rgba(255, 255, 255, 0.2);
-        transition: ease-in-out 0.3s;
         box-shadow: 0 4px 30px $highlight-color;
-      }
-      
-      &:not(:last-child) {
-        margin-right: 1rem;
+        transition: ease-in-out 0.3s;
       }
     }
+
+    &.is-primary:hover {
+      color: $text-color;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: ease-in-out 0.3s;
+      box-shadow: 0 4px 30px $highlight-color;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
   }
+}
