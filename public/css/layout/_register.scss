@@ -1,0 +1,86 @@
+.register-container {
+    max-width: 700px !important;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 6px;
+    background-color: rgba(23, 35, 65, 0.753);
+    box-shadow: 0 4px 6px $highlight-color;
+  
+    .field:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  
+    .register-video-container {
+      position: relative;
+      top: 0;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: auto;
+      border-radius: 6px;
+      min-width: 200px;
+      background-color: rgba(23, 35, 65, 0);
+    }
+  
+    .register-video {
+      position: relative;
+      max-width: 100%;
+      padding: auto;
+      border-radius: 6px;
+      padding-top: 1rem;
+      justify-content: center;
+      border-radius: 6px;
+    }
+  
+    .register-form {
+      margin-top: 9.5rem;
+      padding-top: 20px;
+    }
+  
+    .label {
+      color: $text-color;
+      font-family: $primary-font;
+      letter-spacing: 2px;
+    }
+  
+    .input {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: $secondary-font;
+  
+      &:focus {
+        border-color: $highlight-color;
+        box-shadow: 0 4px 20px #1cc1de8e;
+      }
+    }
+  
+    .button.is-primary {
+      background-color: #a2c1ff;
+      color: $background-color;
+      font-family: $primary-font;
+    }
+  
+    .button.is-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-color;
+      font-family: $primary-font;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px $highlight-color;
+        transition: ease-in-out 0.3s;
+      }
+    }
+  
+    .button.is-primary:hover {
+      color: $text-color;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: ease-in-out 0.3s;
+      box-shadow: 0 4px 30px $highlight-color;
+    }
+  
+    .button:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
