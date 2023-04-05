@@ -300,7 +300,7 @@ let userId = 1;
 // Create a code that logs user's id from server-side session
 // const userId = getSessionUserId();
 
-fetch(`/users/${userId}`)
+fetch(`/api/users/${userId}`)
   .then(response => response.json())
   .then(data => {
     const birthday = data.birthday;
