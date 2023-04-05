@@ -45,6 +45,8 @@ const sequelize = require('../config/connection');
 //     res.status(500).json(err);
 //   });
 // });
+
+//get all posts
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -69,6 +71,7 @@ router.get('/', (req, res) => {
   })
   .then(dbPostData => {
     const posts = dbPostData.map(post => post.get({ plain: true }));
+
     res.render('homepage', { 
       posts, 
       loggedIn: req.session.loggedIn,
@@ -80,6 +83,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// get comments for a single post
 router.get('/post/:id/comments', (req, res) => {
   Comment.findAll({
     where: {
@@ -93,6 +97,7 @@ router.get('/post/:id/comments', (req, res) => {
   })
     .then(dbCommentData => {
       const comments = dbCommentData.map(comment => comment.get({ plain: true }));
+
       res.render('comments', {
         comments,
         loggedIn: req.session.loggedIn
@@ -103,7 +108,8 @@ router.get('/post/:id/comments', (req, res) => {
       res.status(500).json(err);
     });
 });
-// get single post
+
+// get a single post my id
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -150,7 +156,7 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-//login
+// render login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -160,6 +166,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// render signup page
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
