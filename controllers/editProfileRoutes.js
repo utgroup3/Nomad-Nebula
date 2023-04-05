@@ -1,11 +1,11 @@
-const router = require('express').Router();
-const editProfile = require('../public/js/editProfile');
-const { ensureAuthenticated } = require('../utils/auth');
+// const router = require('express').Router();
+// const editProfile = require('../public/js/editProfile');
+// const { ensureAuthenticated } = require('../utils/auth');
 
-router.get('/edit-profile', ensureAuthenticated, (req, res) => {
-  res.render('edit-profile', { user: req.user });
-});
+// router.get('/edit-profile', ensureAuthenticated, (req, res) => {
+//   res.render('edit-profile', { user: req.user });
+// });
 
-router.post('/edit-profile', ensureAuthenticated, editProfile);
+// router.post('/edit-profile', ensureAuthenticated, editProfile);
 
-module.exports = router;
+// module.exports = router;
