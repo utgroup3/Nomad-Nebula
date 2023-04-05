@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { editProfile } = require('../public/js/imageUpload');
+const editProfile = require('../public/js/editProfile');
 const { ensureAuthenticated } = require('../utils/auth');
 
 router.get('/edit-profile', ensureAuthenticated, (req, res) => {

@@ -1,0 +1,39 @@
+.horoscope-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    
+    .zodiac-sign-image {
+      width: 64px;
+      height: 64px;
+    }
+    
+    .horoscope-left,
+    .horoscope-right {
+      color: $text-color;
+    }
+  }
+  
+  .horoscope-section {
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  
+    .title {
+      color: $text-color;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: $text-color;
+      }
+    }
+    

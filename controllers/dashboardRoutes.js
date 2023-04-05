@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Route to display all posts created by logged in user
@@ -13,6 +13,8 @@ router.get('/', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt'
+      // This code creates a SELECT statement that calls the COUNT SQL function on the post_id column of the vote table. The resulting column is also aliased as vote_count
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
@@ -50,6 +52,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt'
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
@@ -91,12 +94,19 @@ router.get('/post/:id', withAuth, (req, res) => {
       'id',
       'content',
       'title',
-      'createdAt'
+      'createdAt',
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
           model: User,
           attributes: ['username']

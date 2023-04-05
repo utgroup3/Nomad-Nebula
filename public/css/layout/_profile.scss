@@ -1,0 +1,145 @@
+.bio-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(23, 35, 65, 0.9);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 4px 20px $highlight-color;
+    margin-bottom: 2rem;
+    margin: 0 auto;
+    margin-top: 7rem !important;
+  
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    .profile-picture {
+      margin-bottom: 2rem;
+      position: absolute;
+      top: -75px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: 150px !important;
+      height: 150px;
+      margin-top: -5rem;
+  
+      &:hover {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 5px solid rgba(23, 35, 65, 0.9);
+      }
+    }
+  
+    .bio-left,
+    .bio-right,
+    .username {
+      color: $text-color;
+      font-family: $secondary-font;
+      flex-basis: 33.3333%;
+      text-align: center;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
+    }
+  
+    h2 {
+      font-family: $primary-font;
+      font-size: 4vw;
+    }
+  
+    .bio-left {
+      text-align: left;
+    }
+  
+    .bio-right {
+      text-align: right;
+    }
+  
+    .edit-icon {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateY(50%);
+      padding: 0.5rem;
+      border-radius: 50%;
+      background-color: rgb(140, 161, 216);
+      font-size: 2em; // Adjust the font size for the edit icon
+  
+      &:hover {
+        background-color: $highlight-color;
+        cursor: pointer;
+        box-shadow: 0 4px 30px $highlight-color;
+        transition: ease-in-out 0.3s;
+      }
+    }
+  }
+  
+  .iconContainer {
+    position: relative;
+    max-width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    word-spacing: 25px !important;
+    background-color: rgba(23, 35, 65, 0.9);
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-size: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px $highlight-color;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .icons-container {
+    .icon-link {
+      padding: 0.5rem !important;
+      margin: 0 0.5rem !important;
+      border-radius: 50% !important;
+    }
+  
+    .fas:hover {
+      box-shadow: 0 4px 30px $highlight-color !important;
+      transition: ease-in-out 0.3s !important;
+      cursor: pointer;
+    }
+  }
+
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    background-color: rgba(23, 35, 65, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: $secondary-font;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px $highlight-color;
+    
+    .post {
+      background-color: rgba(77, 98, 151, 0.9);
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+      text-align: center;
+      word-spacing: 25px !important;
+      font-size: 40px;
+      border-radius: 15px;
+    }
+  }

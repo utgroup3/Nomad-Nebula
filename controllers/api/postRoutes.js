@@ -1,14 +1,20 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
-const upload = require('./path/to/imageUpload').single('image');
+const upload = require('../../public/js/imageUpload').single('image');
 
 // GET all posts
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'createdAt', 'content'],
+    attributes: [
+      'id',
+      'title',
+      'createdAt',
+      'content',
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+    ],
     include: [
       {
         model: User,
@@ -16,7 +22,13 @@ router.get('/', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
           model: User,
           attributes: ['username']
@@ -37,7 +49,13 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'title', 'content', 'createdAt'],
+    attributes: [
+      'id', 
+      'title', 
+      'content', 
+      'createdAt',
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+    ],
     include: [
       {
         model: User,
@@ -45,7 +63,13 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
           model: User,
           attributes: ['username']
@@ -91,6 +115,19 @@ router.post('/', withAuth, (req, res) => {
       }
     }
   });
+});
+
+router.put('/votePost', withAuth, (req, res) => {
+  // make sure the session exists first
+  if (req.session) {
+    // pass session id along with all destructured properties on req.body
+    Post.votePost({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+      .then(voteData => res.json(voteData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 });
 
 // UPDATE a post by ID
