@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
 
     // If the response from the server is successful, redirect the page to the dashboard
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/profile');
     } else {
       // If the response is not successful, display an alert with the status text from the server response
       alert(response.statusText);

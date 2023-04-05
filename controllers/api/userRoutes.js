@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 const upload = require('../../public/js/imageUpload');
 
 // GET all users
-router.get('/', (req, res) => {
+router.get('/community', (req, res) => {
   User.findAll({})
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {

@@ -8,7 +8,7 @@ const logout = async () => {
   
     // If the response status is OK (200), redirect the user to the homepage
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/landing-page');
     } else {
       // If there's an error, show an alert with the response status text
       alert(response.statusText);

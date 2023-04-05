@@ -3,39 +3,45 @@ const { Post, User, Comment, Vote } = require('../models');
 const sequelize = require('../config/connection');
 
 //get all posts
+// router.get('/', (req, res) => {
+//   Post.findAll({
+//     attributes: [
+//       'id',
+//       'title',
+//       'createdAt',
+//       'content',
+//       [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
+//     ],
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['id', 'username']
+//       },
+//       {
+//         model: Vote,
+//         attributes: [],
+//       }
+//     ],
+//     group: ['post.id'],
+
+//   })
+//   .then(dbPostData => {
+//     const posts = dbPostData.map(post => post.get({ plain: true }));
+
+//     res.render('homepage', { 
+//       posts, 
+//       loggedIn: req.session.loggedIn,
+//     });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
+
 router.get('/', (req, res) => {
-  Post.findAll({
-    attributes: [
-      'id',
-      'title',
-      'createdAt',
-      'content',
-      [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['id', 'username']
-      },
-      {
-        model: Vote,
-        attributes: [],
-      }
-    ],
-    group: ['post.id'],
-
-  })
-  .then(dbPostData => {
-    const posts = dbPostData.map(post => post.get({ plain: true }));
-
-    res.render('homepage', { 
-      posts, 
-      loggedIn: req.session.loggedIn,
-    });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
+  res.render('landing-page', {
+    loggedIn: req.session.loggedIn,
   });
 });
 
@@ -115,7 +121,7 @@ router.get('/post/:id', (req, res) => {
 // render login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/profile');
     return;
   }
 
@@ -125,7 +131,7 @@ router.get('/login', (req, res) => {
 // render signup page
 router.get('/register', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/login');
     return;
   }
 

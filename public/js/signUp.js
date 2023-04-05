@@ -18,7 +18,7 @@ const signupFormHandler = async (event) => {
       // If the response status is OK (200)
       if (response.ok) {
         // Redirect to the dashboard page
-        document.location.replace('/dashboard');
+        document.location.replace('/profile');
       } else {
         // Show an error message with the response status text
         alert(response.statusText);
