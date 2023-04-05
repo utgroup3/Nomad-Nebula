@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'createdAt',
-      'post_content'
+      'content',
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
+        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
         include: {
           model: User,
           attributes: ['username']
@@ -43,11 +44,17 @@ router.get('/post/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'title', 'post_content', 'createdAt'],
+    attributes: [
+      'id', 
+      'title', 
+      'content', 
+      'createdAt',
+      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+    ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
+        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
         include: {
           model: User,
           attributes: ['username']
