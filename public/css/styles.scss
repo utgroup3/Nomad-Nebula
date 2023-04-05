@@ -543,48 +543,122 @@ body {
   }
 /* current sky */
 .explanation-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .explanation {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    flex-basis: 100%;
-    max-width: 900px !important;
-    margin: 0 auto;
-    margin-top: 2rem;
-    padding: 2.5rem;
-    border-radius: 6px;
-    background-color: rgba(23, 35, 65, 0.753);
-    box-shadow: 0 4px 6px $highlight-color;
-  }
-  
-  .explanation img {
-    max-width: 200px;
-    margin-right: 20px;
-  }
-  
-  .explanation-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
-  
-  .explanation h2 {
-    margin-top: 0;
-    font-size: 24px;
-    font-family: $primary-font;
-    color: $highlight-color;
-  }
-  
-  .explanation p {
-    margin-top: 0;
-    font-size: 18px;
-    font-family: $secondary-font;
-    color: $text-color;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.explanation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-basis: 100%;
+  max-width: 900px !important;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 2.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  box-shadow: 0 4px 6px $highlight-color;
+}
+
+.current-video {
+  position: relative;
+  max-width: 90%;
+  max-height: 250px;
+  padding: auto;
+  border-radius: 6px;
+  padding-top: 1rem;
+  margin:auto;
+}
+
+.current-video-container {
+  position: relative;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: auto;
+  max-height: 300px;
+  border-radius: 6px;
+  min-width: 200px;
+  background-color: rgb(23, 35, 65);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px $highlight-color;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.explanation img {
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+.explanation-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.explanation h3 {
+  margin-top: 0;
+  font-size: 4vw;
+  font-family: $primary-font;
+  padding-bottom: 10px;
+}
+
+.explanation p {
+  margin-top: 0;
+  font-size: 2vw;
+  font-family: $secondary-font;
+}
+
+.explanation-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  padding: 1rem;
+}
+
+.skyChart-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  box-shadow: 0 4px 6px $highlight-color;
+}
+
+.arrow-icon:before {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: transform 0.3s;
+}
+
+.arrow-icon.open:before {
+  transform: rotate(180deg);
+}
+
+.hidden-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.explanation.expanded .hidden-content {
+  max-height: 500px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.explanation.expanded .arrow-icon:before {
+  transform: translateY(-50%) rotate(180deg);
+}
   
   /* Horoscope page */
 .horoscope-header {
