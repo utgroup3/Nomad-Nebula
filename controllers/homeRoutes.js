@@ -1,6 +1,52 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Vote } = require('../models');
+const sequelize = require('../config/connection');
 
+
+// router.get('/', (req, res) => {
+//   Post.findAll({
+//     attributes: [
+//       'id',
+//       'title',
+//       'createdAt',
+//       'content',
+//       [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
+//     ],
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['id', 'username']
+//       },
+//       {
+//         model: Comment,
+//         attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+//         include: {
+//           model: User,
+//           attributes: ['id', 'username']
+//         }
+//       },
+//       {
+//         model: Vote,
+//         attributes: [],
+//       }
+//     ],
+//     group: ['post.id'],
+
+//   })
+//   .then(dbPostData => {
+//     const posts = dbPostData.map(post => post.get({ plain: true }));
+//     res.render('homepage', { 
+//       posts, 
+//       loggedIn: req.session.loggedIn,
+//     });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
+
+//get all posts
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -8,25 +54,24 @@ router.get('/', (req, res) => {
       'title',
       'createdAt',
       'content',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
     ],
     include: [
       {
         model: User,
-        attributes: ['username']
+        attributes: ['id', 'username']
       },
       {
-        model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        model: Vote,
+        attributes: [],
       }
-    ]
+    ],
+    group: ['post.id'],
+
   })
   .then(dbPostData => {
     const posts = dbPostData.map(post => post.get({ plain: true }));
+
     res.render('homepage', { 
       posts, 
       loggedIn: req.session.loggedIn,
@@ -38,7 +83,33 @@ router.get('/', (req, res) => {
   });
 });
 
-// get single post
+// get comments for a single post
+router.get('/post/:id/comments', (req, res) => {
+  Comment.findAll({
+    where: {
+      post_id: req.params.id
+    },
+    attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+    include: {
+      model: User,
+      attributes: ['id', 'username']
+    }
+  })
+    .then(dbCommentData => {
+      const comments = dbCommentData.map(comment => comment.get({ plain: true }));
+
+      res.render('comments', {
+        comments,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// get a single post my id
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -49,7 +120,7 @@ router.get('/post/:id', (req, res) => {
       'title', 
       'content', 
       'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
     ],
     include: [
       {
@@ -85,7 +156,7 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-//login
+// render login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -95,6 +166,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// render signup page
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

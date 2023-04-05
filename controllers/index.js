@@ -4,14 +4,14 @@ const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 const sessionRoutes = require('./sessionRoutes');
-const editProfile = require('./editProfileRoutes'); 
+
 const zodiacRoute = require('./zodiac-route')
+
 
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
-router.use('/session', sessionRoutes); 
-router.use('/edit-profile', editProfile);
+router.use('/session', sessionRoutes);
 
 router.use('/zodiac', zodiacRoute);
 

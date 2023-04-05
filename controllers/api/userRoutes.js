@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const upload = require('../../public/js/imageUpload');
 
 // GET all users
 router.get('/', (req, res) => {
@@ -119,6 +120,43 @@ router.put('/:id', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// GET the edit-profile page
+router.get('/edit-profile', withAuth, (req, res) => {
+  res.render('edit-profile', { user: req.user });
+});
+
+// POST request for updating the profile
+router.post('/edit-profile', withAuth, (req, res) => {
+  upload.single('profilePicture')(req, res, (err) => {
+    if (err) {
+      req.flash('error_msg', 'Error uploading file: ' + err);
+      res.redirect('/edit-profile');
+    } else {
+      const { username, location, birthday } = req.body;
+      const profilePicture = req.file ? req.file.filename : req.user.profilePicture;
+      User.update(
+        {
+          username,
+          location,
+          birthday,
+          profilePicture
+        },
+        {
+          where: { id: req.user.id }
+        }
+      )
+        .then(() => {
+          req.flash('success_msg', 'Profile updated successfully');
+          res.redirect('/profile');
+        })
+        .catch((err) => {
+          req.flash('error_msg', 'Error updating profile: ' + err);
+          res.redirect('/edit-profile');
+        });
+    }
+  });
 });
 
 // DELETE a user by ID

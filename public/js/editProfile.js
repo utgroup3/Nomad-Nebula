@@ -1,6 +1,5 @@
 const upload = require('./imageUpload');
-const db = require('../models');
-const User = db.User;
+const { User } = require('../../models');
 
 function editProfile(req, res) {
   upload.single('profilePicture')(req, res, (err) => {
