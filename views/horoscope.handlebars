@@ -1,0 +1,45 @@
+<section class="zodiac-section">
+  <div class="container">
+    <div class="horoscope-header">
+      <div class="zodiac-sign-image"></div>
+      <div class="horoscope-left">
+        <p id="zodiac-title-name"></p>
+      </div>
+      <div class="horoscope-right">
+
+        <p>Birthday: {{user.birthday}}</p>
+
+      </div>
+    </div>
+
+
+
+    <img src="" id="zodiac-star-picture">
+    <!-- Maybe have a little blurb explaining the link between astronomy and zodiac signs -->
+    <h2 id="zodiac-sign-blurb">Learn more about your Zodiac sign!</h2>
+    <div class="horoscope-section zodiac-section">
+
+      <div class="front-card">
+
+        <button class="about-button zodiac-button">About🛠</button>
+        <button class="career-button zodiac-button">Career👨‍🎓👩‍🎓</button>
+        <button class="strength-button zodiac-button">Strengths, Weaknesses, Compatibility ❤</button>
+        <button class="health-button zodiac-button">Health👨‍⚕️👩‍⚕️</button>
+        <button class="love-button zodiac-button">Love💕</button>
+        <button class="relationships-button zodiac-button">Relationships👬</button>
+
+
+      </div>
+
+      <div class="back-card">
+        {{> zodiac-info}}
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+<script src="./js/zodiac.js"></script>
