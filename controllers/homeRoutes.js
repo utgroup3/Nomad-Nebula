@@ -92,13 +92,13 @@ router.get('/login', (req, res) => {
 });
 
 // render signup page
-router.get('/register', (req, res) => {
+router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/login');
     return;
   }
 
-  res.render('register');
+  res.render('signup');
 });
 
 module.exports = router;
