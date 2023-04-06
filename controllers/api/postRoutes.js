@@ -95,6 +95,7 @@ router.post('/', withAuth, (req, res) => {
       res.status(400).json({ msg: err });
     } else {
       try {
+        console.log(req.body);
         const postData = {
           title: req.body.title,
           content: req.body.content,
