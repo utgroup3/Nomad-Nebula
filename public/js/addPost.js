@@ -2,8 +2,8 @@ async function newFormHandler(event) {
   console.log('Form submitted');
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const body = document.querySelector('textarea[name="post-body"]').value;
+  const title = document.querySelector('input[name="title"]').value;
+  const body = document.querySelector('textarea[name="text"]').value;
 
   console.log(title);
   console.log(body);
@@ -24,7 +24,7 @@ async function newFormHandler(event) {
       console.log('Post created successfully!');
 
       // Redirect to dashboard
-      document.location.replace('/dashboard');
+      document.location.replace('/profile');
     } else {
       console.log('Failed to create post');
       alert(response.statusText);
