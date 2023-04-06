@@ -8,6 +8,46 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/profile', (req, res) => {
+  res.render('profile', {
+    user: req.session
+  });
+});
+
+router.get('/community', (req, res) => {
+  Post.findAll({})
+    .then(dbPostData => {
+      res.render('community', {
+        posts: dbPostData
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    }); 
+})
+
+router.get('/create-post', (req, res) => {
+  res.render('create-post', {
+    user_id: req.session.user_id
+  })
+})
+
+router.get('/night-sky', (req, res) => {
+  res.render('night-sky', {
+    user_id: req.session.user_id
+  })
+})
+// GET all users
+// router.get('/community', (req, res) => {
+//   User.findAll({})
+//     .then(dbUserData => res.json(dbUserData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
 // get comments for a single post
 router.get('/post/:id/comments', (req, res) => {
   Comment.findAll({
@@ -83,22 +123,37 @@ router.get('/post/:id', (req, res) => {
 
 // render login page
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/profile');
-    return;
-  }
-
+  // if (req.session.loggedIn) {
+  //    res.redirect('/');
+  //    return;
+  // }
   res.render('login');
 });
 
 // render signup page
 router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
   res.render('signup');
 });
+
+// LOGOUT a user
+router.get('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy()
+    //   () => {
+    //   res.status(204).end();
+    // });
+  }
+    res.render('landing-page', {
+      loggedIn: false,
+    });
+  // } else {
+  //   res.status(404).end();
+  // }
+});
+
 
 module.exports = router;
