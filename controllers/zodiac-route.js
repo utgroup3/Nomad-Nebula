@@ -4,17 +4,23 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
 
-  User.findAll({
+  User.findOne({
     attributes: [
       'id',
       'username',
-      'birthday'
+      'birthday',
+      'location',
+      'profilePicture',
     ],
+    where: {
+      id: req.session.user_id
+    }
   })
   .then(dbUserData => {
-    const users = dbUserData.map(user => user.get({ plain: true }));
+    // const users = dbUserData.map(user => user.get({ plain: true }));
+    const user = dbUserData.get({ plain: true });
     res.render('horoscope', { 
-      users, 
+      user, 
     });
   })
   .catch(err => {
