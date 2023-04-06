@@ -7,29 +7,24 @@
 </div>
 <nav id="navbarMenu" class="navbar">
     <figure class="image profile-picture">
-        {{!-- {{#if profilePicture}} --}}
-        {{!-- <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded"> --}}
-        {{!-- {{ else }} --}}
+        {{#if profilePicture}} 
+         <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded"> 
+        {{ else }}
         <img src="/img/default.png" alt="Profile picture" class="is-rounded">
-        {{!-- {{/if}} --}}
+
     </figure>
     <p class="navbar-item">
-        {{!-- {{#if loggedIn}} --}}
+
         Hi, {{username}}
-        {{!-- {{else}} --}}
-        Log in
-        {{!-- {{/if}} --}}
+
     </p>
-    {{!-- {{#if loggedIn}} --}}
+
     <a class="navbar-item" href="/profile">PROFILE</a>
     <a class="navbar-item" href="/horoscope">HOROSCOPE</a>
     <a class="navbar-item" href="/community">COMMUNITY</a>
     <a class="navbar-item" href="/new-post">NEW POST</a>
     <a class="navbar-item" href="/your-night-sky">NIGHT SKY</a>
     <a class="navbar-item" href="/logout">LOGOUT</a>
-    {{!-- {{else}} --}}
-    <a class="navbar-item" href="/community">COMMUNITY</a>
-    <a class="navbar-item" href="/login">LOGIN</a>
-    {{!-- {{/if}} --}}
+
     </div>
 </nav>
