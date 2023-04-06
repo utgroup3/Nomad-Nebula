@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      window.open('/profile', '_self');
     } else {
       alert(response.statusText);
     }
@@ -23,5 +23,5 @@ const loginFormHandler = async (event) => {
 
 
 document
-  .querySelector('.login-form')
+  .querySelector('.login-form form')
   .addEventListener('submit', loginFormHandler);

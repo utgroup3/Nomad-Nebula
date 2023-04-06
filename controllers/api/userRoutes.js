@@ -3,15 +3,15 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const upload = require('../../public/js/imageUpload');
 
-// GET all users
-router.get('/community', (req, res) => {
-  User.findAll({})
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// // GET all users
+// router.get('/community', (req, res) => {
+//   User.findAll({})
+//     .then(dbUserData => res.json(dbUserData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
@@ -37,8 +37,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
-    email: req.body.email,
+    // email: req.body.email,
     password: req.body.password,
+    location: req.body.location,
     birthday: req.body.birthday
   })
     .then(dbUserData => {
@@ -90,16 +91,21 @@ router.post('/login', (req, res) => {
     });
 });
 
-// LOGOUT a user
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// // LOGOUT a user
+// router.get('/logout', (req, res) => {
+//   if (req.session.loggedIn) {
+//     req.session.destroy()
+//     //   () => {
+//     //   res.status(204).end();
+//     // });
+//   }
+//     res.render('landing-page', {
+//       loggedIn: false,
+//     });
+//   // } else {
+//   //   res.status(404).end();
+//   // }
+// });
 
 // UPDATE a user by ID
 router.put('/:id', withAuth, (req, res) => {
