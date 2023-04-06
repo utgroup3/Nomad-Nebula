@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 const upload = require('../../public/js/imageUpload').single('image');
+const sequelize = require('../../config/connection');
 
 // GET all posts
 router.get('/', (req, res) => {
