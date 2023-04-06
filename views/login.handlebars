@@ -1,36 +1,36 @@
-   <main class="column">
-        <video class="background-video" src="background.mp4" autoplay muted loop playsinline></video>
-            <div class="login-container">
-                <div class="container register-container">
-                    <section class="hero is-dark">
-    
-                        <section class="register-video-container">
-                            <video class="register-video" src="LOGIN.mp4" autoplay muted loop playsinline></video>
-                        </section>
-    
-                    </section>
-                <div class="login-form">
-                    <form action="/login" method="POST">
-                        <div class="field">
-                            <label class="label" for="username">Username</label>
-                            <div class="control">
-                                <input class="input" type="text" id="username" name="username" required>
-                            </div>
+<main class="column">
+    <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+    <div class="login-container">
+        <div class="container register-container">
+            <section class="hero is-dark">
+
+                <section class="register-video-container">
+                    <video class="register-video" src="./img/headers/LOGIN.mp4" autoplay muted loop playsinline></video>
+                </section>
+
+            </section>
+            <div class="login-form">
+                <form action="/login" method="POST">
+                    <div class="field">
+                        <label class="label" for="username">Username</label>
+                        <div class="control">
+                            <input class="input" type="text" id="username" name="username" required>
                         </div>
-                        <div class="field">
-                            <label class="label" for="password">Password</label>
-                            <div class="control">
-                                <input class="input" type="password" id="password" name="password" required>
-                            </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="password">Password</label>
+                        <div class="control">
+                            <input class="input" type="password" id="password" name="password" required>
                         </div>
-                        <div class="field">
-                            <div class="control">
-                                <button type="submit" class="button is-primary">Log In</button>
-                            </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-primary">Log In</button>
                         </div>
-                        <p class="has-text-white">Don't have an account? <a href="/signup" class="has-text-primary">Sign
-                                Up</a></p>
-                    </form>
-                </div>
+                    </div>
+                    <p class="has-text-white">Don't have an account? <a href="/signup" class="has-text-primary">Sign
+                            Up</a></p>
+                </form>
             </div>
-    </main>
+        </div>
+</main>
