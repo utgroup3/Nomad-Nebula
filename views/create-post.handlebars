@@ -1,0 +1,55 @@
+{{> navLI }}
+<main class="column">
+  <video class="background-video" src="img/background/background.mp4" autoplay muted loop playsinline></video>
+  <section class="section">
+    <div class="container edit-profile-container">
+      <section class="hero is-dark">
+        <section class="edit-profile-video-container">
+          <video class="edit-profile-video" src="img/headers/NEWPOST.mp4" autoplay muted loop playsinline></video>
+        </section>
+      </section>
+      <section class="section">
+        <div class="container">
+          <form action="/create-post" method="post" enctype="multipart/form-data">
+            <div class="field">
+              <label class="label">Title</label>
+              <div class="control">
+                <input class="input" type="text" name="title" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Text</label>
+              <div class="control">
+                <textarea class="textarea" name="text" rows="4" required></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Upload an image (optional)</label>
+              <div class="file">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="image">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button type="submit" class="button is-primary">Submit</button>
+              </div>
+              <div class="control">
+                <a href="/community" class="button is-light">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

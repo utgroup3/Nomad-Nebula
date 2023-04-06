@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
+// Define comment model properties
 Comment.init(
     {
         id: {
@@ -23,7 +24,8 @@ Comment.init(
             allowNull: false,
             references: {
                 model: 'user',
-                key: 'id'
+                key: 'id',
+                onDelete: 'cascade'
             }
         },
         post_id: {

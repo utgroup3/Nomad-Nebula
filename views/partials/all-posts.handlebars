@@ -1,0 +1,31 @@
+
+
+<div class="community-posts">
+  {{#each posts}}
+    <div class="post-container">
+      <div class="post-votes">
+        <button class="vote-button">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+        <p>{{post.votes}}</p>
+        <button class="vote-button">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="post-content">
+        <h3 class="title is-5">{{post.title}}</h3>
+        <p>{{post.text}}</p>
+        <p class="post-meta">
+          Submitted {{relativeTime post.createdAt}} by <strong>{{user.name}}</strong> to <a href="/community/{{post.community}}">{{post.community}}</a>
+        </p>
+        <div class="post-actions">
+          <a class="post-action-item">{{post.comments}} comments</a>
+          <a class="post-action-item">share</a>
+          <a class="post-action-item">save</a>
+          <a class="post-action-item">hide</a>
+          <a class="post-action-item">report</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
