@@ -260,15 +260,8 @@ const zodiacSignSymbol = document.querySelector('.zodiac-sign-image');
 const zodiacTitleName = document.querySelector('#zodiac-title-name');
 const zodiacStarPicture = document.querySelector('#zodiac-star-picture');
 
-// Accepts input as YYYY-MM-DD
 
-
-// Right now userId is hardcoded to get the first user. 
-// ** FIGURE OUT LOGIC TO REPLACE THIS CODE WITH GETTING THE CURRENT LOGGED IN USERS ID
-let userId = 3;
-
-// Create a code that logs user's id from server-side session
-// const userId = getSessionUserId();
+const userId = localStorage.getItem('userId');
 
 fetch(`/api/users/${userId}?t=${Date.now()}`)
   .then(response => response.json())
