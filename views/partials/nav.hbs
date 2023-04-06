@@ -1,13 +1,18 @@
-<span class="navbar-burger burger" data-target="navbarMenu">
-    <span></span>
-    <span></span>
-    <span></span>
-</span>
+<div class="navbar-brand">
+    <span class="navbar-burger burger" data-target="navbarMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
 </div>
 <nav id="navbarMenu" class="navbar is-hidden">
-    <figure class="image is-48x48 profile-picture">
+    <figure class="image profile-picture">
+    {{#if profilePicture}}
         <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded">
-    </figure>
+    {{ else }}
+        <img src="/img/default.png" alt="Profile picture" class="is-rounded">
+    {{/if}}
+</figure>
     <p class="navbar-item">
         {{#if loggedIn}}
         Hi, {{username}}
