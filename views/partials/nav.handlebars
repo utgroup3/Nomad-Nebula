@@ -1,34 +1,34 @@
 <div class="navbar-brand">
     <span class="navbar-burger burger" data-target="navbarMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span>Hello</span>
+        <span>World</span>
+        <span>Hello</span>
     </span>
 </div>
-<nav id="navbarMenu" class="navbar is-hidden">
+<nav id="navbarMenu" class="navbar">
     <figure class="image profile-picture">
-    {{#if profilePicture}}
-        <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded">
-    {{ else }}
+    {{!-- {{#if profilePicture}} --}}
+        {{!-- <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded"> --}}
+    {{!-- {{ else }} --}}
         <img src="/img/default.png" alt="Profile picture" class="is-rounded">
-    {{/if}}
+    {{!-- {{/if}} --}}
 </figure>
     <p class="navbar-item">
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}} --}}
         Hi, {{username}}
-        {{else}}
+        {{!-- {{else}} --}}
         Log in
-        {{/if}}
+        {{!-- {{/if}} --}}
     </p>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}} --}}
     <a class="navbar-item" href="/profile">PROFILE</a>
     <a class="navbar-item" href="/horoscope">HOROSCOPE</a>
     <a class="navbar-item" href="/community">COMMUNITY</a>
     <a class="navbar-item" href="/new-post">NEW POST</a>
     <a class="navbar-item" href="/your-night-sky">NIGHT SKY</a>
     <a class="navbar-item" href="/logout">LOGOUT</a>
-    {{else}}
+    {{!-- {{else}} --}}
     <a class="navbar-item" href="/community">COMMUNITY</a>
     <a class="navbar-item" href="/login">LOGIN</a>
-    {{/if}}
+    {{!-- {{/if}} --}}
     </div>
