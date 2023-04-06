@@ -265,12 +265,12 @@ const zodiacStarPicture = document.querySelector('#zodiac-star-picture');
 
 // Right now userId is hardcoded to get the first user. 
 // ** FIGURE OUT LOGIC TO REPLACE THIS CODE WITH GETTING THE CURRENT LOGGED IN USERS ID
-let userId = 2;
+let userId = 3;
 
 // Create a code that logs user's id from server-side session
 // const userId = getSessionUserId();
 
-fetch(`/api/users/${userId}`)
+fetch(`/api/users/${userId}?t=${Date.now()}`)
   .then(response => response.json())
   .then(data => {
     const birthday = data.birthday;
@@ -308,7 +308,6 @@ fetch(`/api/users/${userId}`)
         } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
           return pisces;
         }
-    
     }
 
     zodiacTitleName.textContent = `Your Zodiac Sign is ${userZodiac.sign}!`
