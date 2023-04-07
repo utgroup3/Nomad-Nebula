@@ -3,30 +3,32 @@ body {
 }
 
 .button.is-primary {
-background-color: #536996;
-color: #0a0f20;
-font-family: 'Orbitron', sans-serif;
+  background-color: #536996;
+  color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
 }
+
 .button.is-primary:hover {
-color: #ffffff;
-background-color: rgba(255, 255, 255, 0.2);
-transition: ease-in-out 0.3s;
-box-shadow: 0 4px 30px #1cc2de;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 4px 30px #1cc2de;
 }
 
 .background-video {
-position: fixed;
-top: 0;
-left: 0;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-z-index: -100;
-object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  object-fit: cover;
 }
 
 /* header */
+
 .hero.has-background-dark {
   background-color: #0a0f20;
 }
@@ -59,9 +61,9 @@ object-fit: cover;
 }
 
 .hero-body .button.is-light:hover {
-background-color: rgba(255, 255, 255, 0.2);
-box-shadow: 0 4px 30px #1cc2de;
-transition: ease-in-out 0.3s;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
 }
 
 .hero-body .button:not(:last-child) {
@@ -81,8 +83,9 @@ transition: ease-in-out 0.3s;
   position: relative;
   bottom: -10%;
 }
+
 /* navbar */
-/* navbar */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -119,8 +122,8 @@ transition: ease-in-out 0.3s;
 }
 
 .navbar-brand:hover {
-box-shadow: 0 4px 30px #1cc2de;
-transition: ease-in-out 0.3s;
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
 }
 
 
@@ -130,7 +133,7 @@ transition: ease-in-out 0.3s;
 }
 
 .profile-picture {
-margin-top: 30%;
+  margin-top: 30%;
   margin-bottom: 1rem;
   width: 150px;
   height: 150px;
@@ -139,8 +142,8 @@ margin-top: 30%;
 }
 
 .profile-picture:hover {
-box-shadow: 0 4px 20px #1cc2de;
-cursor: pointer;
+  box-shadow: 0 4px 20px #1cc2de;
+  cursor: pointer;
 }
 .navbar-item {
   margin-bottom: 1rem;
@@ -149,17 +152,16 @@ cursor: pointer;
 }
 
 .navbar-item:hover {
-color: #fcfcfc;
-background-color: transparent !important;; 
-text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
-
+  color: #fcfcfc;
+  background-color: transparent !important;
+  text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
 }
 
 .navbar.is-hidden {
   transform: translateX(-100%);
 }
-/* post */
 
+/* post */
 .post-box {
   background-color: #172341;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -214,8 +216,8 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   padding-top: 1rem;
   justify-content: center;
   border-radius: 6px;
-  
 }
+
 .register-container .field:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -271,19 +273,21 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 }
 
 /* login */
+
 .login-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 1.5rem;
   border-radius: 5px;
-padding-top: 10rem;
+  padding-top: 10rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 10rem;
 }
-.login-form {
 
+.login-form {
   padding-top: 20px;
 }
+
 .login-container .field:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -295,6 +299,7 @@ padding-top: 10rem;
 }
 
 /* profile */
+
 .bio-container {
   position: relative;
   display: flex;
@@ -309,136 +314,139 @@ padding-top: 10rem;
   margin-bottom: 2rem;
   margin: 0 auto;
   box-shadow: 0 4px 20px #1cc2de;
-margin-top: 7rem !important;
-
+  margin-top: 7rem !important;
 }
+
 .bio-container::after {
-content: "";
-display: table;
-clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .bio-container .profile-picture {
-margin-bottom: 2rem;
-position: absolute; 
-top: -75px; 
-left: 50%;
-transform: translateX(-50%);
-z-index: 1; 
-width: 150px !important;
-height: 150px;
-margin-top: -5rem;
+  margin-bottom: 2rem;
+  position: absolute; 
+  top: -75px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; 
+  width: 150px !important;
+  height: 150px;
+  margin-top: -5rem;
 }
 
 .bio-container .profile-picture:hover {
-border-radius: 50%;
-width: 150px;
-height: 150px;
-object-fit: cover;
-border: 5px solid  rgba(23, 35, 65, 0.9);;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid  rgba(23, 35, 65, 0.9);;
 }
 
 .bio-container .bio-left,
 .bio-container .bio-right,
 .bio-container .username {
-color: #ffffff;
-font-family: 'Rajdhani', sans-serif;
-flex-basis: 33.3333%;
-text-align: center;
-padding: 0 0.5rem;
-box-sizing: border-box;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  flex-basis: 33.3333%;
+  text-align: center;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 .bio-container h2 {
-font-family: 'Orbitron', sans-serif;
-font-size: 4vw;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4vw;
 }
+
 .bio-container .bio-left {
-text-align: left;
+  text-align: left;
 }
 
 .bio-container .bio-right {
-text-align: right;
+  text-align: right;
 }
 
 .edit-icon {
-position: absolute;
-bottom: 0; 
-right: 0;
-transform: translateY(50%);
-padding: 0.5rem;
-border-radius: 50%;
-background-color: rgb(140, 161, 216);
-font-size: 2em; /* Adjust the font size for the edit icon */
+  position: absolute;
+  bottom: 0; 
+  right: 0;
+  transform: translateY(50%);
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(140, 161, 216);
+  font-size: 2em; /* Adjust the font size for the edit icon */
 }
+
 .edit-icon:hover {
-background-color: #1cc2de;
-cursor: pointer;
-box-shadow: 0 4px 30px #1cc2de;
-transition: ease-in-out 0.3s;
+  background-color: #1cc2de;
+  cursor: pointer;
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
 }
 
 .iconContainer{
-position: relative;
-max-width: 300px;
-padding-top: 10px;
-padding-bottom: 10px;
-margin-left: 0 auto;
-justify-content: center;
-align-items: center;
-text-align: center;
-word-spacing: 25px !important;
-background-color: rgba(23, 35, 65, 0.9);
-margin-bottom: 2rem;
-margin-top: 2rem;
-font-size: 40px;
-border-radius: 15px;
-box-shadow: 0 4px 20px #1cc2de;
-margin-left: auto;
-margin-right: auto;
+  position: relative;
+  max-width: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  word-spacing: 25px !important;
+  background-color: rgba(23, 35, 65, 0.9);
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  font-size: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .icons-container .icon-link {
-padding: 0.5rem !important;
-margin: 0 0.5rem !important;
-border-radius: 50% !important;
+  padding: 0.5rem !important;
+  margin: 0 0.5rem !important;
+  border-radius: 50% !important;
 }
 
 .icons-container .fas:hover {
-box-shadow: 0 4px 30px #1cc2de !important;
-transition: ease-in-out 0.3s !important;
-cursor: pointer;
+  box-shadow: 0 4px 30px #1cc2de !important;
+  transition: ease-in-out 0.3s !important;
+  cursor: pointer;
 }
 
 .posts-container {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 1.5rem;
-background-color: rgba(23, 35, 65, 0.9);
-max-width: 700px;
-margin: 0 auto;
-padding: 2rem;
-font-family: 'Rajdhani', sans-serif;
-border-radius: 15px;
-box-shadow: 0 4px 20px #1cc2de;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  background-color: rgba(23, 35, 65, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
 }
 
 .posts-container .post {
-background-color: rgba(77, 98, 151, 0.9);
-padding: 1rem;
-border-radius: 5px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-margin-bottom: 1.5rem;
-margin-left: auto;
-margin-right: auto;
-align-items: center;
-text-align: center;
-word-spacing: 25px !important;
-font-size: 40px;
-border-radius: 15px;
+  background-color: rgba(77, 98, 151, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  word-spacing: 25px !important;
+  font-size: 40px;
+  border-radius: 15px;
 }
 
 /* edit profile page */
+
 .edit-profile-container {
   max-width: 700px !important;
   margin: 0 auto;
@@ -521,9 +529,8 @@ border-radius: 15px;
   margin-right: 1rem;
 }
 
-
-
 /* map */
+
 .hero.is-dark {
   background-color: #172341;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -593,9 +600,8 @@ border-radius: 15px;
 }
 
 /* ZODIAC STUFF */
-/* Horoscope page */
 
-/* .horoscope-header {
+.horoscope-header {
   margin-top: 7rem;
   position: relative;
   display: flex;
@@ -606,15 +612,14 @@ border-radius: 15px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
-font-family: 'Orbitron', sans-serif;
-      border-radius: 15px;
-    box-shadow: 0 4px 20px #1cc2de;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
 }
 
 .horoscope-header .zodiac-sign-image {
   width: 64px;
   height: 64px;
-
 }
 
 .horoscope-header .horoscope-left,
@@ -639,7 +644,8 @@ font-family: 'Orbitron', sans-serif;
 .horoscope-section p {
   color: #ffffff;
   font-family: 'rajdhani', sans-serif;
-} */
+}
+
 .zodiac-sign-image {
   font-size: 3rem;
 }
@@ -654,7 +660,6 @@ font-family: 'Orbitron', sans-serif;
 
 #zodiac-star-picture:hover {
   transform: scale(1.05);
-
 }
 
 #zodiac-sign-blurb {
@@ -664,8 +669,6 @@ font-family: 'Orbitron', sans-serif;
   font-family: 'Rajdhani', sans-serif;
   font-size: 3rem;
 }
-
-
 
 .zodiac-section {
   position: relative;
@@ -692,9 +695,8 @@ font-family: 'Orbitron', sans-serif;
   align-items: center;
   justify-content: space-evenly;
   margin: 0 auto;
-      border-radius: 15px;
-    box-shadow: 0 4px 20px #1cc2de;
-
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
 }
 
 .front-card button {
@@ -710,9 +712,9 @@ font-family: 'Orbitron', sans-serif;
 }
 
 .front-card button:hover {
- color: #fcfcfc;
-background-color: transparent !important;; 
-text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
+  color: #fcfcfc;
+  background-color: transparent !important; 
+  text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
 }
 
 .back-card {
@@ -730,11 +732,10 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 
 .back-card button {
   cursor: pointer;
-   background-color: #536996;
+  background-color: #536996;
   color: #0a0f20;
   font-family: 'Orbitron', sans-serif;
 }
-
 
 .zodiac-about, .zodiac-career {
   position: absolute;
@@ -762,6 +763,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 }
 
 /* current sky */
+
 .explanation-container {
   display: flex;
   flex-wrap: wrap;
@@ -789,9 +791,8 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   border-radius: 6px;
   padding-top: 1rem;
   margin:auto;
- 
-  
 }
+
 .current-video-container {
   position: relative;
   top: 0;
@@ -810,6 +811,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   margin-left: auto;
   margin-right: auto;
 }
+
 .explanation img {
   max-width: 200px;
   margin-right: 20px;
@@ -833,11 +835,13 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   font-size: 2vw;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .explanation-header {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
 }
+
 .arrow-icon {
   padding: 1rem;
 }
@@ -861,7 +865,9 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 .arrow-icon.open:before {
   transform: rotate(180deg);
 }
+
 /* Hidden content styles */
+
 .explanation.hidden-content {
   max-height: 0;
   overflow: hidden;
@@ -869,6 +875,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 }
 
 /* Show content when arrow icon is clicked */
+
 .explanation.expanded .hidden-content {
   max-height: 500px;
   padding-top: 1rem;
@@ -883,12 +890,11 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   .register-form {
       margin-top: 1rem;
   }
-  
 }
 
 @media screen and (min-width: 1024px) {
   .register-form {
-      margin-top: 2rem;
+    margin-top: 2rem;
   }
   .bio-container h2 {
     font-size: 3rem;

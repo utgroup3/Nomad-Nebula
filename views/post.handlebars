@@ -1,36 +1,42 @@
 {{> navLI }}
 <div class="box post-box">
-    <article class="media">
-        <figure class="media-left">
-            <p class="image is-64x64">
-                <img src="{{user.profilePicture}}" alt="Profile picture">
-            </p>
-        </figure>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <strong>{{user.name}}</strong> <small>{{user.username}}</small> <small>{{post.createdAt}}</small>
-                    <br>
-                    {{post.text}}
-                </p>
-                {{#if post.imageUrl}}
-                    <p>
-                        <img src="{{post.imageUrl}}" alt="Post image">
-                    </p>
-                {{/if}}
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                        <span>{{post.likes}}</span>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-comment"></i></span>
-                        <span>{{post.comments}}</span>
-                    </a>
-                </div>
-            </nav>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="{{user.profilePicture}}" alt="Profile picture">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{user.name}}</strong> <small>{{user.username}}</small> <small>{{post.createdAt}}</small>
+          <br>
+          {{post.text}}
+        </p>
+        {{#if post.image}}
+        <p>
+          <img src="{{post.image}}" alt="Post image">
+        </p>
+        {{/if}}
+
+        {{!-- {{#if post.imageUrl}}
+        <p>
+          <img src="{{post.imageUrl}}" alt="Post image">
+        </p>
+        {{/if}} --}}
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+            <span>{{post.likes}}</span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-comment"></i></span>
+            <span>{{post.comments}}</span>
+          </a>
         </div>
-    </article>
+      </nav>
+    </div>
+  </article>
 </div>
