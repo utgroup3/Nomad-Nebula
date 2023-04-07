@@ -525,20 +525,25 @@ border-radius: 15px;
 /* Horoscope page */
 
 .horoscope-header {
+  margin-top: 7rem;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(23, 35, 65, 0.9);
+  background-color: rgba(23, 35, 65, 0.884);
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
+font-family: 'Orbitron', sans-serif;
+      border-radius: 15px;
+    box-shadow: 0 4px 20px #1cc2de;
 }
 
 .horoscope-header .zodiac-sign-image {
   width: 64px;
   height: 64px;
+
 }
 
 .horoscope-header .horoscope-left,
@@ -557,10 +562,12 @@ border-radius: 15px;
 .horoscope-section .title {
   color: #ffffff;
   margin-bottom: 0.5rem;
+  font-family: 'Obitron', sans-serif;
 }
 
 .horoscope-section p {
   color: #ffffff;
+  font-family: 'rajdhani', sans-serif;
 }
 
 /* map */
@@ -653,6 +660,10 @@ border-radius: 15px;
 
 #zodiac-sign-blurb {
   text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
 }
 
 
@@ -681,6 +692,10 @@ border-radius: 15px;
   transform: rotateY(0deg);
   align-items: center;
   justify-content: space-evenly;
+  margin: 0 auto;
+      border-radius: 15px;
+    box-shadow: 0 4px 20px #1cc2de;
+
 }
 
 .front-card button {
@@ -692,16 +707,14 @@ border-radius: 15px;
   border: none;
   cursor: pointer;
   color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .front-card button:hover {
-  color:#e462b2;
-  font-size: 1.25rem;
+ color: #fcfcfc;
+background-color: transparent !important;; 
+text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
 }
-
-
-
-
 
 .back-card {
   color: #ffffff;
@@ -718,6 +731,9 @@ border-radius: 15px;
 
 .back-card button {
   cursor: pointer;
+   background-color: #536996;
+  color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
 }
 
 
