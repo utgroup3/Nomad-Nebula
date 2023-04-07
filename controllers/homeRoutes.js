@@ -42,8 +42,6 @@ router.get('/profile', async (req, res) => {
     });
 
     const user = dbUserData.get({ plain: true });
-    console.log('User object:', user);
-    console.log('User createdAt date:', user.createdAt);
     user.joinedDate = format_date(user.createdAt);
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
