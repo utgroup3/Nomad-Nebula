@@ -531,7 +531,69 @@ body {
 
 /* map */
 
-.hero .is-dark {
+.map-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: rgba(23, 35, 65, 0.753);
+  box-shadow: 0 4px 6px #1cc2de;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.mapSection {
+  padding: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+.mapSection input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 5px;
+  padding: 0.4rem;
+  margin-bottom: .4rem; 
+  margin-right: .6rem;
+  
+}
+
+.mapSection input:focus {
+  outline: none;
+  border: 1px solid #1cc2de;
+  box-shadow: 0 4px 6px #1cc2de;
+ 
+}
+
+.mapSection h1 {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.mapSection .mapbutton {
+  background-color: #a2c1ff ;
+  color: #0a0f20;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.mapSection .mapbutton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
+
+}
+
+.hero.is-dark {
   background-color: #172341;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -540,16 +602,10 @@ body {
   max-width: 960px;
 }
 
-.mapTitle {
-  color: #ffffff;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
 .iframe-container {
-  width: 100%;
-  height: calc(100vh - 128px); /* Adjust height according to your needs */
+  flex-basis: 100%;
+  max-width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio for the iframe */
   position: relative;
 }
 
