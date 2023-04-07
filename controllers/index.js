@@ -4,6 +4,7 @@ const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 const sessionRoutes = require('./sessionRoutes');
+const nightSkyRoutes = require('./nightSky-route')
 
 const zodiacRoute = require('./zodiac-route')
 
@@ -14,6 +15,7 @@ router.use('/dashboard', dashboardRoutes);
 router.use('/session', sessionRoutes);
 
 router.use('/zodiac', zodiacRoute);
+router.use('/night-sky', nightSkyRoutes);
 
 router.use((req, res) => {
   res.status(404).end();
