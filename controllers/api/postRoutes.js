@@ -101,6 +101,7 @@ router.post('/', withAuth, (req, res) => {
         const postData = {
           title: req.body.title,
           content: req.body.content,
+          image: req.body.image,
           user_id: req.session.user_id
         };
 
