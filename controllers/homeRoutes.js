@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment, Vote } = require('../models');
+const { format_date } = require('../utils/helpers')
 const sequelize = require('../config/connection');
 
 router.get('/', (req, res) => {
@@ -18,6 +19,7 @@ router.get('/profile', async (req, res) => {
         'username',
         'location',
         'birthday',
+        'createdAt'
       ]
     });
 
@@ -40,6 +42,9 @@ router.get('/profile', async (req, res) => {
     });
 
     const user = dbUserData.get({ plain: true });
+    console.log('User object:', user);
+    console.log('User createdAt date:', user.createdAt);
+    user.joinedDate = format_date(user.createdAt);
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
     res.render('profile', {
@@ -55,7 +60,6 @@ router.get('/profile', async (req, res) => {
 router.get('/community', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({});
-
     const dbUserData = await User.findOne({
       where: {
         id: req.session.user_id,
