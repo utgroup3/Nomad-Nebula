@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
+      'image',
       'createdAt',
       'content',
       [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']

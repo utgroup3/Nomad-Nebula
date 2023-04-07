@@ -298,18 +298,12 @@ function getZodiacSign(birthday) {
     }
 }
 
-// Create a code that logs user's id from server-side session
-// const userId = getSessionUserId();
-
 fetch(`/api/users/${userId}?t=${Date.now()}`)
   .then(response => response.json())
   .then(data => {
     const birthday = data.birthday;
     // use the birthday value in your frontend code
     console.log(birthday);
-
-   
-
 
     let userZodiac = getZodiacSign(birthday);
 
@@ -320,27 +314,27 @@ fetch(`/api/users/${userId}?t=${Date.now()}`)
         switch(userZodiac) {
             case aries:
                 zodiacSignSymbol.textContent = '♈';
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/aries_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/aries_star.jpg");
                 break;
             case taurus:
                 zodiacSignSymbol.textContent = '♉'
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/taurus_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/taurus_star.jpg");
                 break;
             case gemini:
                 zodiacSignSymbol.textContent = '♊'
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/gemini_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/gemini_star.jpg");
                 break;
             case cancer:
                 zodiacSignSymbol.textContent = '♋'
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/cancer_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/cancer_star.jpg");
                 break;
             case leo:
                 zodiacSignSymbol.textContent = '♌'
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/leo_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/leo_star.jpg");
                 break;
             case virgo:
                 zodiacSignSymbol.textContent = '♍'
-                zodiacStarPicture.setAttribute("src", "../js/zodiac-imgs/virgo_star.jpg");
+                zodiacStarPicture.setAttribute("src", "./js/zodiac-imgs/virgo_star.jpg");
                 break;
             case libra:
                 zodiacSignSymbol.textContent = '♎'
