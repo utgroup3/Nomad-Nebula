@@ -16,7 +16,7 @@
         <h3 class="title is-5">{{post.title}}</h3>
         <p>{{post.text}}</p>
         <p class="post-meta">
-          Submitted {{relativeTime post.createdAt}} by <strong>{{user.name}}</strong> to <a href="/community/{{post.community}}">{{post.community}}</a>
+          Submitted {{post.createdAt}} by <strong>{{user.name}}</strong> to <a href="/community/{{post.community}}">{{post.community}}</a>
         </p>
         <div class="post-actions">
           <a class="post-action-item">{{post.comments}} comments</a>
