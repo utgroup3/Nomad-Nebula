@@ -8,10 +8,38 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/profile', (req, res) => {
-  res.render('profile', {
-    user: req.session
-  });
+router.get('/profile', async (req, res) => {
+  try {
+    const dbPostData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id // Filter the posts based on the logged-in user's ID
+      },
+      attributes: [
+        'id',
+        'title',
+        'createdAt',
+        'content',
+        // Add any other required attributes
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        },
+        // Add any other required associations
+      ]
+    });
+
+    const posts = dbPostData.map(post => post.get({ plain: true }));
+
+    res.render('profile', {
+      user: req.session,
+      posts
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.get('/community', (req, res) => {
