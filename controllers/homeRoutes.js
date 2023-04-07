@@ -125,13 +125,30 @@ router.get('/night-sky', async (req, res) => {
   }
 });
 
-router.get('/edit-profile', (req, res) => {
-  res.render('edit-profile', {
-    user_id: req.session.user_id,
-    username: req.session.username,
-    birthday: req.session.birthday,
-    location: req.session.location
-  })
+router.get('/edit-profile', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+      ],
+    });
+
+    const user = dbUserData.get({ plain: true });
+
+    res.render('edit-profile', {
+      user_id: req.session.user_id,
+      username: req.session.username,
+      birthday: req.session.birthday,
+      location: req.session.location,
+      user
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 })
 
 // get comments for a single post
