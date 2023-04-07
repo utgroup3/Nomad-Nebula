@@ -145,6 +145,7 @@ router.get('/edit-profile', withAuth, (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
 // POST request for updating the profile
 router.post('/edit-profile', withAuth, (req, res) => {
   console.log(req.body);
