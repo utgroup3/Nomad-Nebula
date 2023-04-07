@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { profilePicture, uploadProfilePicture, } = require('../../public/js/imageUpload');
+const { profilePicture, uploadProfilePicture, } = require('../../utils/imageUpload');
 
 // // GET all users
 // router.get('/community', (req, res) => {
@@ -37,7 +37,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
-    // email: req.body.email,
     password: req.body.password,
     location: req.body.location,
     birthday: req.body.birthday
@@ -46,6 +45,8 @@ router.post('/', (req, res) => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        req.session.birthday = dbUserData.birthday;
+        req.session.location = dbUserData.location;
         req.session.loggedIn = true;
 
         res.json(dbUserData);
@@ -80,6 +81,8 @@ router.post('/login', (req, res) => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        req.session.birthday = dbUserData.birthday;
+        req.session.location = dbUserData.location;
         req.session.loggedIn = true;
 
         res.json({ user: dbUserData, message: 'You are now logged in!' });
@@ -90,22 +93,6 @@ router.post('/login', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// // LOGOUT a user
-// router.get('/logout', (req, res) => {
-//   if (req.session.loggedIn) {
-//     req.session.destroy()
-//     //   () => {
-//     //   res.status(204).end();
-//     // });
-//   }
-//     res.render('landing-page', {
-//       loggedIn: false,
-//     });
-//   // } else {
-//   //   res.status(404).end();
-//   // }
-// });
 
 // UPDATE a user by ID
 router.put('/:id', withAuth, (req, res) => {
@@ -133,30 +120,84 @@ router.get('/edit-profile', withAuth, (req, res) => {
   res.render('edit-profile', { user: req.user });
 });
 
-// POST request for updating the profile
-router.post('/edit-profile', withAuth, profilePicture, uploadProfilePicture, async (req, res) => {
-  try {
-    const { username, location, birthday } = req.body;
-    const profilePicture = req.file ? req.file.path.replace('public', '') : req.user.profilePicture;
-    
-    await User.update(
-      {
-        username,
-        location,
-        birthday,
-        profilePicture
-      },
-      {
-        where: { id: req.user.id }
-      }
-    );
-    
-    res.redirect('/profile');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.post('/edit-profile', withAuth, profilePicture, uploadProfilePicture, async (req, res) => {
+//   try {
+//     const { username, location, birthday } = req.body;
+//     const profilePicture = req.file ? req.file.path.replace('public', '') : req.user.profilePicture;
 
+//     const updatedUserData = await User.update(
+//       {
+//         username,
+//         location,
+//         birthday,
+//         profilePicture
+//       },
+//       {
+//         where: { id: req.user.id }
+//       }
+//     );
+
+//     req.session.username = username;
+//     req.session.birthday = birthday;
+//     req.session.location = location;
+//     res.redirect('/profile');
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+// POST request for updating the profile
+router.post('/edit-profile', withAuth, (req, res) => {
+  console.log(req.body);
+  let {username, location, birthday, profilePicture} = req.body;
+  User.update(
+    {
+      username,
+      location,
+      birthday,
+      // profilePicture
+    },
+    {
+      where: { id: req.session.user_id }
+    }
+  )
+    .then((dbUserData) => {
+      req.session.username = dbUserData.username;
+      req.session.birthday = dbUserData.birthday;
+      req.session.location = dbUserData.location;
+      // req.flash('success_msg', 'Profile updated successfully');
+      res.sendStatus(203);
+    })
+    .catch((err) => {
+      // req.flash('error_msg', 'Error updating profile: ' + err);
+      res.redirect('/edit-profile');
+    });
+  // upload.single('profilePicture')(req, res, (err) => {
+  //   if (err) {
+  //     req.flash('error_msg', 'Error uploading file: ' + err);
+  //     res.redirect('/edit-profile');
+  //   } else {
+  //     const { username, location, birthday } = req.body;
+  //     const profilePicture = req.file ? req.file.filename : req.user.profilePicture;
+  // User.update(
+  //   {
+  //     username,
+  //     location,
+  //     birthday,
+  //     profilePicture
+  //   },
+  //   {
+  //     where: { id: req.user.id }
+  //   }
+  // )
+  //   .then(() => {
+  //     req.flash('success_msg', 'Profile updated successfully');
+  //     res.redirect('/profile');
+  //   })
+  //   .catch((err) => {
+  //     req.flash('error_msg', 'Error updating profile: ' + err);
+  //     res.redirect('/edit-profile');
+  //   });
+});
 // DELETE a user by ID
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
@@ -164,17 +205,17 @@ router.delete('/:id', withAuth, (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbUserData => {
-    if (!dbUserData) {
-      res.status(404).json({ message: 'No user found with this id' });
-      return;
-    }
-    res.json(dbUserData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;

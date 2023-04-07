@@ -52,34 +52,83 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-router.get('/community', (req, res) => {
-  Post.findAll({})
-    .then(dbPostData => {
-      res.render('community', {
-        posts: dbPostData
-      })
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    }); 
-})
+router.get('/community', async (req, res) => {
+  try {
+    const dbPostData = await Post.findAll({});
 
-router.get('/create-post', (req, res) => {
-  res.render('create-post', {
-    user_id: req.session.user_id
-  })
-})
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+      ],
+    });
 
-router.get('/night-sky', (req, res) => {
-  res.render('night-sky', {
-    user_id: req.session.user_id
-  })
-})
+    const user = dbUserData.get({ plain: true });
+
+    res.render('community', {
+      posts: dbPostData,
+      user,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/create-post', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+      ],
+    });
+
+    const user = dbUserData.get({ plain: true });
+
+    res.render('create-post', {
+      user_id: req.session.user_id,
+      user,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/night-sky', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+      ],
+    });
+
+    const user = dbUserData.get({ plain: true });
+
+    res.render('night-sky', {
+      user_id: req.session.user_id,
+      user,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 router.get('/edit-profile', (req, res) => {
   res.render('edit-profile', {
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    username: req.session.username,
+    birthday: req.session.birthday,
+    location: req.session.location
   })
 })
 
@@ -116,9 +165,9 @@ router.get('/post/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [
-      'id', 
-      'title', 
-      'content', 
+      'id',
+      'title',
+      'content',
       'createdAt',
       [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
     ],
@@ -158,19 +207,11 @@ router.get('/post/:id', (req, res) => {
 
 // render login page
 router.get('/login', (req, res) => {
-  // if (req.session.loggedIn) {
-  //    res.redirect('/');
-  //    return;
-  // }
   res.render('login');
 });
 
 // render signup page
 router.get('/signup', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/profile');
-  //   return;
-  // }
   res.render('signup');
 });
 
@@ -178,16 +219,10 @@ router.get('/signup', (req, res) => {
 router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy()
-    //   () => {
-    //   res.status(204).end();
-    // });
   }
-    res.render('landing-page', {
-      loggedIn: false,
-    });
-  // } else {
-  //   res.status(404).end();
-  // }
+  res.render('landing-page', {
+    loggedIn: false,
+  });
 });
 
 

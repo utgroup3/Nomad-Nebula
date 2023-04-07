@@ -3,7 +3,7 @@ const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 const sequelize = require('../../config/connection');
-const { postImage, uploadPostImage } = require('../../public/js/imageUpload');
+const { postImage, uploadPostImage } = require('../../utils/imageUpload');
 // GET all posts
 router.get('/', (req, res) => {
   Post.findAll({
