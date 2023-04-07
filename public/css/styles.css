@@ -1,5 +1,4 @@
 body {
-
   color: #ffffff;
 }
 
@@ -156,7 +155,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
 
 }
 
-.is-hidden {
+.navbar.is-hidden {
   transform: translateX(-100%);
 }
 /* post */
@@ -522,53 +521,7 @@ border-radius: 15px;
   margin-right: 1rem;
 }
 
-/* Horoscope page */
 
-.horoscope-header {
-  margin-top: 7rem;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(23, 35, 65, 0.884);
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-font-family: 'Orbitron', sans-serif;
-      border-radius: 15px;
-    box-shadow: 0 4px 20px #1cc2de;
-}
-
-.horoscope-header .zodiac-sign-image {
-  width: 64px;
-  height: 64px;
-
-}
-
-.horoscope-header .horoscope-left,
-.horoscope-header .horoscope-right {
-  color: #ffffff;
-}
-
-.horoscope-section {
-  background-color: rgba(23, 35, 65, 0.9);
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-}
-
-.horoscope-section .title {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  font-family: 'Obitron', sans-serif;
-}
-
-.horoscope-section p {
-  color: #ffffff;
-  font-family: 'rajdhani', sans-serif;
-}
 
 /* map */
 .hero.is-dark {
@@ -640,7 +593,53 @@ font-family: 'Orbitron', sans-serif;
 }
 
 /* ZODIAC STUFF */
+/* Horoscope page */
 
+/* .horoscope-header {
+  margin-top: 7rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(23, 35, 65, 0.884);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+font-family: 'Orbitron', sans-serif;
+      border-radius: 15px;
+    box-shadow: 0 4px 20px #1cc2de;
+}
+
+.horoscope-header .zodiac-sign-image {
+  width: 64px;
+  height: 64px;
+
+}
+
+.horoscope-header .horoscope-left,
+.horoscope-header .horoscope-right {
+  color: #ffffff;
+}
+
+.horoscope-section {
+  background-color: rgba(23, 35, 65, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.horoscope-section .title {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-family: 'Obitron', sans-serif;
+}
+
+.horoscope-section p {
+  color: #ffffff;
+  font-family: 'rajdhani', sans-serif;
+} */
 .zodiac-sign-image {
   font-size: 3rem;
 }
@@ -863,7 +862,7 @@ text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2
   transform: rotate(180deg);
 }
 /* Hidden content styles */
-.hidden-content {
+.explanation.hidden-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
