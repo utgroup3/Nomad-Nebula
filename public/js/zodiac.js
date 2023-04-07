@@ -302,8 +302,6 @@ fetch(`/api/users/${userId}?t=${Date.now()}`)
   .then(response => response.json())
   .then(data => {
     const birthday = data.birthday;
-    // use the birthday value in your frontend code
-    console.log(birthday);
 
     let userZodiac = getZodiacSign(birthday);
 

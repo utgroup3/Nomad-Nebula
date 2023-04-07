@@ -10,31 +10,41 @@ router.get('/', (req, res) => {
 
 router.get('/profile', async (req, res) => {
   try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+        'location',
+        'birthday',
+      ]
+    });
+
     const dbPostData = await Post.findAll({
       where: {
-        user_id: req.session.user_id // Filter the posts based on the logged-in user's ID
+        user_id: req.session.user_id
       },
       attributes: [
         'id',
         'title',
         'createdAt',
         'content',
-        // Add any other required attributes
       ],
       include: [
         {
           model: User,
-          attributes: ['username']
+          attributes: ['username'],
         },
-        // Add any other required associations
       ]
     });
 
+    const user = dbUserData.get({ plain: true });
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
     res.render('profile', {
-      user: req.session,
-      posts
+      user,
+      posts,
     });
   } catch (err) {
     console.log(err);

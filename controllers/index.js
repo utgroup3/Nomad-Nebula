@@ -4,9 +4,8 @@ const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
 const sessionRoutes = require('./sessionRoutes');
-const nightSkyRoutes = require('./nightSky-route')
-
-const zodiacRoute = require('./zodiac-route')
+const nightSkyRoutes = require('./nightSkyRoute')
+const zodiacRoute = require('./zodiacRoute')
 
 
 router.use('/api', apiRoutes);
