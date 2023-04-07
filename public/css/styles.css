@@ -126,7 +126,6 @@ body {
   transition: ease-in-out 0.3s;
 }
 
-
 .navbar-burger {
   color: #ffffff;
   display: flex !important;
@@ -145,6 +144,7 @@ body {
   box-shadow: 0 4px 20px #1cc2de;
   cursor: pointer;
 }
+
 .navbar-item {
   margin-bottom: 1rem;
   color: #ffffff;
@@ -531,7 +531,7 @@ body {
 
 /* map */
 
-.hero.is-dark {
+.hero .is-dark {
   background-color: #172341;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -784,13 +784,12 @@ body {
 }
 
 .current-video {
-  position: relative;
   max-width: 90%;
   max-height: 250px;
   padding: auto;
   border-radius: 6px;
   padding-top: 1rem;
-  margin:auto;
+  margin: auto;
 }
 
 .current-video-container {
@@ -848,7 +847,7 @@ body {
 
 .skyChart-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: row wrap;
   padding: 2.5rem;
   border-radius: 6px;
   background-color: rgba(23, 35, 65, 0.753);

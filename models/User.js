@@ -20,15 +20,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // email: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique: true,
-        //     validate: {
-        //       isEmail: true,
-        //     },
-        // },
-        // FYI: format for this is 'birthday: new Date(1990, 0, 1)' as in YYYY MM DD when doing User.create
         birthday: {
             type: DataTypes.DATEONLY,
             allowNull: false,
