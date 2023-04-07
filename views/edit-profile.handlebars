@@ -1,72 +1,74 @@
 {{> navLI }}
+
 <main class="column">
-    <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
-    <section class="section">
-        <div class="container edit-profile-container">
-            <section class="hero is-dark">
-                <section class="edit-profile-video-container">
-                    <video class="edit-profile-video" src="./img/headers/EDIT-PROFILE.mp4" autoplay muted loop
-                        playsinline></video>
-                </section>
-            </section>
-            <section class="section">
-                <div class="container edit-profile-form">
-                    <form action="/edit-profile" method="POST" enctype="multipart/form-data">
-                        <div class="field">
-                            <label class="label">USERNAME</label>
-                            <div class="control">
-                                <input class="input" type="text" name="username" value="{{user.username}}" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">LOCATION</label>
-                            <div class="control">
-                                <input class="input" type="text" name="location" value="{{user.location}}" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">BIRTHDAY</label>
-                            <div class="control">
-                                <input class="input" type="date" name="birthday" value="{{user.birthday}}" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">PROFILE PICTURE</label>
-                            <div class="file is-primary">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" name="profilePicture">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            Choose a file…
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="field is-grouped">
-                            <div class="control">
-                                <button id="editProfileBtn" type="submit" class="button is-primary">
-                                    <span class="icon">
-                                        <i class="fas fa-save"></i>
-                                    </span>
-                                    <span>SAVE CHANGES</span>
-                                </button>
-                            </div>
-                            <div class="control">
-                                <a href="/profile" class="button is-light">
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </span>
-                                    <span>BACK TO PROFILE</span>
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+  <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+  <section class="section">
+    <div class="container edit-profile-container">
+      <section class="hero is-dark">
+        <section class="edit-profile-video-container">
+          <video class="edit-profile-video" src="./img/headers/EDIT-PROFILE.mp4" autoplay muted loop playsinline></video>
+        </section>
+      </section>
+      <section class="section">
+        <div class="container edit-profile-form">
+          <form action="/api/users/edit-profile" method="POST" enctype="multipart/form-data">
+            <div class="field">
+              <label class="label">USERNAME</label>
+              <div class="control">
+                <input class="input" type="text" name="username" value="{{username}}" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">LOCATION</label>
+              <div class="control">
+                <input class="input" type="text" name="location" value="{{location}}" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">BIRTHDAY</label>
+              <div class="control">
+                <input class="input" type="date" name="birthday" value="{{birthday}}" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">PROFILE PICTURE</label>
+              <div class="file is-primary">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="profilePicture">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button id="editProfileBtn" type="submit" class="button is-primary">
+                  <span class="icon">
+                    <i class="fas fa-save"></i>
+                  </span>
+                  <span>SAVE CHANGES</span>
+                </button>
+              </div>
+              <div class="control">
+                <a href="/profile" class="button is-light">
+                  <span class="icon">
+                    <i class="fas fa-arrow-left"></i>
+                  </span>
+                  <span>BACK TO PROFILE</span>
+                </a>
+              </div>
+            </div>
+          </form>
         </div>
-    </section>
+      </section>
+    </div>
+  </section>
 </main>
+
+<script src="/js/editProfile.js"></script>
