@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
-const upload = require('../../public/js/imageUpload').single('image');
-const sequelize = require('../../config/connection');
 
+const sequelize = require('../../config/connection');
+const { postImage, uploadPostImage } = require('../../public/js/imageUpload');
 // GET all posts
 router.get('/', (req, res) => {
   Post.findAll({
@@ -91,32 +91,24 @@ router.get('/:id', (req, res) => {
 });
 
 // CREATE a new post
-router.post('/', withAuth, (req, res) => {
-  upload(req, res, async (err) => {
-    if (err) {
-      res.status(400).json({ msg: err });
-    } else {
-      try {
-        console.log(req.body);
-        const postData = {
-          title: req.body.title,
-          content: req.body.content,
-          image: req.body.image,
-          user_id: req.session.user_id
-        };
+router.post('/', withAuth, postImage, uploadPostImage, async (req, res) => {
+  try {
+    const postData = {
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id
+    };
 
-        if (req.file) {
-          postData.image = 'uploads/' + req.file.filename;
-        }
-
-        const dbPostData = await Post.create(postData);
-        res.json(dbPostData);
-      } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
+    if (req.file) {
+      postData.image = req.file.path.replace('public', '');
     }
-  });
+
+    const dbPostData = await Post.create(postData);
+    res.json(dbPostData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.put('/votePost', withAuth, (req, res) => {

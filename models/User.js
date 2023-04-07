@@ -30,6 +30,7 @@ User.init(
     },
     profilePicture: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
