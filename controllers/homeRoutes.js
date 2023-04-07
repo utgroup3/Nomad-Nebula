@@ -66,15 +66,12 @@ router.get('/night-sky', (req, res) => {
     user_id: req.session.user_id
   })
 })
-// GET all users
-// router.get('/community', (req, res) => {
-//   User.findAll({})
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+
+router.get('/edit-profile', (req, res) => {
+  res.render('edit-profile', {
+    user_id: req.session.user_id
+  })
+})
 
 // get comments for a single post
 router.get('/post/:id/comments', (req, res) => {
