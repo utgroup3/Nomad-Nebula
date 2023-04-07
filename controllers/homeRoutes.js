@@ -79,7 +79,10 @@ router.get('/night-sky', (req, res) => {
 
 router.get('/edit-profile', (req, res) => {
   res.render('edit-profile', {
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    username: req.session.username,
+    birthday: req.session.birthday,
+    location: req.session.location
   })
 })
 
