@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const upload = require('../../utils/imageUpload.js');
+const upload = require('../../utils/profilePicture.js');
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
@@ -111,15 +111,20 @@ router.get('/edit-profile', withAuth, (req, res) => {
 });
 
 // POST request for updating the profile
-router.post('/edit-profile', withAuth, (req, res) => {
-  console.log(req.body);
-  let {username, location, birthday, profilePicture} = req.body;
+router.post('/edit-profile', withAuth, upload.single('profilePicture'), (req, res) => {
+  let {username, location, birthday} = req.body;
+  let profilePicture;
+
+  if (req.file) {
+    profilePicture = '/uploads/' + req.file.filename;
+  }
+
   User.update(
     {
       username,
       location,
       birthday,
-      // profilePicture
+      profilePicture
     },
     {
       where: { id: req.session.user_id }
@@ -129,39 +134,11 @@ router.post('/edit-profile', withAuth, (req, res) => {
       req.session.username = dbUserData.username;
       req.session.birthday = dbUserData.birthday;
       req.session.location = dbUserData.location;
-      // req.flash('success_msg', 'Profile updated successfully');
       res.sendStatus(203);
     })
     .catch((err) => {
-      // req.flash('error_msg', 'Error updating profile: ' + err);
       res.redirect('/edit-profile');
     });
-  // upload.single('profilePicture')(req, res, (err) => {
-  //   if (err) {
-  //     req.flash('error_msg', 'Error uploading file: ' + err);
-  //     res.redirect('/edit-profile');
-  //   } else {
-  //     const { username, location, birthday } = req.body;
-  //     const profilePicture = req.file ? req.file.filename : req.user.profilePicture;
-  // User.update(
-  //   {
-  //     username,
-  //     location,
-  //     birthday,
-  //     profilePicture
-  //   },
-  //   {
-  //     where: { id: req.user.id }
-  //   }
-  // )
-  //   .then(() => {
-  //     req.flash('success_msg', 'Profile updated successfully');
-  //     res.redirect('/profile');
-  //   })
-  //   .catch((err) => {
-  //     req.flash('error_msg', 'Error updating profile: ' + err);
-  //     res.redirect('/edit-profile');
-  //   });
 });
 
 // DELETE a user by ID

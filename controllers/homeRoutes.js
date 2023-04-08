@@ -19,7 +19,8 @@ router.get('/profile', async (req, res) => {
         'username',
         'location',
         'birthday',
-        'createdAt'
+        'createdAt',
+        'profilePicture'
       ]
     });
 
