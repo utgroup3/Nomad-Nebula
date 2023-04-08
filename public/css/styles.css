@@ -972,3 +972,12 @@ body {
       margin-top: 3rem;
   }
 }
+
+
+.comments {
+  display: none;
+}
+
+.comments:not(.hidden) {
+  display: block;
+}
