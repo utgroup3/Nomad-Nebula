@@ -974,10 +974,3 @@ body {
 }
 
 
-.comments {
-  display: none;
-}
-
-.comments:not(.hidden) {
-  display: block;
-}
