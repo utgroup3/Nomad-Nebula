@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const upload = require('../../public/js/imageUpload');
+const upload = require('../../utils/imageUpload.js');
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
