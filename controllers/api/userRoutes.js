@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const upload = require('../../utils/profilePicture.js');
+const profileUpload = require('../../utils/profilePicture.js');
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
@@ -111,12 +111,12 @@ router.get('/edit-profile', withAuth, (req, res) => {
 });
 
 // POST request for updating the profile
-router.post('/edit-profile', withAuth, upload.single('profilePicture'), (req, res) => {
+router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), (req, res) => {
   let {username, location, birthday} = req.body;
   let profilePicture;
 
   if (req.file) {
-    profilePicture = '/uploads/' + req.file.filename;
+    profilePicture = '/uploads/profilePicture/' + req.file.filename;
   }
 
   User.update(

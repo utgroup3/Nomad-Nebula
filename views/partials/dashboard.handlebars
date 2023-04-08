@@ -5,18 +5,18 @@
       <div class="column is-one-third">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">{{this.title}}</p>
+            <p class="card-header-title">{{ title }}</p>
           </header>
-          {{#if this.image}}
+          {{#if image}}
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="{{this.image}}" alt="Post image">
+                <img src="{{ image }}" alt="Post image">
               </figure>
             </div>
           {{/if}}
           <div class="card-content">
             <div class="content">
-              {{this.content}}
+              {{ content }}
             </div>
           </div>
         </div>
