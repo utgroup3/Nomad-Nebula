@@ -58,22 +58,27 @@ router.get('/profile', async (req, res) => {
 
 router.get('/community', async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({});
-    const dbUserData = await User.findOne({
-      where: {
-        id: req.session.user_id,
+    const dbPostData = await Post.findAll({
+      include: {
+        model: User,
+        attributes: ['username']
       },
-      attributes: [
-        'username',
-      ],
+      include: {
+        model: Comment,
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      order: [['createdAt', 'DESC']]
     });
 
-    const user = dbUserData.get({ plain: true });
+    const posts = dbPostData.map(post => post.get({ plain: true }));
 
     res.render('community', {
-      posts: dbPostData,
-      user,
+      posts,
     });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
