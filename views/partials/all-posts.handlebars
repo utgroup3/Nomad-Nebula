@@ -12,11 +12,28 @@
     </div>
     <div class="post-content">
       <h3 class="title is-5">{{title}}</h3>
+
+      <figure class="user-uploaded-picture">
+        {{#if post.image}}
+        <img src="{{ post.image }}" alt="User uploaded image" class="is-rounded">
+        {{/if}}
+      </figure>
+
       <p>{{content}}</p>
       <p class="post-meta">
         Submitted {{createdAt}} by <strong>{{user.username}}</strong> to <a
           href="/community/{{community}}">{{community}}</a>
       </p>
+
+      {{!-- --}}
+      {{#if user.profilePicture}}
+      <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+      {{else}}
+      <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+      {{/if}}
+
+
+
       <div class="post-actions">
         <a class="post-action-item">comments</a>
         <a class="post-action-item">share</a>
