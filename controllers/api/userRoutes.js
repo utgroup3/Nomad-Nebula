@@ -3,16 +3,6 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const upload = require('../../public/js/imageUpload');
 
-// // GET all users
-// router.get('/community', (req, res) => {
-//   User.findAll({})
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
 // GET a single user by ID
 router.get('/:id', (req, res) => {
   User.findOne({
