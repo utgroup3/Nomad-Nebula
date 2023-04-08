@@ -1,6 +1,6 @@
 <div class="community-posts">
   {{#each posts}}
-  <div class="post-container">
+  <div class="post-container" data-post-id="{{id}}">
     <div class="post-votes">
       <button class="vote-button">
         <i class="fas fa-chevron-up"></i>
@@ -21,7 +21,7 @@
 
       <p>{{content}}</p>
       <p class="post-meta">
-        Submitted {{createdAt}} by <strong>{{user.username}}</strong> to <a
+        Submitted {{format_date createdAt}} by <strong>{{user.username}}</strong> to <a
           href="/community/{{community}}">{{community}}</a>
       </p>
 
@@ -32,15 +32,18 @@
       <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
       {{/if}}
 
-
-
       <div class="post-actions">
-        <a class="post-action-item">comments</a>
-        <a class="post-action-item">share</a>
-        <a class="post-action-item">save</a>
-        <a class="post-action-item">hide</a>
-        <a class="post-action-item">report</a>
+        <a class="post-action-item toggle-comment-form">Comments</a>
+        <a class="post-action-item">Share</a>
+        {{!-- <a class="post-action-item">Save</a> --}}
+        <a class="post-action-item">Hide</a>
+        {{!-- <a class="post-action-item">Report</a> --}}
       </div>
+
+      <form class="comment-form" style="display:none;">
+        <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
+        <button type="submit" class="submit-comment">Submit</button>
+      </form>
     </div>
 
     <div class="comments-container">
@@ -54,3 +57,5 @@
   </div>
   {{/each}}
 </div>
+
+<script src="/js/addComment.js"></script>

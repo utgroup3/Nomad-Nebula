@@ -18,12 +18,11 @@ router.get('/', (req, res) => {
     });
 });
 
-// CREATE a new comment
 router.post('/', withAuth, (req, res) => {
   // check session
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment,
+      comment: req.body.comment, // Change this line
       post_id: req.body.post_id,
       // use the id from the session
       user_id: req.session.user_id,

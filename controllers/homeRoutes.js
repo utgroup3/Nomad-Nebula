@@ -49,7 +49,6 @@ router.get('/profile', async (req, res) => {
     const user = dbUserData.get({ plain: true });
     user.joinedDate = format_date(user.createdAt);
     const posts = dbPostData.map(post => post.get({ plain: true }));
-    console.log(posts);
 
     res.render('profile', {
       user,
@@ -97,7 +96,6 @@ router.get('/community', async (req, res) => {
     const user = dbUserData.get({ plain: true });
     const posts = dbPostData.map(post => post.get({ plain: true }));
     
-    console.log(posts);
     res.render('community', {
       user,
       posts,
