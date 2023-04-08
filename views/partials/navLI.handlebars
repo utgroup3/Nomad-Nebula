@@ -7,8 +7,8 @@
 </div>
 <nav id="navbarMenu" class="navbar">
     <figure class="image profile-picture">
-        {{#if profilePicture}}
-        <img src="{{profilePicture}}" alt="Profile picture" class="is-rounded">
+        {{#if user.profilePicture}}
+        <img src="{{user.profilePicture}}" alt="Profile picture" class="is-rounded">
         {{ else }}
         <img src="/img/default.png" alt="Profile picture" class="is-rounded">
         {{/if}}

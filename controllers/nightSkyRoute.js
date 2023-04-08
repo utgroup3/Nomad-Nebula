@@ -10,6 +10,7 @@ router.get('/map-sky', async (req, res) => {
       },
       attributes: [
         'username',
+        'profilePicture'
       ],
     });
 
@@ -33,6 +34,7 @@ router.get('/current-sky', async (req, res) => {
       },
       attributes: [
         'username',
+        'profilePicture'
       ],
     });
 
