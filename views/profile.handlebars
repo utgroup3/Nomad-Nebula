@@ -1,0 +1,44 @@
+{{> navLI }}
+
+<main class="column">
+  <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+
+  <section class="section">
+    <div class="container">
+      <div class="bio-container">
+        <div class="bio-left">
+          <p>{{ user.location }}</p>
+          <p>{{ user.birthday }}</p>
+          <p>{{ user.zodiacSign }}</p>
+        </div>
+        <div class="username">
+          <figure class="profile-picture">
+            {{#if user.profilePicture}}
+              <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+              {{else}}
+              <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+              {{/if}}
+          </figure>
+          <h2 style="margin-top: 15px;">{{user.username}}</h2>
+          <a href="/edit-profile"><i class="fas fa-user-edit edit-icon"></i></a>
+        </div>
+        <div class="bio-right">
+          <p>Posts: {{ posts.length }}</p>
+          <p>Joined: {{ user.joinedDate }}</p>
+        </div>
+      </div>
+      <div class="iconContainer">
+        <a href="/create-post" class="icon-link"><i class="fas fa-plus"></i></a>
+        <a href="/create-post" class="icon-link"><i class="fas fa-image"></i></a>
+        <a href="/user-likes" class="icon-link"><i class="fas fa-heart"></i></a>
+      </div>
+      <div class="posts-container">
+        {{!-- Display user posts or liked posts here --}}
+
+        {{> dashboard}}
+ 
+      </div>
+    </div>
+  </section>
+</main>
+

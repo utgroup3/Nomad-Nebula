@@ -1,0 +1,46 @@
+{{> navLI }}
+<main class="column">
+    <video class="background-video" src="/img/background/background.mp4" autoplay muted loop playsinline></video>
+
+        <div class="container map-container">
+            <section class="hero is-dark">
+                <section class="Mapsky-video-container">
+                    <video class="edit-profile-video" src="/img/headers/EDIT-PROFILE.mp4" autoplay muted loop
+                        playsinline></video>
+                </section>
+            </section>
+            {{!-- <section class="hero is-dark is-bold">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <h1 class="mapTitle">Map Sky</h1>
+                    </div>
+                </div>
+            </section> --}}
+
+            <section class="mapSection">
+                <h1>Enter a Location</h1>
+                <input type="text" id="location" placeholder="Enter location">
+                <button class="mapbutton" onclick="getLatLong()">Get Latitude and Longitude</button>
+            
+
+            <section class="section">
+                <div id="mapContainer" class="container">
+                    <div class="iframe-container">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0" src="" allowTransparency="true" id="starMap"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div id="mapContainer" class="container">
+                    <div class="iframe-container">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0" src="" allowTransparency="true" id="planteryMap"></iframe>
+                    </div>
+                </div>
+            </section>
+</section>
+        </div>
+</main>
+<script src="/js/mapSky.js"></script>

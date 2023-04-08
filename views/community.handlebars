@@ -1,0 +1,34 @@
+{{> navLI }}
+
+<main class="column">
+  <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+  <div class="login-container">
+    <div class="container register-container">
+      <section class="hero is-dark">
+
+
+        <section class="register-video-container">
+          <video class="register-video" src="./img/headers/LOGIN.mp4" autoplay muted loop playsinline></video>
+
+
+        </section>
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Community
+            </h1>
+            <h2 class="subtitle">
+              Browse, share, and discuss posts from fellow users
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          {{> all-posts posts=posts}}
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
