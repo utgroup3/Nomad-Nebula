@@ -111,6 +111,8 @@ router.post('/', withAuth, (req, res) => {
 
         const dbPostData = await Post.create(postData);
         res.json(dbPostData);
+
+        console.log(dbPostData)
       } catch (err) {
         console.log(err);
         res.status(500).json(err);

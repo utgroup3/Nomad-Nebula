@@ -14,10 +14,10 @@
         <div class="username">
           <figure class="profile-picture">
             {{#if user.profilePicture}}
-              <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
-              {{else}}
-              <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
-              {{/if}}
+            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+            {{else}}
+            <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+            {{/if}}
           </figure>
           <h2 style="margin-top: 15px;">{{user.username}}</h2>
           <a href="/edit-profile"><i class="fas fa-user-edit edit-icon"></i></a>
@@ -36,7 +36,7 @@
         {{!-- Display user posts or liked posts here --}}
 
         {{> dashboard}}
- 
+
       </div>
     </div>
   </section>
