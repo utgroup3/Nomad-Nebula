@@ -1,5 +1,6 @@
 const multer = require('multer');
 const path = require('path');
+const sharp = require('sharp');
 
 const storage = multer.diskStorage({
   destination: './public/uploads/profilePicture/',
@@ -28,4 +29,20 @@ function checkFileType(file, cb) {
   }
 }
 
-module.exports = upload;
+// Resizing Profile Image
+const resizeAndSaveProfilePicture = async (file) => {
+  try {
+    const resizedImageBuffer = await sharp(file.path)
+      .resize(500, 500)
+      .toBuffer();
+
+    await sharp(resizedImageBuffer).toFile(file.path);
+
+    return file;
+  } catch (err) {
+    console.error(err);
+    throw new Error('Failed to process image');
+  }
+};
+
+module.exports = { profileUpload: upload, resizeAndSaveProfilePicture };

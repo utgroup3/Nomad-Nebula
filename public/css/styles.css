@@ -145,6 +145,10 @@ body {
   cursor: pointer;
 }
 
+.user-uploaded-image {
+  border-radius: 50%;
+}
+
 .navbar-item {
   margin-bottom: 1rem;
   color: #ffffff;

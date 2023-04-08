@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const profileUpload = require('../../utils/profilePicture.js');
+const { profileUpload, resizeAndSaveProfilePicture } = require('../../utils/profilePicture.js');
+// const profileUpload = require('../../utils/profilePicture.js');
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
@@ -111,12 +112,18 @@ router.get('/edit-profile', withAuth, (req, res) => {
 });
 
 // POST request for updating the profile
-router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), (req, res) => {
+router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), async (req, res) => {
   let {username, location, birthday} = req.body;
   let profilePicture;
 
   if (req.file) {
-    profilePicture = '/uploads/profilePicture/' + req.file.filename;
+    try {
+      const resizedImage = await resizeAndSaveProfilePicture(req.file);
+      profilePicture = '/uploads/profilePicture/' + resizedImage.filename;
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send("Error resizing the image");
+    }
   }
 
   User.update(
@@ -140,6 +147,37 @@ router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), (
       res.redirect('/edit-profile');
     });
 });
+
+// POST request for updating the profile
+// router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), async (req, res) => {
+//   let {username, location, birthday} = req.body;
+//   let profilePicture;
+
+//   if (req.file) {
+//     profilePicture = '/uploads/profilePicture/' + req.file.filename;
+//   }
+
+//   User.update(
+//     {
+//       username,
+//       location,
+//       birthday,
+//       profilePicture
+//     },
+//     {
+//       where: { id: req.session.user_id }
+//     }
+//   )
+//     .then((dbUserData) => {
+//       req.session.username = dbUserData.username;
+//       req.session.birthday = dbUserData.birthday;
+//       req.session.location = dbUserData.location;
+//       res.sendStatus(203);
+//     })
+//     .catch((err) => {
+//       res.redirect('/edit-profile');
+//     });
+// });
 
 // DELETE a user by ID
 router.delete('/:id', withAuth, (req, res) => {
