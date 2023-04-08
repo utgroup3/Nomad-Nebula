@@ -77,23 +77,23 @@ router.get('/community', async (req, res) => {
     const dbPostData = await Post.findAll({
       include: [
         {
-        model: User,
-        attributes: ['username']
-        },
-       {
-        model: Comment,
-        include: {
           model: User,
           attributes: ['username']
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['username']
+          }
         }
-      }
-    ],
+      ],
       order: [['createdAt', 'DESC']]
     });
 
     const user = dbUserData.get({ plain: true });
     const posts = dbPostData.map(post => post.get({ plain: true }));
-    
+
     res.render('community', {
       user,
       posts,
@@ -153,13 +153,30 @@ router.get('/night-sky', async (req, res) => {
   }
 });
 
-router.get('/edit-profile', (req, res) => {
-  res.render('edit-profile', {
-    user_id: req.session.user_id,
-    username: req.session.username,
-    birthday: req.session.birthday,
-    location: req.session.location
-  })
+router.get('/edit-profile', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+        'profilePicture',
+      ],
+    });
+
+    const user = dbUserData.get({ plain: true });
+    res.render('edit-profile', {
+      user,
+      user_id: req.session.user_id,
+      username: req.session.username,
+      birthday: req.session.birthday,
+      location: req.session.location
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 })
 
 // get comments for a single post
