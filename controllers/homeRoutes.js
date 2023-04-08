@@ -37,7 +37,10 @@ router.get('/profile', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: [
+            'username',
+            'profilePicture'
+          ],
         },
       ]
     });
@@ -58,6 +61,19 @@ router.get('/profile', async (req, res) => {
 
 router.get('/community', async (req, res) => {
   try {
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+        'location',
+        'birthday',
+        'createdAt',
+        'profilePicture'
+      ]
+    });
+
     const dbPostData = await Post.findAll({
       include: {
         model: User,
@@ -73,9 +89,11 @@ router.get('/community', async (req, res) => {
       order: [['createdAt', 'DESC']]
     });
 
+    const user = dbUserData.get({ plain: true });
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
     res.render('community', {
+      user,
       posts,
     });
 
@@ -93,6 +111,7 @@ router.get('/create-post', async (req, res) => {
       },
       attributes: [
         'username',
+        'profilePicture'
       ],
     });
 
@@ -116,6 +135,7 @@ router.get('/night-sky', async (req, res) => {
       },
       attributes: [
         'username',
+        'profilePicture',
       ],
     });
 
