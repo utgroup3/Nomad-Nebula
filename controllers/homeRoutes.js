@@ -75,23 +75,26 @@ router.get('/community', async (req, res) => {
     });
 
     const dbPostData = await Post.findAll({
-      include: {
+      include: [
+        {
         model: User,
         attributes: ['username']
-      },
-      include: {
+        },
+       {
         model: Comment,
         include: {
           model: User,
           attributes: ['username']
         }
-      },
+      }
+    ],
       order: [['createdAt', 'DESC']]
     });
 
     const user = dbUserData.get({ plain: true });
+   
     const posts = dbPostData.map(post => post.get({ plain: true }));
-
+    
     res.render('community', {
       user,
       posts,
