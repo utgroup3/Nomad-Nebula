@@ -113,37 +113,6 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
   }
 });
 
-
-// router.post('/', withAuth, (req, res) => {
-//   upload(req, res, async (err) => {
-//     if (err) {
-//       res.status(400).json({ msg: err });
-//     } else {
-//       try {
-//         console.log(req.body);
-//         const postData = {
-//           title: req.body.title,
-//           content: req.body.content,
-//           image: req.body.image,
-//           user_id: req.session.user_id
-//         };
-
-//         if (req.file) {
-//           postData.image = 'uploads/' + req.file.filename;
-//         }
-
-//         const dbPostData = await Post.create(postData);
-//         res.json(dbPostData);
-
-//         console.log(dbPostData)
-//       } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//       }
-//     }
-//   });
-// });
-
 router.put('/votePost', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {

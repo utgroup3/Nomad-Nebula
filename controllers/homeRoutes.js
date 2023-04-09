@@ -95,10 +95,12 @@ router.get('/community', async (req, res) => {
 
     const user = dbUserData.get({ plain: true });
     const posts = dbPostData.map(post => post.get({ plain: true }));
+    const baseURL = `${req.protocol}://${req.get('host')}`;
     
     res.render('community', {
       user,
       posts,
+      baseURL,
     });
 
   } catch (err) {

@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const { profileUpload, resizeAndSaveProfilePicture } = require('../../utils/profilePicture.js');
-// const profileUpload = require('../../utils/profilePicture.js');
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
