@@ -6,7 +6,8 @@
     <div class="container edit-profile-container">
       <section class="hero is-dark">
         <section class="edit-profile-video-container">
-          <video class="edit-profile-video" src="./img/headers/EDIT-PROFILE.mp4" autoplay muted loop playsinline></video>
+          <video class="edit-profile-video" src="./img/headers/EDIT-PROFILE.mp4" autoplay muted loop
+            playsinline></video>
         </section>
       </section>
       <section class="section">
@@ -64,6 +65,17 @@
                 </a>
               </div>
             </div>
+            <div class="field">
+              <div class="control">
+                <input type="hidden" id="user_id" value="{{user_id}}"/>
+                <button id="deleteProfileBtn" type="submit" class="button is-danger">
+                  <span class="icon">
+                    <i class="fas fa-trash"></i>
+                  </span>
+                  <span>DELETE PROFILE</span>
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </section>
@@ -73,3 +85,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/editProfile.js"></script>
+<script src="/js/deleteProfile.js"></script>
