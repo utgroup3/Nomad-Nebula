@@ -945,6 +945,17 @@ body {
   transform: translateY(-50%) rotate(180deg);
 }
 
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.post-action-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 1024px) {
   .register-form {
       margin-top: 1rem;
