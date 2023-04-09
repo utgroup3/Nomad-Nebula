@@ -48,9 +48,12 @@
           {{#each comments}}
           <div class="comment-container">
             <p>{{comment}}</p>
+            <p class="comment-meta">By {{user.username}} on {{format_date createdAt}}</p>
+            <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
           </div>
           {{/each}}
         </div>
+
       </div>
     </div>
   </div>
@@ -64,3 +67,4 @@
 
 <script src="/js/hidePost.js"></script>
 <script src="/js/addComment.js"></script>
+<script src="/js/deleteComment.js"></script>
