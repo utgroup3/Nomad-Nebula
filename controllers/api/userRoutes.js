@@ -147,37 +147,6 @@ router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), a
     });
 });
 
-// POST request for updating the profile
-// router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), async (req, res) => {
-//   let {username, location, birthday} = req.body;
-//   let profilePicture;
-
-//   if (req.file) {
-//     profilePicture = '/uploads/profilePicture/' + req.file.filename;
-//   }
-
-//   User.update(
-//     {
-//       username,
-//       location,
-//       birthday,
-//       profilePicture
-//     },
-//     {
-//       where: { id: req.session.user_id }
-//     }
-//   )
-//     .then((dbUserData) => {
-//       req.session.username = dbUserData.username;
-//       req.session.birthday = dbUserData.birthday;
-//       req.session.location = dbUserData.location;
-//       res.sendStatus(203);
-//     })
-//     .catch((err) => {
-//       res.redirect('/edit-profile');
-//     });
-// });
-
 // DELETE a user by ID
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
