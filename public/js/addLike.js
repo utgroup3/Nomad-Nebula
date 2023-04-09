@@ -5,18 +5,6 @@ likeBtns.forEach(function (likeBtn) {
   const likedHeart = '❤️';
   const unlikedHeart = '🤍';
 
-  likeBtn.addEventListener('mouseover', () => {
-    if (!heart.classList.contains('liked')) {
-      heart.textContent = '💘';
-    }
-  });
-
-  likeBtn.addEventListener('mouseout', () => {
-    if (!heart.classList.contains('liked')) {
-      heart.textContent = unlikedHeart;
-    }
-  });
-
   likeBtn.addEventListener('click', async function () {
     const postContainer = this.closest('.post-container');
     const post_id = postContainer.dataset.postId;
@@ -41,6 +29,11 @@ likeBtns.forEach(function (likeBtn) {
 
     if (response.ok) {
       console.log(isLiked ? 'Liked successfully' : 'Unliked successfully');
+
+      const pageContainer = document.querySelector('.community-posts');
+      if (!isLiked && pageContainer.classList.contains('user-likes-page')) {
+        postContainer.remove();
+      }
     } else {
       alert(response.statusText);
     }
