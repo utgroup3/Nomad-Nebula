@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment, Like } = require('../models');
 const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
 
@@ -15,8 +15,8 @@ router.get('/', withAuth, (req, res) => {
       'image',
       'title',
       'createdAt',
-      // This code creates a SELECT statement that calls the COUNT SQL function on the post_id column of the vote table. The resulting column is also aliased as vote_count
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      // This code creates a SELECT statement that calls the COUNT SQL function on the post_id column of the like table. The resulting column is also aliased as like_count
+      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
@@ -54,7 +54,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt'
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
@@ -97,7 +97,7 @@ router.get('/post/:id', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
