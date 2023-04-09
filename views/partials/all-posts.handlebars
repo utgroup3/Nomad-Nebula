@@ -2,7 +2,7 @@
   {{#each posts}}
   <div class="post-wrapper">
     <div class="post-container" data-post-id="{{id}}">
-      <div class="post-votes">
+      {{!-- <div class="post-votes">
         <button class="vote-button">
           <i class="fas fa-chevron-up"></i>
         </button>
@@ -10,8 +10,20 @@
         <button class="vote-button">
           <i class="fas fa-chevron-down"></i>
         </button>
-      </div>
+      </div> --}}
       <div class="post-content">
+        {{#if user.profilePicture}}
+        <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+        {{else}}
+        <div class="post-head">
+          <img src="img/default.png" alt="Default profile picture" class="is-rounded profP">
+          {{/if}}
+          <p class="post-meta"><strong>{{user.username}}</strong> <br>
+            {{format_date createdAt}} in <a href="/community/{{community}}">{{community}}</a>
+          </p>
+
+        </div>
+
         <h3 class="title is-5">{{title}}</h3>
 
         <figure class="user-uploaded-picture">
@@ -19,20 +31,10 @@
           <img src="{{ image }}" alt="User uploaded image" class="is-rounded">
           {{/if}}
         </figure>
-
         <p>{{content}}</p>
-        <p class="post-meta">
-          Submitted {{format_date createdAt}} by <strong>{{user.username}}</strong> to <a
-            href="/community/{{community}}">{{community}}</a>
-        </p>
+
 
         {{!-- --}}
-        {{#if user.profilePicture}}
-        <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
-        {{else}}
-        <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
-        {{/if}}
-
         <div class="post-actions">
           <a class="post-action-item like-btn">
             {{#if isLiked}}
@@ -69,10 +71,14 @@
         </form>
 
         <div class="comments-container">
+          <p class="comlabel">Comments </p>
           {{#each comments}}
           <div class="comment-container">
-            <p>{{comment}}</p>
-            <p class="comment-meta">By {{user.username}} on {{format_date createdAt}}</p>
+
+            <p class="comment-meta">
+            <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
+            <p class="com">{{comment}}</p>
+
             <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
           </div>
           {{/each}}
