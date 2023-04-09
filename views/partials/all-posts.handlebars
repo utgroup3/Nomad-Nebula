@@ -1,61 +1,66 @@
 <div class="community-posts">
   {{#each posts}}
-  <div class="post-container" data-post-id="{{id}}">
-    <div class="post-votes">
-      <button class="vote-button">
-        <i class="fas fa-chevron-up"></i>
-      </button>
-      <p>{{votes}}</p>
-      <button class="vote-button">
-        <i class="fas fa-chevron-down"></i>
-      </button>
-    </div>
-    <div class="post-content">
-      <h3 class="title is-5">{{title}}</h3>
+  <div class="post-wrapper">
+    <div class="post-container" data-post-id="{{id}}">
+      <div class="post-votes">
+        <button class="vote-button">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+        <p>{{votes}}</p>
+        <button class="vote-button">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="post-content">
+        <h3 class="title is-5">{{title}}</h3>
 
-      <figure class="user-uploaded-picture">
-        {{#if image}}
-        <img src="{{ image }}" alt="User uploaded image" class="is-rounded">
+        <figure class="user-uploaded-picture">
+          {{#if image}}
+          <img src="{{ image }}" alt="User uploaded image" class="is-rounded">
+          {{/if}}
+        </figure>
+
+        <p>{{content}}</p>
+        <p class="post-meta">
+          Submitted {{format_date createdAt}} by <strong>{{user.username}}</strong> to <a
+            href="/community/{{community}}">{{community}}</a>
+        </p>
+
+        {{!-- --}}
+        {{#if user.profilePicture}}
+        <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+        {{else}}
+        <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
         {{/if}}
-      </figure>
 
-      <p>{{content}}</p>
-      <p class="post-meta">
-        Submitted {{format_date createdAt}} by <strong>{{user.username}}</strong> to <a
-          href="/community/{{community}}">{{community}}</a>
-      </p>
+        <div class="post-actions">
+          <a class="post-action-item toggle-comment-form">Comments</a>
+          <a class="post-action-item">Share</a>
+          <a class="post-action-item hide-link" data-action="hide">Hide</a>
+        </div>
 
-      {{!-- --}}
-      {{#if user.profilePicture}}
-      <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
-      {{else}}
-      <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
-      {{/if}}
+        <form class="comment-form" style="display:none;">
+          <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
+          <button type="submit" class="submit-comment">Submit</button>
+        </form>
 
-      <div class="post-actions">
-        <a class="post-action-item toggle-comment-form">Comments</a>
-        <a class="post-action-item">Share</a>
-        {{!-- <a class="post-action-item">Save</a> --}}
-        <a class="post-action-item">Hide</a>
-        {{!-- <a class="post-action-item">Report</a> --}}
+        <div class="comments-container">
+          {{#each comments}}
+          <div class="comment-container">
+            <p>{{comment}}</p>
+          </div>
+          {{/each}}
+        </div>
       </div>
-
-      <form class="comment-form" style="display:none;">
-        <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
-        <button type="submit" class="submit-comment">Submit</button>
-      </form>
     </div>
-
-    <div class="comments-container">
-      {{#each comments}}
-      <div class="comment-container">
-        <p>{{comment}}</p>
-      </div>
-      {{/each}}
-    </div>
-
   </div>
+
+  <div class="post-actions">
+    <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
+  </div>
+
   {{/each}}
 </div>
 
+<script src="/js/hidePost.js"></script>
 <script src="/js/addComment.js"></script>
