@@ -42,10 +42,6 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-router.get('/me', withAuth, (req, res) => {
-  res.status(200).json(req.session.user_id)
-})
-
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);
