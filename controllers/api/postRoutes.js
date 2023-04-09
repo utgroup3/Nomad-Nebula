@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comment, Like } = require('../../models');
 const withAuth = require('../../utils/auth');
 const postUpload = require('../../utils/postPicture.js');
 const sequelize = require('../../config/connection');
@@ -113,18 +113,18 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
   }
 });
 
-router.put('/votePost', withAuth, (req, res) => {
-  // make sure the session exists first
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    Post.votePost({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-      .then(voteData => res.json(voteData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-});
+// router.put('/votePost', withAuth, (req, res) => {
+//   // make sure the session exists first
+//   if (req.session) {
+//     // pass session id along with all destructured properties on req.body
+//     Post.votePost({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+//       .then(voteData => res.json(voteData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+//   }
+// });
 
 // UPDATE a post by ID
 router.put('/:id', withAuth, (req, res) => {

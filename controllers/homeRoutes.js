@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment, Like } = require('../models');
 const { format_date } = require('../utils/helpers')
 const sequelize = require('../config/connection');
 
@@ -132,6 +132,37 @@ router.get('/create-post', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/user-likes', async (req, res) => {
+  try {
+      // Retrieve all posts that are currently liked
+      const likedPosts = await Like.findAll({
+          where: { isLiked: true },
+          include: [{ model: Post, include: [ User, 
+          {
+            model: Comment,
+            include: [User],
+          } ] }]
+       });
+    
+
+       const likes = likedPosts.map(post => post.get({ plain: true }));
+      
+       res.render('user-likes', { likes })
+    
+    // If there are no liked posts, send a 404 response
+    if (likedPosts.length === 0) {
+      console.log('No liked posts found');
+    }
+   
+     
+    
+    
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+})
 
 router.get('/night-sky', async (req, res) => {
   try {

@@ -1,0 +1,117 @@
+{{> navLI }}
+
+<main class="column">
+    <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+    <div class="login-container">
+        <div class="container register-container">
+            <section class="hero is-dark">
+
+
+                <section class="register-video-container">
+                    <video class="register-video" src="./img/headers/LOGIN.mp4" autoplay muted loop playsinline></video>
+
+
+                </section>
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <h1 class="title">
+                            Liked Posts
+                        </h1>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+
+
+                    <div class="community-posts">
+                        {{#each likes}}
+                        <div class="post-wrapper">
+                            <div class="post-container" data-post-id="{{id}}">
+
+                                <div class="post-content">
+                                    <h3 class="title is-5">{{this.post.title}}</h3>
+
+                                    <figure class="user-uploaded-picture">
+                                        {{#if this.post.image}}
+                                        <img src="{{ this.post.image }}" alt="User uploaded image" class="is-rounded">
+                                        {{/if}}
+                                    </figure>
+
+                                    <p>{{this.post.content}}</p>
+                                    <p class="post-meta">
+                                        Submitted {{format_date createdAt}} by
+                                        <strong>{{this.post.user.username}}</strong> to <a
+                                            href="/community/{{community}}">{{community}}</a>
+                                    </p>
+
+                                    {{!-- --}}
+                                    {{#if this.post.user.profilePicture}}
+                                    <img src="{{ this.post.user.profilePicture }}" alt="Profile picture"
+                                        class="is-rounded">
+                                    {{else}}
+                                    <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+                                    {{/if}}
+
+                                    <div class="post-actions">
+                                        <a class="post-action-item like-btn"><span class="heart">💖</span></a>
+                                        <a class="post-action-item toggle-comment-form">Comments</a>
+                                        <a class="post-action-item hide-link" data-action="hide">Hide</a>
+                                        <div class="post-action-item dropdown is-hoverable">
+                                            <a class="dropdown-trigger">
+                                                <span>Share</span>
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-content">
+                                                    <a class="dropdown-item share-facebook"
+                                                        data-post-url="{{../baseUrl}}/post/{{id}}"
+                                                        data-post-id="{{id}}">Share on Facebook</a>
+                                                    <a class="dropdown-item share-whatsapp"
+                                                        data-post-url="{{../baseUrl}}/post/{{id}}"
+                                                        data-post-id="{{id}}">Share on WhatsApp</a>
+                                                    <a class="dropdown-item share-twitter"
+                                                        data-post-url="{{../baseUrl}}/post/{{id}}" data-post-id="{{id}}"
+                                                        data-post-title="{{title}}">Share on Twitter</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <form class="comment-form" style="display:none;">
+                                        <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
+                                        <button type="submit" class="submit-comment">Submit</button>
+                                    </form>
+
+                                    <div class="comments-container">
+                                        {{#each post.comments}}
+                                        <div class="comment-container">
+                                            <p>{{comment}}</p>
+                                            <p class="comment-meta">By {{user.username}} on {{format_date
+                                                this.createdAt}}
+                                            </p>
+                                            <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+                                        </div>
+
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-actions">
+                            <a class="post-action-item unhide-link" data-action="unhide"
+                                style="display: none;">Unhide</a>
+                        </div>
+
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
