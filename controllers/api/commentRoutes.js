@@ -3,13 +3,13 @@ const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all comments
-
 router.get('/', (req, res) => {
   Comment.findAll({
     attributes: [
-      'id', 
-      'comment', 
-      'createdAt'
+      'id',
+      'comment',
+      'createdAt',
+      'user_id'
     ],
     include: {
       model: User,
