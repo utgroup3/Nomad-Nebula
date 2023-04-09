@@ -34,7 +34,13 @@
         {{/if}}
 
         <div class="post-actions">
-          <a class="post-action-item like-btn"><span class="heart">🤍</span></a>
+          <a class="post-action-item like-btn">
+            {{#if isLiked}}
+            <span class="heart liked">❤️</span>
+            {{else}}
+            <span class="heart">🤍</span>
+            {{/if}}
+          </a>
           <a class="post-action-item toggle-comment-form">Comments</a>
           <a class="post-action-item hide-link" data-action="hide">Hide</a>
           <div class="post-action-item dropdown is-hoverable">

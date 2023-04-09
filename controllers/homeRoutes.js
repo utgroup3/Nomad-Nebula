@@ -91,12 +91,23 @@ router.get('/community', async (req, res) => {
       ],
       order: [['createdAt', 'DESC']]
     });
-    
+
+    const likedPosts = await Like.findAll({
+      where: { user_id: req.session.user_id },
+      attributes: ['post_id'],
+    });
+
+    const likedPostIds = likedPosts.map((like) => like.post_id);
 
     const user = dbUserData.get({ plain: true });
-    const posts = dbPostData.map(post => post.get({ plain: true }));
+    const posts = dbPostData.map((post) => {
+      const postObj = post.get({ plain: true });
+      postObj.isLiked = likedPostIds.includes(postObj.id);
+      return postObj;
+    });
+
     const baseURL = `${req.protocol}://${req.get('host')}`;
-    
+
     res.render('community', {
       user,
       posts,
@@ -135,33 +146,45 @@ router.get('/create-post', async (req, res) => {
 
 router.get('/user-likes', async (req, res) => {
   try {
-      // Retrieve all posts that are currently liked
-      const likedPosts = await Like.findAll({
-          where: { isLiked: true },
-          include: [{ model: Post, include: [ User, 
+
+    const dbUserData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: [
+        'username',
+        'profilePicture'
+      ],
+    });
+
+    // Retrieve all posts that are currently liked
+    const likedPosts = await Like.findAll({
+      where: { isLiked: true },
+      include: [{
+        model: Post, include: [User,
           {
             model: Comment,
             include: [User],
-          } ] }]
-       });
-    
+          }]
+      }]
+    });
 
-       const likes = likedPosts.map(post => post.get({ plain: true }));
-      
-       res.render('user-likes', { likes })
-    
+    const user = dbUserData.get({ plain: true });
+    const likes = likedPosts.map(post => post.get({ plain: true }));
+
+    res.render('user-likes', {
+      likes,
+      user
+    })
+
     // If there are no liked posts, send a 404 response
     if (likedPosts.length === 0) {
       console.log('No liked posts found');
     }
-   
-     
-    
-    
-    } catch (err) {
-      console.error(err);
-      res.sendStatus(500);
-    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 })
 
 router.get('/night-sky', async (req, res) => {
