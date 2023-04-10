@@ -16,17 +16,16 @@ router.get('/', withAuth, (req, res) => {
       id: req.session.user_id
     }
   })
-  .then(dbUserData => {
-    // const users = dbUserData.map(user => user.get({ plain: true }));
-    const user = dbUserData.get({ plain: true });
-    res.render('horoscope', { 
-      user, 
+    .then(dbUserData => {
+      const user = dbUserData.get({ plain: true });
+      res.render('horoscope', {
+        user,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
 });
 
 module.exports = router;

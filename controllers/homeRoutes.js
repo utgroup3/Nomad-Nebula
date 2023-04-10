@@ -79,22 +79,35 @@ router.get('/community', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username', 'profilePicture']
+          attributes: ['username',
+            'profilePicture',
+            'location'
+          ]
         },
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['username', 'profilePicture']
+            attributes: [
+              'username',
+              'profilePicture'
+            ]
           }
         }
       ],
-      order: [['createdAt', 'DESC']]
+      order: [
+        [
+          'createdAt',
+          'DESC'
+        ]
+      ]
     });
 
     const likedPosts = await Like.findAll({
       where: { user_id: req.session.user_id },
-      attributes: ['post_id'],
+      attributes: [
+        'post_id'
+      ],
     });
 
     const likedPostIds = likedPosts.map((like) => like.post_id);
@@ -279,15 +292,25 @@ router.get('/post/:id', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id', 
+          'comment', 
+          'post_id', 
+          'user_id', 
+          'createdAt'
+        ],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: [
+            'username'
+          ]
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       }
     ]
   })
@@ -329,6 +352,5 @@ router.get('/logout', (req, res) => {
     loggedIn: false,
   });
 });
-
 
 module.exports = router;

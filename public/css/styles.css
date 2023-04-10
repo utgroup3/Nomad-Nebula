@@ -1004,8 +1004,6 @@ border-color: #fcfcfc3b;
 }
 .user-uploaded-picture {
   max-height: 100px;
-
- 
 }
 
 .community-posts h3 {
@@ -1104,7 +1102,8 @@ color: rgba(255, 255, 255, 0.649);
   padding-top: 8px;
 }
 
-.delete-comment {
+.delete-comment, 
+.hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
   

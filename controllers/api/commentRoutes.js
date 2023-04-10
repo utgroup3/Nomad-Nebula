@@ -13,7 +13,9 @@ router.get('/', (req, res) => {
     ],
     include: {
       model: User,
-      attributes: ['username']
+      attributes: [
+        'username'
+      ]
     }
   })
     .then(dbCommentData => res.json(dbCommentData))
@@ -24,12 +26,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // check session
   if (req.session) {
     Comment.create({
-      comment: req.body.comment, // Change this line
+      comment: req.body.comment,
       post_id: req.body.post_id,
-      // use the id from the session
       user_id: req.session.user_id,
     })
       .then(dbCommentData => {

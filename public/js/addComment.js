@@ -23,19 +23,17 @@ const commentFormHandler = async (event) => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleCommentFormButtons = document.querySelectorAll('.toggle-comment-form');
+const toggleCommentFormButtons = document.querySelectorAll('.toggle-comment-form');
 
-  toggleCommentFormButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const postContainer = event.target.closest('.post-container');
-      const commentForm = postContainer.querySelector('.comment-form');
-      commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
-    });
+toggleCommentFormButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const postContainer = event.target.closest('.post-container');
+    const commentForm = postContainer.querySelector('.comment-form');
+    commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
   });
+});
 
-  const submitCommentButtons = document.querySelectorAll('.submit-comment');
-  submitCommentButtons.forEach((button) => {
-    button.addEventListener('click', commentFormHandler);
-  });
+const submitCommentButtons = document.querySelectorAll('.submit-comment');
+submitCommentButtons.forEach((button) => {
+  button.addEventListener('click', commentFormHandler);
 });

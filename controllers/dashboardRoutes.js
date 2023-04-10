@@ -15,32 +15,40 @@ router.get('/', withAuth, (req, res) => {
       'image',
       'title',
       'createdAt',
-      // This code creates a SELECT statement that calls the COUNT SQL function on the post_id column of the like table. The resulting column is also aliased as like_count
-      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
-          model: User, 
-          attributes: ['username']
+          model: User,
+          attributes: [
+            'username'
+          ]
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       }
     ]
   })
-  .then(dbPostData => {
-    const posts = dbPostData.map(post => post.get({ plain: true }));
-    res.render('profile', { posts, loggedIn: true }); // Render the profile view
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('profile', { posts, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Route to render the edit post page
@@ -54,31 +62,40 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt'
-      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: [
+            'username'
+          ]
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       }
     ]
   })
-  .then(dbPostData => {
-    const post = dbPostData.get({ plain: true });
-    res.render('editPost', { post, loggedIn: true });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbPostData => {
+      const post = dbPostData.get({ plain: true });
+      res.render('editPost', { post, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Route to render the new post page
@@ -97,7 +114,6 @@ router.get('/post/:id', withAuth, (req, res) => {
       'content',
       'title',
       'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('like.post_id')), 'like_count']
     ],
     include: [
       {
@@ -111,23 +127,27 @@ router.get('/post/:id', withAuth, (req, res) => {
         ],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: [
+            'username'
+          ]
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       }
     ]
   })
-  .then(dbPostData => {
-    const post = dbPostData.get({ plain: true });
-    res.render('singleBlog', { post, loggedIn: true });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbPostData => {
+      const post = dbPostData.get({ plain: true });
+      res.render('singleBlog', { post, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
