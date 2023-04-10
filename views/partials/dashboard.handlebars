@@ -1,5 +1,45 @@
 <h1 class="title">Dashboard</h1>
 
+<style>
+  .is-hidden {
+    display: none;
+  }
+</style>
+
+<div class="columns is-multiline">
+  {{#each posts}}
+    <div class="column is-one-third">
+      <a href="#" class="post-link" data-post-id="{{ id }}">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">{{ title }}</p>
+          </header>
+          {{#if image}}
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="{{ image }}" alt="Post image">
+              </figure>
+            </div>
+          {{/if}}
+          <div class="card-content">
+            <div class="content">
+              {{ content }}
+            </div>
+            <div class="buttons is-hidden">
+              <button class="button is-primary save-changes-btn">Save Changes</button>
+              <button class="button is-danger delete-btn">Delete</button>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  {{/each}}
+</div>
+
+<script src="/js/editPost.js"></script>
+
+{{!-- <h1 class="title">Dashboard</h1>
+
   <div class="columns is-multiline">
     {{#each posts}}
       <div class="column is-one-third">
@@ -22,4 +62,4 @@
         </div>
       </div>
     {{/each}}
-  </div>
+  </div> --}}
