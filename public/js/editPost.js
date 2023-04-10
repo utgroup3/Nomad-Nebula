@@ -69,7 +69,7 @@ document.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
 //       headers: { 'Content-Type': 'application/json' }
 //     });
 //     if (response.ok) {
-//       window.location.href = '/dashboard';
+//       window.location.href = '/profile';
 //     } else {
 //       throw new Error('Failed to update post');
 //     }
@@ -89,7 +89,7 @@ document.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
 //       method: 'DELETE'
 //     });
 //     if (response.ok) {
-//       window.location.href = '/dashboard';
+//       window.location.href = '/profile';
 //     } else {
 //       throw new Error('Failed to delete post');
 //     }
