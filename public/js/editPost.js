@@ -53,7 +53,6 @@ document.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
   });
 });
 
-
 // // Handle form submission
 // const editPostForm = document.querySelector('.edit-post-form');
 // editPostForm.addEventListener('submit', async (event) => {
