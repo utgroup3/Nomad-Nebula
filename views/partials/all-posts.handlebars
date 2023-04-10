@@ -1,5 +1,7 @@
+<div>
+   {{#each posts}}
 <div class="community-posts">
-  {{#each posts}}
+ 
   <div class="post-wrapper">
     <div class="post-container" data-post-id="{{id}}">
 
@@ -35,6 +37,8 @@
             {{/if}}
           </a>
           <a class="post-action-item">Comments</a>
+    
+          <br>
           <a class="post-action-item toggle-comment-form">Add a Comment</a>
           <a class="post-action-item hide-link" data-action="hide">Hide</a>
           <div class="post-action-item dropdown is-hoverable">
@@ -100,7 +104,10 @@
             {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
 
           </div>
+          <br>
+          
           {{/each}}
+          <br>
         </div>
 
       </div>
@@ -111,9 +118,11 @@
     <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
   </div>
 
-  {{/each}}
 </div>
-
+<br>
+  {{/each}}
+  <br>
+</div>
 <script src="/js/sharePost.js"></script>
 <script src="/js/hidePost.js"></script>
 <script src="/js/addComment.js"></script>
