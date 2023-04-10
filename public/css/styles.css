@@ -363,6 +363,7 @@ body {
 .bio-container h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 4vw;
+  text-shadow: 0 4px 20px #1cc2de;
 }
 
 .bio-container .bio-left {
@@ -371,6 +372,14 @@ body {
 
 .bio-container .bio-right {
   text-align: right;
+}
+.prof-bio .title {
+  text-align: center;
+  margin: auto;
+  font-family: 'Orbitron', sans-serif;
+  padding-bottom: 20px;
+  color: white;
+  text-shadow: 0 4px 20px #1cc2de;
 }
 
 .edit-icon {
