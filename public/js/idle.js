@@ -1,4 +1,4 @@
-const idleTimeout = 180000;
+const idleTimeout = 30 * 60 * 1000;
 let idleTimer;
 
 function resetIdleTimer() {
