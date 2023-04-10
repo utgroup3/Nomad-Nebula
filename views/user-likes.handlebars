@@ -29,32 +29,34 @@
             {{#each likes}}
             <div class="post-wrapper">
               <div class="post-container" data-post-id="{{this.post.id}}">
-
                 <div class="post-content">
+                  <div class="post-head">
+                    {{#if this.post.user.profilePicture}}
+                    <img src="{{ this.post.user.profilePicture }}" alt="Profile picture" class="is-rounded profP">
+                    {{else}}
+                    <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+                    {{/if}}
+                  </div>
+
                   <h3 class="title is-5">{{this.post.title}}</h3>
 
                   <figure class="user-uploaded-picture">
                     {{#if this.post.image}}
-                    <img src="{{ this.post.image }}" alt="User uploaded image" class="is-rounded">
+                    <img src="{{ this.post.image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture">
                     {{/if}}
                   </figure>
 
                   <p>{{this.post.content}}</p>
                   <p class="post-meta">
                     Submitted {{format_date createdAt}} by
-                    <strong>{{this.post.user.username}}</strong> to <a href="/community/{{community}}">{{community}}</a>
+                    <strong>{{this.post.user.username}}</strong> in {{this.user.location}}
+                    {{!-- to <a href="/community/{{community}}">{{community}}</a> --}}
                   </p>
-
-                  {{!-- --}}
-                  {{#if this.post.user.profilePicture}}
-                  <img src="{{ this.post.user.profilePicture }}" alt="Profile picture" class="is-rounded">
-                  {{else}}
-                  <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
-                  {{/if}}
 
                   <div class="post-actions">
                     <a class="post-action-item like-btn"><span class="heart liked">❤️</span></a>
-                    <a class="post-action-item toggle-comment-form">Comments</a>
+                    <a class="post-action-item">Comments</a>
+                    <a class="post-action-item toggle-comment-form">Add a Comment</a>
                     <a class="post-action-item hide-link" data-action="hide">Hide</a>
                     <div class="post-action-item dropdown is-hoverable">
                       <a class="dropdown-trigger">
@@ -88,12 +90,12 @@
                       <p class="comment-meta">By {{user.username}} on {{format_date
                         this.createdAt}}
                       </p>
+                      <a class="update-comment" data-comment-id="{{id}}">Update</a>
                       <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+                      {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
                     </div>
-
                     {{/each}}
                   </div>
-
                 </div>
               </div>
             </div>
@@ -103,6 +105,32 @@
             </div>
 
             {{/each}}
+
+            <div id="update-comment-modal" class="modal">
+              <div class="modal-background"></div>
+              <div class="modal-card">
+                <header class="modal-card-head">
+                  <p class="modal-card-title">Update your comment</p>
+                  <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                  <form id="update-comment-form">
+                    <div class="field">
+                      <label class="label">Comment</label>
+                      <div class="control">
+                        <textarea id="update-comment-textarea" class="textarea"
+                          placeholder="Enter your updated comment"></textarea>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+                <footer class="modal-card-foot">
+                  <button id="submit-update-comment" class="button is-success">Save changes</button>
+                  <button id="cancel-update-comment" class="button">Cancel</button>
+                </footer>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -114,4 +142,6 @@
 <script src="/js/hidePost.js"></script>
 <script src="/js/addComment.js"></script>
 <script src="/js/deleteComment.js"></script>
-<script src="/js/addLike.js"></script>
+<script src="/js/heartStatus.js"></script>
+<script src="/js/updateCommentUserLikes.js"></script>
+<script src="/js/displayComments.js"></script>

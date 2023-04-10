@@ -13,12 +13,13 @@ router.get('/', (req, res) => {
       'image',
       'createdAt',
       'content',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       },
       {
         model: Comment,
@@ -31,7 +32,9 @@ router.get('/', (req, res) => {
         ],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: [
+            'username'
+          ]
         }
       }
     ]
@@ -50,16 +53,17 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [
-      'id', 
-      'title', 
-      'content', 
+      'id',
+      'title',
+      'content',
       'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
     ],
     include: [
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       },
       {
         model: Comment,
@@ -72,7 +76,9 @@ router.get('/:id', (req, res) => {
         ],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: [
+            'username'
+          ]
         }
       }
     ]
@@ -112,19 +118,6 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-// router.put('/votePost', withAuth, (req, res) => {
-//   // make sure the session exists first
-//   if (req.session) {
-//     // pass session id along with all destructured properties on req.body
-//     Post.votePost({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-//       .then(voteData => res.json(voteData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   }
-// });
 
 // UPDATE a post by ID
 router.put('/:id', withAuth, (req, res) => {

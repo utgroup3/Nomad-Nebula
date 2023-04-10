@@ -1,4 +1,4 @@
-const idleTimeout = 1800000;
+const idleTimeout = 180000;
 let idleTimer;
 
 function resetIdleTimer() {
@@ -6,11 +6,10 @@ function resetIdleTimer() {
 
   // Start the idle timer
   idleTimer = setTimeout(() => {
-
     // Show the login modal
     if (window.location.pathname != '/login' && window.location.pathname != '/signup') {
-      const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
-      loginModal.show();
+      const loginModal = document.getElementById("loginModal");
+      loginModal.classList.add('is-active');
     }
   }, idleTimeout);
 }
@@ -21,7 +20,15 @@ window.addEventListener("mousedown", resetIdleTimer);
 window.addEventListener("keypress", resetIdleTimer);
 window.addEventListener("touchmove", resetIdleTimer);
 window.addEventListener("onscroll", resetIdleTimer);
-window.addEventListener("click", resetIdleTimer)
+window.addEventListener("click", resetIdleTimer);
 
 // Start the idle timer initially
 resetIdleTimer();
+
+// Add an event listener to close the modal and redirect to the login page
+const closeModalButton = document.querySelector('#loginModal .delete');
+closeModalButton.addEventListener('click', () => {
+  const loginModal = document.querySelector('#loginModal');
+  loginModal.classList.remove('is-active');
+  window.location.href = '/login';
+});
