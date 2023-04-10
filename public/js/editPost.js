@@ -1,6 +1,13 @@
 // Handle click event on post links
 document.querySelectorAll('.post-link').forEach((postLink) => {
   postLink.addEventListener('click', (event) => {
+
+    // Prevent only the textarea to not toggle the hidden classlist
+    const isTextArea = event.target.matches('textarea') || event.target.closest('textarea') !== null;
+    if(isTextArea) {
+      return;
+    }
+    
     event.preventDefault();
     const buttonsContainer = event.currentTarget.querySelector('.buttons');
     buttonsContainer.classList.toggle('is-hidden');
@@ -12,13 +19,14 @@ document.querySelectorAll('.save-changes-btn').forEach((saveBtn) => {
   saveBtn.addEventListener('click', async (event) => {
     const postId = event.currentTarget.closest('.post-link').dataset.postId;
     const title = event.currentTarget.closest('.card').querySelector('.card-header-title').innerText;
-    const post_content = event.currentTarget.closest('.card').querySelector('.content').innerText;
+    // const post_content = event.currentTarget.closest('.card').querySelector('.content').innerText;
+    var textarea = document.querySelector('.edit-textarea');
 
     // Make API request to update post
     try {
       const response = await fetch(`/api/posts/${postId}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, post_content }),
+        body: JSON.stringify({ title: title, content: textarea.value }),
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
