@@ -1,109 +1,70 @@
-// Handle click event on post links
-document.querySelectorAll('.post-link').forEach((postLink) => {
-  postLink.addEventListener('click', (event) => {
+const editForm = document.querySelector('.edit-post-form');
 
-    // Prevent only the textarea to not toggle the hidden classlist
-    const isTextArea = event.target.matches('textarea') || event.target.closest('textarea') !== null;
-    if(isTextArea) {
-      return;
-    }
-    
+if (editForm) {
+  editForm.onsubmit = function(event) {
     event.preventDefault();
-    const buttonsContainer = event.currentTarget.querySelector('.buttons');
-    buttonsContainer.classList.toggle('is-hidden');
-  });
-});
 
-// Handle save changes button click
-document.querySelectorAll('.save-changes-btn').forEach((saveBtn) => {
-  saveBtn.addEventListener('click', async (event) => {
-    const postId = event.currentTarget.closest('.post-link').dataset.postId;
-    const title = event.currentTarget.closest('.post-content').querySelector('.title').innerText;
-    // const post_content = event.currentTarget.closest('.card').querySelector('.content').innerText;
+    const postId = document.querySelector('#post_id').value;
+    const title = document.querySelector('input[name="title"]').value;
+    const content = document.querySelector('textarea[name="content"]').value;
+    const image = document.querySelector('input[type="file"]').files[0];
 
-    // Select the appropriate post-id for each textarea the user clicks on
-    const textarea = event.currentTarget.closest('.post-content').querySelector(`[data-post-id="${postId}"] .edit-textarea`);
-
-    // Make API request to update post
-    try {
-      const response = await fetch(`/api/posts/${postId}`, {
-        method: 'PUT',
-        body: JSON.stringify({ title: title, content: textarea.value }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (response.ok) {
-        window.location.href = '/profile';
-      } else {
-        throw new Error('Failed to update post');
-      }
-    } catch (error) {
-      console.error(error);
+    const data = new FormData();
+    data.append('title', title);
+    data.append('content', content);
+    if (image) {
+      data.append('image', image);
     }
+
+    axios({
+      method: 'put',
+      url: `/api/posts/${postId}`,
+      data: data,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+      .then(response => {
+        if (response.status === 200) {
+          window.open('/profile', '_self');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  // This portion of code is to incorporate a filelist beside image upload
+  const fileInput = document.querySelector('input[type="file"]');
+  const fileUploadLabel = document.querySelector('.file-upload-label');
+
+  fileInput.addEventListener('change', (event) => {
+    // Get the selected file name
+    const fileName = event.target.files[0].name;
+
+    // Set the file upload label to the selected file name
+    fileUploadLabel.textContent = fileName;
   });
-});
+}
 
 // Handle delete post button click
-document.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
-  deleteBtn.addEventListener('click', async (event) => {
-    const postId = event.currentTarget.closest('.post-link').dataset.postId;
+document.querySelector('#deleteProfileBtn').addEventListener('click', async (event) => {
+  event.preventDefault();
 
-    // Make API request to delete post
-    try {
-      const response = await fetch(`/api/posts/${postId}`, {
-        method: 'DELETE',
-      });
-      if (response.ok) {
-        window.location.href = '/profile';
-      } else {
-        throw new Error('Failed to delete post');
-      }
-    } catch (error) {
-      console.error(error);
+  const postIdInput = document.querySelector('#post_id');
+  console.log('postIdInput:', postIdInput);
+  const postId = postIdInput.value;
+  console.log(`postId: ${postId}`);
+
+  // Make API request to delete post
+  try {
+    const response = await fetch(`/api/posts/${postId}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      window.location.href = '/profile';
+    } else {
+      throw new Error('Failed to delete post');
     }
-  });
+  } catch (error) {
+    console.error(error);
+  }
 });
-
-// // Handle form submission
-// const editPostForm = document.querySelector('.edit-post-form');
-// editPostForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   const title = editPostForm.querySelector('[name="post-title"]').value;
-//   const post_content = editPostForm.querySelector('[name="post-body"]').value;
-//   const postId = editPostForm.dataset.postId;
-
-//   // Make API request to update post
-//   try {
-//     const response = await fetch(`/api/posts/${postId}`, {
-//       method: 'PUT',
-//       body: JSON.stringify({ title, post_content }),
-//       headers: { 'Content-Type': 'application/json' }
-//     });
-//     if (response.ok) {
-//       window.location.href = '/profile';
-//     } else {
-//       throw new Error('Failed to update post');
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
-
-// // Handle delete post button click
-// const deletePostButton = document.querySelector('.delete-post-btn');
-// deletePostButton.addEventListener('click', async () => {
-//   const postId = editPostForm.dataset.postId;
-
-//   // Make API request to delete post
-//   try {
-//     const response = await fetch(`/api/posts/${postId}`, {
-//       method: 'DELETE'
-//     });
-//     if (response.ok) {
-//       window.location.href = '/profile';
-//     } else {
-//       throw new Error('Failed to delete post');
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
