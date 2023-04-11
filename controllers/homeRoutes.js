@@ -3,12 +3,16 @@ const { Post, User, Comment, Like } = require('../models');
 const { format_date } = require('../utils/helpers')
 const sequelize = require('../config/connection');
 
+
+// Define a GET route for the homepage, which renders the landing-page view
 router.get('/', (req, res) => {
   res.render('landing-page', {
     loggedIn: req.session.loggedIn,
   });
 });
 
+// Define a GET route for the user's profile, which renders the profile view
+// This route retrieves the user's data and all posts that the user has created
 router.get('/profile', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -24,6 +28,7 @@ router.get('/profile', async (req, res) => {
       ]
     });
 
+    // Retrieve all posts created by the user
     const dbPostData = await Post.findAll({
       where: {
         user_id: req.session.user_id
@@ -64,10 +69,12 @@ router.get('/profile', async (req, res) => {
       ]
     });
 
+    // Format the user's join date and convert the posts to plain objects
     const user = dbUserData.get({ plain: true });
     user.joinedDate = format_date(user.createdAt);
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
+    // Render the profile view and pass in the user and post data
     res.render('profile', {
       user,
       posts,
@@ -78,8 +85,11 @@ router.get('/profile', async (req, res) => {
   }
 });
 
+// Define a GET route for the community page, which renders the community view
+// This route retrieves all posts and their associated user and comment data
 router.get('/community', async (req, res) => {
   try {
+    // Retrieve the current user's data
     const dbUserData = await User.findOne({
       where: {
         id: req.session.user_id,
@@ -94,6 +104,7 @@ router.get('/community', async (req, res) => {
       ]
     });
 
+    // Retrieve the current user's data
     const dbPostData = await Post.findAll({
       include: [
         {
@@ -124,6 +135,7 @@ router.get('/community', async (req, res) => {
       ]
     });
 
+    // Retrieve all posts that the current user has liked
     const likedPosts = await Like.findAll({
       where: { user_id: req.session.user_id },
       attributes: [
@@ -157,6 +169,7 @@ router.get('/community', async (req, res) => {
 
 router.get('/create-post', async (req, res) => {
   try {
+    // Convert sequelize object data into plain object data
     const dbUserData = await User.findOne({
       where: {
         id: req.session.user_id,

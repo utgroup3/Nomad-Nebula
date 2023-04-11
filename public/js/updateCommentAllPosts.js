@@ -19,11 +19,13 @@ document.addEventListener('click', async (event) => {
   if (event.target.matches('.update-comment')) {
     event.preventDefault();
 
+    // Get current comment's ID and text
     currentCommentId = event.target.dataset.commentId;
     const commentContainer = event.target.closest('.comment-container');
     currentCommentTextElement = commentContainer.querySelector('.com');
     const currentCommentText = currentCommentTextElement.textContent.trim();
 
+    // Set text of textarea and show modal
     updateCommentTextarea.value = currentCommentText;
     updateCommentModal.classList.add('is-active');
   }

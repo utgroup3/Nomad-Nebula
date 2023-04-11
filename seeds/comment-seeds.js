@@ -63,6 +63,7 @@ const commentData = [
     },
 ]
 
+// Function that uses the Comment model to bulk create the commentData
 const seedComment = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComment;

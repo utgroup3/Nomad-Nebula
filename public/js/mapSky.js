@@ -1,10 +1,13 @@
+// Function to get the latitude and longitude of a location entered by the user
 function getLatLong() {
   const locationInput = document.getElementById("location");
   const location = locationInput.value;
 
+  // Call function to get coordinates of location
   getLocationCoordinates(location);
 }
 
+// Function to fetch coordinates of a location using OpenStreetMap Nominatim API
 async function getLocationCoordinates(location) {
   const baseUrl = "https://nominatim.openstreetmap.org/search";
   const format = "json";
@@ -16,6 +19,7 @@ async function getLocationCoordinates(location) {
     const response = await fetch(url);
     const data = await response.json();
 
+    // If location found, get the latitude and longitude and call other functions
     if (data.length > 0) {
       const latitude = data[0].lat;
       const longitude = data[0].lon;
