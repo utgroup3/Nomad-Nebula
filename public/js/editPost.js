@@ -18,11 +18,11 @@ document.querySelectorAll('.post-link').forEach((postLink) => {
 document.querySelectorAll('.save-changes-btn').forEach((saveBtn) => {
   saveBtn.addEventListener('click', async (event) => {
     const postId = event.currentTarget.closest('.post-link').dataset.postId;
-    const title = event.currentTarget.closest('.card').querySelector('.card-header-title').innerText;
+    const title = event.currentTarget.closest('.post-content').querySelector('.title').innerText;
     // const post_content = event.currentTarget.closest('.card').querySelector('.content').innerText;
 
     // Select the appropriate post-id for each textarea the user clicks on
-    const textarea = event.currentTarget.closest('.card-content').querySelector(`[data-post-id="${postId}"] .edit-textarea`);
+    const textarea = event.currentTarget.closest('.post-content').querySelector(`[data-post-id="${postId}"] .edit-textarea`);
 
     // Make API request to update post
     try {

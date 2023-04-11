@@ -20,13 +20,13 @@
           </div>
         </div>
       </section>
-
+      {{#each likes}}
       <section class="section">
         <div class="container">
 
 
           <div class="community-posts user-likes-page">
-            {{#each likes}}
+
             <div class="post-wrapper">
               <div class="post-container" data-post-id="{{this.post.id}}">
                 <div class="post-content">
@@ -34,7 +34,7 @@
                     {{#if this.post.user.profilePicture}}
                     <img src="{{ this.post.user.profilePicture }}" alt="Profile picture" class="is-rounded profP">
                     {{else}}
-                    <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+                    <img src="/img/default.png" alt="Default profile picture" class="is-rounded profP">
                     {{/if}}
                   </div>
 
@@ -86,7 +86,9 @@
                   <div class="comments-container">
                     {{#each post.comments}}
                     <div class="comment-container">
+
                       <p>{{comment}}</p>
+
                       <p class="comment-meta">By {{user.username}} on {{format_date
                         this.createdAt}}
                       </p>
@@ -94,9 +96,16 @@
                       <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
                       {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
                     </div>
+
+                    <br>
+
                     {{/each}}
+                    <br>
+
                   </div>
+
                 </div>
+
               </div>
             </div>
 
@@ -104,7 +113,7 @@
               <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
             </div>
 
-            {{/each}}
+
 
             <div id="update-comment-modal" class="modal">
               <div class="modal-background"></div>
@@ -134,7 +143,9 @@
           </div>
         </div>
       </section>
+      {{/each}}
     </div>
+
   </div>
 </main>
 

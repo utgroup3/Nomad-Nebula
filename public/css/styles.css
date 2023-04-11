@@ -2,6 +2,10 @@ body {
   color: #ffffff;
 }
 
+.p {
+  word-wrap: break-word !important;
+}
+
 .button.is-primary {
   background-color: #536996;
   color: #0a0f20;
@@ -232,6 +236,7 @@ body {
   margin-top: 9.5rem;
   padding-top: 20px;
 }
+
 .register-container .label {
   color: #ffffff;
   font-family: 'Orbitron', sans-serif;
@@ -274,6 +279,7 @@ body {
   transition: ease-in-out 0.3s;
   box-shadow: 0 4px 30px #1cc2de;
 }
+
 .register-container .button:not(:last-child) {
   margin-right: 1rem;
 }
@@ -305,6 +311,9 @@ body {
 }
 
 /* profile */
+.is-hidden {
+  display: none;
+}
 
 .bio-container {
   position: relative;
@@ -331,11 +340,11 @@ body {
 
 .bio-container .profile-picture {
   margin-bottom: 2rem;
-  position: absolute; 
-  top: -75px; 
+  position: absolute;
+  top: -75px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; 
+  z-index: 1;
   width: 150px !important;
   height: 150px;
   margin-top: -5rem;
@@ -346,7 +355,8 @@ body {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border: 5px solid  rgba(23, 35, 65, 0.9);;
+  border: 5px solid rgba(23, 35, 65, 0.9);
+  ;
 }
 
 .bio-container .bio-left,
@@ -373,6 +383,7 @@ body {
 .bio-container .bio-right {
   text-align: right;
 }
+
 .prof-bio .title {
   text-align: center;
   margin: auto;
@@ -384,13 +395,14 @@ body {
 
 .edit-icon {
   position: absolute;
-  bottom: 0; 
+  bottom: 0;
   right: 0;
   transform: translateY(50%);
   padding: 0.5rem;
   border-radius: 50%;
   background-color: rgb(140, 161, 216);
-  font-size: 2em; /* Adjust the font size for the edit icon */
+  font-size: 2em;
+  /* Adjust the font size for the edit icon */
 }
 
 .edit-icon:hover {
@@ -400,7 +412,7 @@ body {
   transition: ease-in-out 0.3s;
 }
 
-.iconContainer{
+.iconContainer {
   position: relative;
   max-width: 300px;
   padding-top: 10px;
@@ -458,6 +470,7 @@ body {
   word-spacing: 25px !important;
   font-size: 40px;
   border-radius: 15px;
+
 }
 
 /* edit profile page */
@@ -572,6 +585,7 @@ body {
   justify-content: center;
   align-items: stretch;
 }
+
 .mapSection {
   padding: 2rem;
   margin-top: 3rem;
@@ -586,16 +600,16 @@ body {
   font-family: 'Rajdhani', sans-serif;
   border-radius: 5px;
   padding: 0.4rem;
-  margin-bottom: .4rem; 
+  margin-bottom: .4rem;
   margin-right: .6rem;
-  
+
 }
 
 .mapSection input:focus {
   outline: none;
   border: 1px solid #1cc2de;
   box-shadow: 0 4px 6px #1cc2de;
- 
+
 }
 
 .mapSection h1 {
@@ -608,7 +622,7 @@ body {
 }
 
 .mapSection .mapbutton {
-  background-color: #a2c1ff ;
+  background-color: #a2c1ff;
   color: #0a0f20;
   font-family: 'Orbitron', sans-serif;
   border-radius: 5px;
@@ -634,7 +648,8 @@ body {
 .iframe-container {
   flex-basis: 100%;
   max-width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio for the iframe */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio for the iframe */
   position: relative;
 }
 
@@ -645,7 +660,8 @@ body {
   width: 100%;
   height: 100%;
 }
- /* footer */
+
+/* footer */
 .footer {
   background-color: #172341;
   padding: 1rem 0;
@@ -736,11 +752,14 @@ body {
 }
 
 #zodiac-star-picture {
-  display: block; /* ensures the image is a block element */
-  margin: auto; /* centers the image horizontally */
-  max-width: 50%; /* ensures the image fits within the container */
+  display: block;
+  /* ensures the image is a block element */
+  margin: auto;
+  /* centers the image horizontally */
+  max-width: 50%;
+  /* ensures the image fits within the container */
   transition: transform 0.5s;
-  border-radius:10%;
+  border-radius: 10%;
 }
 
 #zodiac-star-picture:hover {
@@ -787,8 +806,8 @@ body {
 .front-card button {
   flex-grow: 0;
   font-size: 1rem;
-  width: calc(50% - 325px); 
-  margin: 5px; 
+  width: calc(50% - 325px);
+  margin: 5px;
   background: none;
   border: none;
   cursor: pointer;
@@ -798,7 +817,7 @@ body {
 
 .front-card button:hover {
   color: #fcfcfc;
-  background-color: transparent !important; 
+  background-color: transparent !important;
   text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
 }
 
@@ -985,13 +1004,13 @@ body {
 .subtitle {
   font-size: 1.5rem;
   color: #ffffff !important;
-font-family: 'Orbitron', sans-serif;
-font-weight: 700;
-letter-spacing: 2px;
-text-shadow: 0 0 10px #ffffff;
-padding-left: 7%;
-padding-right: 7%;
-padding-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #ffffff;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-bottom: 20px;
 }
 
 .community-posts {
@@ -1002,17 +1021,17 @@ padding-bottom: 20px;
   padding: 1.5rem;
   border-radius: 6px;
   background-color: rgba(23, 35, 65, 0.753);
-max-width: 80%;
-box-shadow: 2px 2px 2px #1cc2de;
-font-family: 'Rajdhani', sans-serif;
-border-radius: 7px;
-border-style:inset;
-border-right: none;
-border-bottom: none;
-border-color: #fcfcfc3b;
+  max-width: 80%;
+  box-shadow: 2px 2px 2px #1cc2de;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 7px;
+  border-style: inset;
+  border-right: none;
+  border-bottom: none;
+  border-color: #fcfcfc3b;
 }
 
-.community-posts .profP {
+.profP {
   border-radius: 50%;
   max-height: 40px;
   max-width: 40px;
@@ -1020,25 +1039,44 @@ border-color: #fcfcfc3b;
 
 .post-head {
   border-color: #fcfcfc3b;
-  border-style:inset;
+  border-style: inset;
   border-right: none;
   border-left: none;
   border-top: none;
   padding-bottom: 8px;
-  
+
 }
-/* .user-uploaded-picture {
-    margin-top: 30%;
-    margin-bottom: 1rem;
-    width: 150px !important; 
-    height: 150px !important;
-    border-radius: 50% !important;
-  }
-   */
-  .profile-picture:hover {
-    box-shadow: 0 4px 20px #1cc2de;
-    cursor: pointer;
-  }
+
+.upim {
+  border-radius: 6px;
+  box-shadow: 0 4px 20px #1cc2de;
+  left: 10%;
+  right: 10%;
+  margin: auto;
+}
+
+.user-uploaded-picture:hover {
+  cursor: pointer;
+}
+
+.profile-picture:hover {
+  box-shadow: 0 4px 20px #1cc2de;
+  cursor: pointer;
+}
+
+.post-content {
+  box-shadow: 2px 2px 2px #1cc2de;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 7px;
+  border-style: inset;
+  border-right: none;
+  border-bottom: none;
+  border-color: #fcfcfc3b;
+  padding: 10px;
+
+}
+
+
 
 .community-posts h3 {
   color: white;
@@ -1058,20 +1096,23 @@ border-color: #fcfcfc3b;
   padding-right: 8px;
   padding-bottom: 8px;
 }
+
 .post-action-item:hover {
   text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
   color: white;
 }
+
 .comment-form {
   border-color: #fcfcfc3b;
-  border-style:inset;
+  border-style: inset;
   border-right: none;
   border-left: none;
   border-bottom: none;
   padding-bottom: 8px;
   padding-top: 10px;
-  
+
 }
+
 .comment-textarea {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
@@ -1086,7 +1127,7 @@ border-color: #fcfcfc3b;
 .comment-textarea:focus {
   border-color: #1cc2de;
   box-shadow: 0 4px 20px #1cc1de8e;
-  
+
 }
 
 .submit-comment {
@@ -1117,9 +1158,10 @@ border-color: #fcfcfc3b;
 }
 
 .comment-meta {
-font-size: 10px;
-color: rgba(255, 255, 255, 0.649);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.649);
 }
+
 .comuser {
   font-weight: 900;
   color: #1cc2de;
@@ -1136,15 +1178,16 @@ color: rgba(255, 255, 255, 0.649);
   padding-top: 8px;
 }
 
-.delete-comment, 
+.delete-comment,
 .hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
-  
+
 }
+
 @media screen and (max-width: 1024px) {
   .register-form {
-      margin-top: 1rem;
+    margin-top: 1rem;
   }
 }
 
@@ -1152,36 +1195,45 @@ color: rgba(255, 255, 255, 0.649);
   .register-form {
     margin-top: 2rem;
   }
+
   .bio-container h2 {
     font-size: 3rem;
   }
+
   .posts-container {
     max-width: 2000px;
   }
+
   .explanation h3 {
 
     font-size: 21px;
 
   }
+
   .explanation p {
     font-size: 17px;
   }
-  
+
 
 }
 
 /* For small screens */
 @media screen and (max-width: 768px) {
   .register-form {
-      margin-top: 1rem;
+    margin-top: 1rem;
   }
 }
 
 /* For extra-small screens */
 @media screen and (max-width: 480px) {
   .register-form {
-      margin-top: 3rem;
+    margin-top: 3rem;
   }
-}
+  .column.is-one-third {
 
-
+  min-width: 90%  !important;
+  }
+  }
+  .posts-container {
+    min-width: 263px !important;
+  }
