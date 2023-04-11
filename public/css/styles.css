@@ -448,7 +448,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  background-color: rgba(23, 35, 65, 0.9);
+  background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
   padding: 2rem;
@@ -574,23 +574,25 @@ body {
 /* map */
 
 .map-container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: .5rem;
   border-radius: 15px;
   background-color: rgba(23, 35, 65, 0.753);
   box-shadow: 0 4px 6px #1cc2de;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+  margin-top: 2rem;
+
 }
 
 .mapSection {
-  padding: 2rem;
+  padding: 1rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
-  max-width: 800px;
+  width: 90%;
+
 }
 
 .mapSection input {
@@ -668,11 +670,11 @@ body {
   background-color: rgba(23, 35, 65, 0.397);
 }
 
-.footer p {
-  color: #ffffff86;
-  font-family: 'Rajdhani', sans-serif;
-}
 
+.footer figure {
+  align-items: center;
+  margin: auto;
+}
 .bio-container {
   flex-direction: column;
 }
@@ -1013,7 +1015,7 @@ body {
   padding-bottom: 20px;
 }
 
-.community-posts {
+/* .community-posts {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -1029,7 +1031,7 @@ body {
   border-right: none;
   border-bottom: none;
   border-color: #fcfcfc3b;
-}
+} */
 
 .profP {
   border-radius: 50%;
@@ -1065,14 +1067,13 @@ body {
 }
 
 .post-content {
-  box-shadow: 2px 2px 2px #1cc2de;
+  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+  -8px -8px 12px 0 rgba(91, 100, 129, 0.3);
   font-family: 'Rajdhani', sans-serif;
-  border-radius: 7px;
-  border-style: inset;
-  border-right: none;
-  border-bottom: none;
-  border-color: #fcfcfc3b;
+  border-radius: 10px;
+
   padding: 10px;
+  background-color: #172341c4;
 
 }
 
