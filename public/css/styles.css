@@ -31,7 +31,7 @@ body {
   object-fit: cover;
 }
 
-/* header */
+/* landing page */
 
 .hero.has-background-dark {
   background-color: #0a0f20;
@@ -74,18 +74,18 @@ body {
   margin-right: 1rem;
 }
 
-.hero-body .logo {
+/* .hero-body .logo {
   margin: 0 auto;
   margin-bottom: 1rem;
   position: relative;
   top: -10%;
   width: 150px;
   height: 150px;
-}
+} */
 
 .buttons-wrapper {
   position: relative;
-  bottom: -10%;
+  margin-top: 15rem;
 }
 
 /* navbar */
@@ -96,7 +96,8 @@ body {
   left: 0;
   height: 100%;
   width: 250px;
-  background-color: #172341d7;
+  background-color:#172341d7;
+  background: linear-gradient(to right, #2c4174d7 0%, #0a0f20 100%);
   z-index: 1000;
   transition: transform 0.3s;
   display: flex;
@@ -108,6 +109,9 @@ body {
   border-top-right-radius: 20%;
   font-family: 'Orbitron', sans-serif;
   box-shadow: 0 4px 20px #1cc2de;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: none;
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.2), inset 1px 1px 2px rgba(255, 255, 255, 0.3), 0 4px 20px #1cc2de;
 }
 
 .navbar-brand {
@@ -123,10 +127,11 @@ body {
   cursor: pointer;
   z-index: 1001;
   border-radius: 50%;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand:hover {
-  box-shadow: 0 4px 30px #1cc2de;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 4px 30px #1cc2de;
   transition: ease-in-out 0.3s;
 }
 
