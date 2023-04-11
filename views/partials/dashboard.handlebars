@@ -3,7 +3,6 @@
     {{#each posts}}
     <div class="column is-one-third">
 
-
       <div class="post-content">
         <div class="post-link" data-post-id="{{id}}">
 
@@ -15,7 +14,6 @@
             {{/if}}
             <p class="post-meta"><strong>{{user.username}}</strong><br>
               {{format_date createdAt}} in {{user.location}}
-              {{!-- <a href="/community/{{community}}">{{community}}</a> --}}
             </p>
           </div>
           <br>
@@ -28,22 +26,13 @@
           </figure>
           <p>{{content}}</p>
 
-          <div class="buttons is-hidden">
-            <textarea class="edit-textarea">{{content}}</textarea>
-            <button class="button is-primary save-changes-btn">Save Changes</button>
-            <button class="button is-danger delete-btn">Delete</button>
-          </div>
-
           <div class="post-actions">
 
             <a class="post-action-item">Comments</a>
-
-            <br>
-            <a class="post-action-item toggle-comment-form">Add a Comment</a>
-            <a class="post-action-item hide-link" data-action="hide">Hide</a>
+            <a class="post-action-item" href="/editPost/{{id}}">Edit Post</a>
             <div class="post-action-item dropdown is-hoverable">
               <a class="dropdown-trigger">
-                <span>Share</span>
+                <span>Share Post</span>
                 <span class="icon is-small">
                   <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
@@ -61,48 +50,13 @@
             </div>
           </div>
 
-          <form class="comment-form" style="display:none;">
-            <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
-            <button type="submit" class="submit-comment">Submit</button>
-          </form>
-
-          <div id="update-comment-modal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Update your comment</p>
-                <button class="delete" aria-label="close"></button>
-              </header>
-              <section class="modal-card-body">
-                <form id="update-comment-form">
-                  <div class="field">
-                    <label class="label">Comment</label>
-                    <div class="control">
-                      <textarea id="update-comment-textarea" class="textarea"
-                        placeholder="Enter your updated comment"></textarea>
-                    </div>
-                  </div>
-                </form>
-              </section>
-              <footer class="modal-card-foot">
-                <button id="submit-update-comment" class="button is-success">Save changes</button>
-                <button id="cancel-update-comment" class="button">Cancel</button>
-              </footer>
-            </div>
-          </div>
-
           <div class="comments-container">
             <p class="comlabel">Comments</p>
-            {{#each comments}}
+            {{#each this.comments}}
             <div class="comment-container">
-
               <p class="comment-meta">
-              <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
-              <p class="com">{{comment}}</p>
-              <a class="update-comment" data-comment-id="{{id}}">Update</a>
-              <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
-              {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
-
+              <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
+              <p class="com">{{this.comment}}</p>
             </div>
             <br>
 
@@ -116,22 +70,11 @@
         <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
       </div>
 
-
-
-
     </div>
     <br>
     {{/each}}
   </div>
-
-
 </div>
 
-<script src="/js/editPost.js"></script>
 <script src="/js/sharePost.js"></script>
-<script src="/js/hidePost.js"></script>
-<script src="/js/addComment.js"></script>
-<script src="/js/deleteComment.js"></script>
-<script src="/js/heartStatus.js"></script>
-<script src="/js/updateCommentAllPosts.js"></script>
 <script src="/js/displayComments.js"></script>

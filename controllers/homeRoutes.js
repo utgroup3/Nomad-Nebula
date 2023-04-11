@@ -45,9 +45,27 @@ router.get('/profile', async (req, res) => {
           model: User,
           attributes: [
             'username',
-            'profilePicture'
-          ],
+            'profilePicture',
+            'location'
+          ]
         },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: [
+              'username',
+              'profilePicture',
+              'location'
+            ]
+          }
+        }
+      ],
+      order: [
+        [
+          'createdAt',
+          'DESC'
+        ]
       ]
     });
 
@@ -77,6 +95,7 @@ router.get('/community', async (req, res) => {
         id: req.session.user_id,
       },
       attributes: [
+        'id',
         'username',
         'location',
         'birthday',
@@ -90,7 +109,8 @@ router.get('/community', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username',
+          attributes: [
+            'username',
             'profilePicture',
             'location'
           ]
@@ -100,6 +120,7 @@ router.get('/community', async (req, res) => {
           include: {
             model: User,
             attributes: [
+              'id',
               'username',
               'profilePicture'
             ]
@@ -128,9 +149,10 @@ router.get('/community', async (req, res) => {
     const posts = dbPostData.map((post) => {
       const postObj = post.get({ plain: true });
       postObj.isLiked = likedPostIds.includes(postObj.id);
+      postObj.comments.forEach(comment => comment.loggedInUser = req.session.user_id);
       return postObj;
     });
-
+    console.log(posts);
     const baseURL = `${req.protocol}://${req.get('host')}`;
 
     res.render('community', {
@@ -190,7 +212,9 @@ router.get('/user-likes', async (req, res) => {
         model: Post, include: [User,
           {
             model: Comment,
-            include: [User],
+            include: [
+              User
+            ],
           }]
       }]
     });
@@ -269,10 +293,19 @@ router.get('/post/:id/comments', (req, res) => {
     where: {
       post_id: req.params.id
     },
-    attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+    attributes: [
+      'id',
+      'comment',
+      'post_id',
+      'user_id',
+      'createdAt'
+    ],
     include: {
       model: User,
-      attributes: ['id', 'username']
+      attributes: [
+        'id',
+        'username',
+      ]
     }
   })
     .then(dbCommentData => {
@@ -289,61 +322,37 @@ router.get('/post/:id/comments', (req, res) => {
     });
 });
 
-// get a single post my id
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'title',
-      'content',
-      'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: [
-          'id', 
-          'comment', 
-          'post_id', 
-          'user_id', 
-          'createdAt'
-        ],
-        include: {
-          model: User,
-          attributes: [
-            'username'
-          ]
-        }
+// Route to render the edit post page
+router.get('/editPost/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
       },
-      {
-        model: User,
-        attributes: [
-          'username'
-        ]
-      }
-    ]
-  })
-    .then(postData => {
-      if (!postData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-
-      const post = postData.get({ plain: true });
-
-      res.render('singleBlog', {
-        post,
-        loggedIn: req.session.loggedIn
-      });
+      attributes: [
+        'id',
+        'content',
+        'title',
+        'image',
+        'createdAt',
+      ],
     })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+
+
+    const post = postData.get({ plain: true });
+
+    res.render('editPost', {
+      ...post,
+      loggedIn: true,
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // render login page

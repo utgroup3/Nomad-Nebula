@@ -505,7 +505,6 @@ body {
   margin-right: 1rem;
 }
 
-
 /* file upload list from create-post */
 .file-upload-label {
   max-width: 250px;
@@ -516,8 +515,6 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-
-
 
 /* map */
 
@@ -739,6 +736,12 @@ body {
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
+}
+
+@media screen and (max-width: 1000px) {
+  .front-card {
+    flex-direction: column;
+  }
 }
 
 .front-card button {

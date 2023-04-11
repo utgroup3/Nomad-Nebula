@@ -1,28 +1,73 @@
-<section class="container mt-5">
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <a href="/profile" class="mb-3 d-block"> &larr; Back To Profile</a>
-      <h2 class="text-center mb-4">
-        Edit Post
-      </h2>
-      <form class="mt-3 edit-post-form" data-post-id="{{post.id}}">
-        <div class="form-group mb-4">
-          <label for="post-title" class="form-label h4 font-weight-bold">Post Title</label>
-          <input name="post-title" type="text" class="form-control" value="{{post.title}}" />
-        </div>
-        <div class="form-group mb-4">
-          <label for="post-body" class="form-label h4 font-weight-bold">Post</label>
-          <textarea name="post-body" rows="10" class="form-control">{{post.body}}</textarea>
-        </div>
-        <div class="d-flex justify-content-between">
-          <button type="submit" class="btn btn-primary mr-2">Save Changes</button>
-          <button type="button" class="btn btn-danger ml-2 delete-post-btn">Delete Post</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
+{{> navLI }}
 
+<main class="column">
+  <video class="background-video" src="/img/background/background.mp4" autoplay muted loop playsinline></video>
+  <section class="section">
+    <div class="container edit-profile-container">
+      <section class="hero is-dark">
+        <section class="edit-profile-video-container">
+          <video class="edit-profile-video" src="/img/headers/NEWPOST.mp4" autoplay muted loop playsinline></video>
+        </section>
+      </section>
+      <section class="section">
+        <div class="container">
+          <form class="edit-post-form" enctype="multipart/form-data">
+          <input type="hidden" id="post_id" value="{{id}}"/>
+              <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                  <input class="input" type="text" name="title" value="{{title}}">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Text</label>
+                <div class="control">
+                  <textarea class="textarea" name="content" value="{{content}}" rows="4"></textarea>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Upload an image (optional)</label>
+                <div class="file">
+                  <label class="file-label">
+                    <input class="file-input" type="file" name="image">
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Choose a file…
+                      </span>
+                    </span>
+                  </label>
+                  <span class="file-upload-label">No image selected</span>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button type="submit" class="button is-primary">Submit</button>
+                </div>
+                <div class="control">
+                  <a href="/profile" class="button is-light">Cancel</a>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input type="hidden" id="post_id" value="{{id}}" />
+                  <input type="hidden" id="user_id" value="{{user_id}}" />
+                  <button id="deleteProfileBtn" type="submit" class="button is-danger">
+                    <span class="icon">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span>DELETE POST</span>
+                  </button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/editPost.js"></script>
-<script src="js/deletePost.js"></script>
-{{!-- <script src="/js/comment.js"></script> --}}

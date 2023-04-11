@@ -101,8 +101,10 @@
                 <p class="comment-meta">
                 <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
                 <p class="com">{{comment}}</p>
-                <a class="update-comment" data-comment-id="{{id}}">Update</a>
-                <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+              {{#if (equal loggedInUser user_id)}}
+              <a class="update-comment" data-comment-id="{{id}}">Update</a>
+              <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+              {{/if}}
                 {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
 
               </div>
@@ -126,6 +128,7 @@
     <br>
   </div>
 </div>
+
 <script src="/js/sharePost.js"></script>
 <script src="/js/hidePost.js"></script>
 <script src="/js/addComment.js"></script>
