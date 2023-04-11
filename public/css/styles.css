@@ -10,13 +10,14 @@ body {
   background-color: #536996;
   color: #0a0f20;
   font-family: 'Orbitron', sans-serif;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .button.is-primary:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 4px 30px #1cc2de;
   transition: ease-in-out 0.3s;
-  box-shadow: 0 4px 30px #1cc2de;
 }
 
 .background-video {
@@ -62,26 +63,18 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   font-family: 'Orbitron', sans-serif;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .button.is-light:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px #1cc2de;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 4px 30px #1cc2de;
   transition: ease-in-out 0.3s;
 }
 
 .hero-body .button:not(:last-child) {
   margin-right: 1rem;
 }
-
-/* .hero-body .logo {
-  margin: 0 auto;
-  margin-bottom: 1rem;
-  position: relative;
-  top: -10%;
-  width: 150px;
-  height: 150px;
-} */
 
 .buttons-wrapper {
   position: relative;
@@ -258,31 +251,6 @@ body {
 .register-container .input:focus {
   border-color: #1cc2de;
   box-shadow: 0 4px 20px #1cc1de8e;
-}
-
-.register-container .button.is-primary {
-  background-color: #a2c1ff;
-  color: #0a0f20;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.register-container .button.is-light {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.register-container .button.is-light:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px #1cc2de;
-  transition: ease-in-out 0.3s;
-}
-
-.register-container .button.is-primary:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: ease-in-out 0.3s;
-  box-shadow: 0 4px 30px #1cc2de;
 }
 
 .register-container .button:not(:last-child) {
@@ -533,31 +501,6 @@ body {
   box-shadow: 0 4px 20px #1cc1de8e;
 }
 
-.edit-profile-container .button.is-primary {
-  background-color: #a2c1ff;
-  color: #0a0f20;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.edit-profile-container .button.is-light {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.edit-profile-container .button.is-light:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px #1cc2de;
-  transition: ease-in-out 0.3s;
-}
-
-.edit-profile-container .button.is-primary:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: ease-in-out 0.3s;
-  box-shadow: 0 4px 30px #1cc2de;
-}
-
 .edit-profile-container .button:not(:last-child) {
   margin-right: 1rem;
 }
@@ -635,21 +578,6 @@ body {
   font-family: 'Orbitron', sans-serif;
 }
 
-.mapSection .mapbutton {
-  background-color: #a2c1ff;
-  color: #0a0f20;
-  font-family: 'Orbitron', sans-serif;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
-.mapSection .mapbutton:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px #1cc2de;
-  transition: ease-in-out 0.3s;
-
-}
-
 .hero.is-dark {
   background-color: #172341;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -663,7 +591,6 @@ body {
   flex-basis: 100%;
   max-width: 100%;
   padding-bottom: 56.25%;
-  /* 16:9 aspect ratio for the iframe */
   position: relative;
 }
 
@@ -767,11 +694,8 @@ body {
 
 #zodiac-star-picture {
   display: block;
-  /* ensures the image is a block element */
   margin: auto;
-  /* centers the image horizontally */
   max-width: 50%;
-  /* ensures the image fits within the container */
   transition: transform 0.5s;
   border-radius: 10%;
 }
