@@ -1,28 +1,28 @@
 {{> navLI }}
 
 <main class="column">
-  <video class="background-video" src="img/background/background.mp4" autoplay muted loop playsinline></video>
+  <video class="background-video" src="/img/background/background.mp4" autoplay muted loop playsinline></video>
   <section class="section">
     <div class="container edit-profile-container">
       <section class="hero is-dark">
         <section class="edit-profile-video-container">
-          <video class="edit-profile-video" src="img/headers/NEWPOST.mp4" autoplay muted loop playsinline></video>
+          <video class="edit-profile-video" src="/img/headers/NEWPOST.mp4" autoplay muted loop playsinline></video>
         </section>
       </section>
       <section class="section">
         <div class="container">
           <form class="edit-post-form" enctype="multipart/form-data">
-          <input type="hidden" id="post_id" value="{{post.id}}"/>
+          <input type="hidden" id="post_id" value="{{id}}"/>
               <div class="field">
                 <label class="label">Title</label>
                 <div class="control">
-                  <input class="input" type="text" name="title">
+                  <input class="input" type="text" name="title" value="{{title}}">
                 </div>
               </div>
               <div class="field">
                 <label class="label">Text</label>
                 <div class="control">
-                  <textarea class="textarea" name="content" rows="4"></textarea>
+                  <textarea class="textarea" name="content" value="{{content}}" rows="4"></textarea>
                 </div>
               </div>
               <div class="field">
@@ -52,7 +52,7 @@
               </div>
               <div class="field">
                 <div class="control">
-                  <input type="hidden" id="post_id" value="{{post.id}}" />
+                  <input type="hidden" id="post_id" value="{{id}}" />
                   <input type="hidden" id="user_id" value="{{user_id}}" />
                   <button id="deleteProfileBtn" type="submit" class="button is-danger">
                     <span class="icon">

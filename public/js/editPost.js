@@ -49,7 +49,10 @@ if (editForm) {
 document.querySelector('#deleteProfileBtn').addEventListener('click', async (event) => {
   event.preventDefault();
 
-  const postId = document.querySelector('#post_id').value;
+  const postIdInput = document.querySelector('#post_id');
+  console.log('postIdInput:', postIdInput);
+  const postId = postIdInput.value;
+  console.log(`postId: ${postId}`);
 
   // Make API request to delete post
   try {

@@ -40,9 +40,27 @@ router.get('/profile', async (req, res) => {
           model: User,
           attributes: [
             'username',
-            'profilePicture'
-          ],
+            'profilePicture',
+            'location'
+          ]
         },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: [
+              'username',
+              'profilePicture',
+              'location'
+            ]
+          }
+        }
+      ],
+      order: [
+        [
+          'createdAt',
+          'DESC'
+        ]
       ]
     });
 
@@ -67,6 +85,7 @@ router.get('/community', async (req, res) => {
         id: req.session.user_id,
       },
       attributes: [
+        'id',
         'username',
         'location',
         'birthday',
@@ -79,7 +98,8 @@ router.get('/community', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username',
+          attributes: [
+            'username',
             'profilePicture',
             'location'
           ]
@@ -89,6 +109,7 @@ router.get('/community', async (req, res) => {
           include: {
             model: User,
             attributes: [
+              'id',
               'username',
               'profilePicture'
             ]
@@ -116,9 +137,10 @@ router.get('/community', async (req, res) => {
     const posts = dbPostData.map((post) => {
       const postObj = post.get({ plain: true });
       postObj.isLiked = likedPostIds.includes(postObj.id);
+      postObj.comments.forEach(comment => comment.loggedInUser = req.session.user_id);
       return postObj;
     });
-
+    console.log(posts);
     const baseURL = `${req.protocol}://${req.get('host')}`;
 
     res.render('community', {
@@ -177,7 +199,9 @@ router.get('/user-likes', async (req, res) => {
         model: Post, include: [User,
           {
             model: Comment,
-            include: [User],
+            include: [
+              User
+            ],
           }]
       }]
     });
@@ -256,10 +280,19 @@ router.get('/post/:id/comments', (req, res) => {
     where: {
       post_id: req.params.id
     },
-    attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+    attributes: [
+      'id',
+      'comment',
+      'post_id',
+      'user_id',
+      'createdAt'
+    ],
     include: {
       model: User,
-      attributes: ['id', 'username']
+      attributes: [
+        'id',
+        'username',
+      ]
     }
   })
     .then(dbCommentData => {
@@ -277,22 +310,31 @@ router.get('/post/:id/comments', (req, res) => {
 });
 
 // Route to render the edit post page
-router.get('/editPost', async (req, res) => {
+router.get('/editPost/:id', async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
     return;
   }
 
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
-    });
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'content',
+        'title',
+        'image',
+        'createdAt',
+      ],
+    })
 
-    const user = userData.get({ plain: true });
+
+    const post = postData.get({ plain: true });
 
     res.render('editPost', {
-      ...user,
+      ...post,
       loggedIn: true,
     });
   } catch (err) {

@@ -26,7 +26,6 @@
           </figure>
           <p>{{content}}</p>
 
-          {{!-- --}}
           <div class="post-actions">
             <a class="post-action-item like-btn">
               {{#if isLiked}}
@@ -91,7 +90,7 @@
             <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
             <button type="submit" class="submit-comment">Submit</button>
           </form>
-          
+
           <div class="comments-container">
             <p class="comlabel">Comments</p>
             {{#each comments}}
@@ -100,9 +99,10 @@
               <p class="comment-meta">
               <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
               <p class="com">{{comment}}</p>
+              {{#if (equal loggedInUser user_id)}}
               <a class="update-comment" data-comment-id="{{id}}">Update</a>
               <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
-
+              {{/if}}
             </div>
             <br>
 

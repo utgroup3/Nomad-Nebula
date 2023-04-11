@@ -800,6 +800,12 @@ body {
   box-shadow: 0 4px 20px #1cc2de;
 }
 
+@media screen and (max-width: 1000px) {
+  .front-card {
+    flex-direction: column;
+  }
+}
+
 .front-card button {
   flex-grow: 0;
   font-size: 1rem;

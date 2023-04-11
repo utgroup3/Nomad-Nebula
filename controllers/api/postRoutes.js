@@ -120,18 +120,21 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
 });
 
 // UPDATE a post by ID
-router.put('/:id', withAuth, (req, res) => {
-  Post.update(
-    {
-      title: req.body.title,
-      content: req.body.content
+router.put('/:id', withAuth, postUpload.single('image'), (req, res) => {
+  const updateData = {
+    title: req.body.title,
+    content: req.body.content,
+  };
+
+  if (req.file) {
+    updateData.image = `/uploads/postPicture/${req.file.filename}`;
+  }
+
+  Post.update(updateData, {
+    where: {
+      id: req.params.id
     },
-    {
-      where: {
-        id: req.params.id
-      }
-    }
-  )
+  })
     .then(dbPostData => {
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
@@ -147,6 +150,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 // DELETE a post by ID
 router.delete('/:id', withAuth, (req, res) => {
+  console.log(`Received DELETE request for post ID ${req.params.id}`);
   Post.destroy({
     where: {
       id: req.params.id

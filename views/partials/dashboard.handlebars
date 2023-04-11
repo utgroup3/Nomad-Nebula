@@ -29,7 +29,7 @@
           <div class="post-actions">
 
             <a class="post-action-item">Comments</a>
-            <a class="post-action-item" href="/editPost">Edit Post</a>
+            <a class="post-action-item" href="/editPost/{{id}}">Edit Post</a>
             <div class="post-action-item dropdown is-hoverable">
               <a class="dropdown-trigger">
                 <span>Share Post</span>
@@ -55,7 +55,7 @@
             {{#each this.comments}}
             <div class="comment-container">
               <p class="comment-meta">
-              <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}}</p>
+              <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
               <p class="com">{{this.comment}}</p>
             </div>
             <br>

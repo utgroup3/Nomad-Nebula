@@ -1,6 +1,5 @@
 module.exports = {
   format_date: (date) => {
-    console.log('Input date:', date);
 
     // Check if date is valid before formatting
     if (!date) {
@@ -13,5 +12,7 @@ module.exports = {
       month: '2-digit',
       day: '2-digit'
     });
-  }
+  },
+
+  equal: (a, b) => a == b,
 };
