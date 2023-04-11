@@ -1,7 +1,16 @@
 body {
   color: #ffffff;
+  margin: 0;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+main {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
 .p {
   word-wrap: break-word !important;
 }
@@ -11,10 +20,11 @@ body {
   color: #0a0f20;
   font-family: 'Orbitron', sans-serif;
   box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: capitalize !important;
 }
 
 .button.is-primary:hover {
-  color: #ffffff;
+  color: #fffffffd;
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 4px 30px #1cc2de;
   transition: ease-in-out 0.3s;
@@ -64,6 +74,7 @@ body {
   color: #ffffff;
   font-family: 'Orbitron', sans-serif;
   box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: capitalize !important;
 }
 
 .button.is-light:hover {
@@ -607,6 +618,10 @@ body {
   background-color: #172341;
   padding: 1rem 0;
   background-color: rgba(23, 35, 65, 0.397);
+  bottom: 0;
+  width: 100%;
+  position: relative;
+  margin-top: 2rem !important;
 }
 
 
@@ -644,39 +659,71 @@ body {
 /* ZODIAC STUFF */
 
 .horoscope-header {
-  margin-top: 7rem;
+  margin-top: 4rem;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(23, 35, 65, 0.884);
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-left: 10%;
+  padding-right: 10%;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
   font-family: 'Orbitron', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
+  width: 100%;
+  font-size: 20px;
+  text-transform: capitalize; 
+  max-width: 1000px;
+  margin: auto;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+.zodName {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
 }
 
 .horoscope-header .zodiac-sign-image {
   width: 64px;
   height: 64px;
+  margin-right: 1rem;
 }
 
 .horoscope-header .horoscope-left,
 .horoscope-header .horoscope-right {
   color: #ffffff;
+  flex: 1;
+  padding: 0.5rem;
 }
 
 .horoscope-section {
-  background-color: rgba(23, 35, 65, 0.9);
+
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
-
+/* Zodiac info sections */
+.zodiac-about,
+.zodiac-career,
+.zodiac-strength,
+.zodiac-health,
+.zodiac-love,
+.zodiac-relationships {
+  display: none;
+}
 .horoscope-section .title {
   color: #ffffff;
   margin-bottom: 0.5rem;
@@ -695,7 +742,8 @@ body {
 #zodiac-star-picture {
   display: block;
   margin: auto;
-  max-width: 50%;
+  max-width: 15vw;
+  min-width: 300px;
   transition: transform 0.5s;
   border-radius: 10%;
 }
@@ -715,45 +763,57 @@ body {
 .zodiac-section {
   position: relative;
   width: 100%;
-  height: 300px;
+  display: flex;
+  flex-direction: column;
   perspective: 1000px;
 }
 
+
 .front-card, .back-card {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
+
 }
 
 .front-card {
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
   color: #fff;
   transform: rotateY(0deg);
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 auto;
+  margin: auto;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
+  padding: 1rem;
+  background-color: #172341c5;
+  max-width: 1000px;
 }
-
-.front-card button {
-  flex-grow: 0;
+.zodiac-button {
+  background-color:#172341 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 1rem;
-  width: calc(50% - 325px);
-  margin: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  color: white;
+  color: rgba(255, 255, 255, 0.651) !important;
   font-family: 'Orbitron', sans-serif;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize !important;
 }
 
-.front-card button:hover {
+.zodiac-button:hover {
   color: #fcfcfc;
   background-color: transparent !important;
   text-shadow: 0 0 5px #1cc2de, 0 0 10px #1cc2de, 0 0 20px #1cc2de, 0 0 40px #1cc2de;
@@ -762,6 +822,12 @@ body {
 .back-card {
   color: #ffffff;
   transform: rotateY(-180deg);
+  padding: 1rem;
+  background-color: #172341c5;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #1cc2de;
+  margin:auto;
+  max-width: 1000px;
 }
 
 .back-card p, .back-card h2, .back-card button {
@@ -770,22 +836,11 @@ body {
 
 .back-card h2 {
   font-weight: bolder;
-}
-
-.back-card button {
-  cursor: pointer;
-  background-color: #536996;
-  color: #0a0f20;
+  font-size: 2rem;
   font-family: 'Orbitron', sans-serif;
+  text-align: center;
 }
 
-.zodiac-about, .zodiac-career {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 .zodiac-section.flip .front-card {
   transform: rotateY(180deg);
@@ -795,14 +850,6 @@ body {
   transform: rotateY(0deg);
 }
 
-.zodiac-about, .zodiac-career {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
 
 /* current sky */
 
@@ -879,6 +926,7 @@ body {
 
 .explanation-header {
   display: flex;
+
   justify-content: space-between;
   cursor: pointer;
 }
@@ -1151,13 +1199,15 @@ body {
     font-size: 17px;
   }
 
-
 }
 
 /* For small screens */
 @media screen and (max-width: 768px) {
   .register-form {
     margin-top: 1rem;
+  }
+  .back-card {
+    margin-top: -10rem !important;
   }
 }
 
@@ -1170,7 +1220,15 @@ body {
 
   min-width: 90%  !important;
   }
-  }
+ 
   .posts-container {
     min-width: 263px !important;
   }
+  .horoscope-header {
+    font-size: 40px;
+  }
+  .back-card {
+    margin-top: -20rem !important;
+  }
+}
+

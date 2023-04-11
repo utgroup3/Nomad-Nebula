@@ -305,7 +305,7 @@ fetch(`/api/users/${userId}?t=${Date.now()}`)
 
     let userZodiac = getZodiacSign(birthday);
 
-    zodiacTitleName.textContent = `Your Zodiac Sign is ${userZodiac.sign}!`
+    zodiacTitleName.textContent = `${userZodiac.sign}`
 
 // Changing icon and image to users respective zodiac sign
     const zodiacSymbol = function () {
