@@ -101,10 +101,10 @@
                 <p class="comment-meta">
                 <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
                 <p class="com">{{comment}}</p>
-              {{#if (equal loggedInUser user_id)}}
-              <a class="update-comment" data-comment-id="{{id}}">Update</a>
-              <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
-              {{/if}}
+                {{#if (equal loggedInUser user_id)}}
+                <a class="update-comment" data-comment-id="{{id}}">Update</a>
+                <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+                {{/if}}
                 {{!-- <a class="hide-comment" data-comment-id="{{id}}">Hide</a> --}}
 
               </div>
