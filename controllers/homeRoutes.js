@@ -276,61 +276,28 @@ router.get('/post/:id/comments', (req, res) => {
     });
 });
 
-// get a single post my id
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'title',
-      'content',
-      'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('votes.post_id')), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: [
-          'id', 
-          'comment', 
-          'post_id', 
-          'user_id', 
-          'createdAt'
-        ],
-        include: {
-          model: User,
-          attributes: [
-            'username'
-          ]
-        }
-      },
-      {
-        model: User,
-        attributes: [
-          'username'
-        ]
-      }
-    ]
-  })
-    .then(postData => {
-      if (!postData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
+// Route to render the edit post page
+router.get('/editPost', async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
 
-      const post = postData.get({ plain: true });
-
-      res.render('singleBlog', {
-        post,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
     });
+
+    const user = userData.get({ plain: true });
+
+    res.render('editPost', {
+      ...user,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // render login page

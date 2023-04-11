@@ -1,0 +1,22 @@
+<form class="comment-form" style="display:none;">
+  <textarea class="comment-textarea" placeholder="Your comment..."></textarea>
+  <button type="submit" class="submit-comment">Submit</button>
+</form>
+
+<div class="comments-container">
+  <p class="comlabel">Comments</p>
+  {{#each comments}}
+  <div class="comment-container">
+
+    <p class="comment-meta">
+    <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
+    <p class="com">{{comment}}</p>
+    <a class="update-comment" data-comment-id="{{id}}">Update</a>
+    <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+
+  </div>
+  <br>
+
+  {{/each}}
+  <br>
+</div>

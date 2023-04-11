@@ -59,49 +59,40 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'content',
+      'post_content',
       'title',
-      'createdAt'
+      'created_at'
     ],
     include: [
       {
         model: Comment,
-        attributes: [
-          'id',
-          'comment',
-          'post_id',
-          'user_id',
-          'createdAt'
-        ],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: [
-            'username'
-          ]
+          attributes: ['username']
         }
       },
       {
         model: User,
-        attributes: [
-          'username'
-        ]
+        attributes: ['username']
       }
     ]
   })
-    .then(dbPostData => {
-      const post = dbPostData.get({ plain: true });
-      res.render('editPost', { post, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then(dbPostData => {
+    const post = dbPostData.get({ plain: true });
+    res.render('editPost', { post, loggedIn: true });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // Route to render the new post page
-router.get('/new', withAuth, (req, res) => {
+router.get('/editPost', withAuth, (req, res) => {
   res.render('editPost', { loggedIn: true });
 });
+
 
 // Route to render the view post page
 router.get('/post/:id', withAuth, (req, res) => {

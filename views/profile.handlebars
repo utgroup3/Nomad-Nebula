@@ -1,4 +1,4 @@
-{{!-- {{> navLI }} --}}
+{{> navLI }}
 
 <main class="column">
   <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
@@ -14,7 +14,7 @@
         <div class="username">
           <figure class="profile-picture">
             {{#if user.profilePicture}}
-            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded user-uploaded-image">
+            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded profilePic">
             {{else}}
             <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
             {{/if}}

@@ -557,7 +557,6 @@ body {
   margin-right: 1rem;
 }
 
-
 /* file upload list from create-post */
 .file-upload-label {
   max-width: 250px;
@@ -568,8 +567,6 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-
-
 
 /* map */
 
