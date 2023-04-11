@@ -14,6 +14,7 @@ router.use('/session', sessionRoutes);
 router.use('/zodiac', zodiacRoute);
 router.use('/night-sky', nightSkyRoutes);
 
+// If no matching route is found, send a 404 error response
 router.use((req, res) => {
   res.status(404).end();
 });

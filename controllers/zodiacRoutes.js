@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
 
+  // Query the database for user data
   User.findOne({
     attributes: [
       'id',
@@ -17,6 +18,7 @@ router.get('/', withAuth, (req, res) => {
     }
   })
     .then(dbUserData => {
+      // Extract the user data and render the horoscope view
       const user = dbUserData.get({ plain: true });
       res.render('horoscope', {
         user,
