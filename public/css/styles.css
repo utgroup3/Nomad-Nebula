@@ -595,6 +595,13 @@ body {
 
 }
 
+.mapSearch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+
+}
 .mapSection input {
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
