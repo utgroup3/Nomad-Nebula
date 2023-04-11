@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// POST a new comment with authorization
 router.post('/', withAuth, (req, res) => {
   if (req.session) {
     Comment.create({
@@ -42,6 +43,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
+// PUT update a comment by ID with authorization
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);

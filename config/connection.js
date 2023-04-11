@@ -22,5 +22,4 @@ if (process.env.JAWSDB_URL) {
   });
 }
 
-// Export the Sequelize object for use in other modules.
 module.exports = sequelize;
