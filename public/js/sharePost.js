@@ -1,3 +1,4 @@
+// This function listens to the DOMContentLoaded event, and selects all buttons with the class ".share-facebook", ".share-whatsapp", and ".share-twitter", and attaches a click event listener to each button.
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".share-facebook").forEach((button) => {
     button.addEventListener("click", (event) => {

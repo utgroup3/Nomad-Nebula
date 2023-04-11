@@ -1,7 +1,11 @@
+// Select all like buttons on the page
 const likeBtns = document.querySelectorAll('.like-btn');
 
+// Iterate over each like button
 likeBtns.forEach(function (likeBtn) {
+  // Select the heart icon element inside the like button
   const heart = likeBtn.querySelector('.heart.liked') || likeBtn.querySelector('.heart');
+  // Define the heart icons for when it is liked and unliked
   const likedHeart = '❤️';
   const unlikedHeart = '🤍';
 
@@ -27,14 +31,17 @@ likeBtns.forEach(function (likeBtn) {
       body: JSON.stringify({ post_id: post_id, isLiked: isLiked }),
     });
 
+    // If the like request is successful, update the UI
     if (response.ok) {
       console.log(isLiked ? 'Liked successfully' : 'Unliked successfully');
 
+       // If the post was unliked and the user is on the user likes page, remove the post from the page
       const pageContainer = document.querySelector('.community-posts');
       if (!isLiked && pageContainer.classList.contains('user-likes-page')) {
         postContainer.remove();
       }
     } else {
+      // If the like request fails, show an error alert
       alert(response.statusText);
     }
   });

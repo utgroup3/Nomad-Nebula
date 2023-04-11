@@ -5,6 +5,7 @@ const commentFormHandler = async (event) => {
   const comment = postContainer.querySelector('.comment-textarea').value.trim();
   const post_id = postContainer.dataset.postId;
 
+  // Sends the comment data to the server to create a new comment
   if (comment) {
     const response = await fetch('/api/comments', {
       method: 'POST',
@@ -14,6 +15,7 @@ const commentFormHandler = async (event) => {
       },
     });
 
+    // Sends the comment data to the server to create a new comment
     if (response.ok) {
       console.log('Comment added successfully');
       document.location.reload();
@@ -23,6 +25,7 @@ const commentFormHandler = async (event) => {
   }
 };
 
+// Toggles the display of the comment form when the "add comment" button is clicked
 const toggleCommentFormButtons = document.querySelectorAll('.toggle-comment-form');
 
 toggleCommentFormButtons.forEach((button) => {
@@ -33,6 +36,7 @@ toggleCommentFormButtons.forEach((button) => {
   });
 });
 
+// Adds a click event listener to all the "submit comment" buttons on the page
 const submitCommentButtons = document.querySelectorAll('.submit-comment');
 submitCommentButtons.forEach((button) => {
   button.addEventListener('click', commentFormHandler);

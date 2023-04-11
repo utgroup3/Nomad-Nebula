@@ -7,11 +7,13 @@ document.addEventListener('click', async (event) => {
     const commentTextElement = commentContainer.querySelector('p');
     const currentCommentText = commentTextElement.textContent.trim();
 
+    // Show the modal window and prefill the textarea with the current comment text
     const modal = document.getElementById('update-comment-modal');
     const textarea = document.getElementById('update-comment-textarea');
     textarea.value = currentCommentText;
     modal.classList.add('is-active');
 
+    // Set the behavior for the "submit" button
     document.getElementById('submit-update-comment').onclick = async () => {
       const updatedCommentText = textarea.value.trim();
       if (updatedCommentText === '') {
@@ -21,6 +23,7 @@ document.addEventListener('click', async (event) => {
       updateComment(updatedCommentText, commentId, commentTextElement);
     };
 
+    // Set the behavior for the "cancel" button and other close buttons
     document.getElementById('cancel-update-comment').onclick = () => {
       modal.classList.remove('is-active');
     };
@@ -35,6 +38,7 @@ document.addEventListener('click', async (event) => {
   }
 });
 
+// Update the comment on the server
 async function updateComment(updatedCommentText, commentId, commentTextElement) {
   try {
     const response = await fetch(`/api/comments/${commentId}`, {
@@ -47,6 +51,7 @@ async function updateComment(updatedCommentText, commentId, commentTextElement) 
 
     if (response.ok) {
       const updatedComment = await response.json();
+       // Update the comment text on the page
       commentTextElement.textContent = updatedComment.comment;
     } else {
       alert('Error updating comment.');

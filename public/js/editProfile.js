@@ -1,11 +1,16 @@
+// Select the edit profile form
 const form = document.querySelector('.edit-profile-form form');
 
+// Check if the form exists
 if (form) {
+    // Prevent the default form submission behavior
   form.onsubmit = function(event) {
     event.preventDefault();
 
+    // Create a new FormData object with the form data
     let data = new FormData(form);
 
+    // Send a POST request to the server to update the user profile
     axios({
       method: 'post',
       url: 'api/users/edit-profile',
@@ -13,6 +18,7 @@ if (form) {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
       .then(response => {
+        // If the update was successful, redirect to the profile page
         if (response.status === 203) {
           window.open('/profile', '_self');
         }
