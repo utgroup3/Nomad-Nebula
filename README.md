@@ -1,13 +1,13 @@
   ![GitHub license](https://img.shields.io/badge/license-MIT-pink.svg)
-  ![repo size](https://img.shields.io/github/repo-size/cleclair71/TechTapas?color=yellow)
-  ![commits](https://img.shields.io/github/commit-activity/m/cleclair71/TechTapas/main)
-  ![language](https://img.shields.io/github/languages/top/cleclair71/TechTapas)
-  ![bcrypt](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/bcrypt)
-  ![sequelize](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/sequelize?color=lime)
-  ![mysql2](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/mysql2?color=orange)
-  ![dotenv](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/dotenv?color=blue)
+  ![repo size](https://img.shields.io/github/repo-size/utgroup3/Nomad-Nebula?color=yellow)
+  ![commits](https://img.shields.io/github/commit-activity/m/utgroup3/Nomad-Nebula/develop)
+  ![language](https://img.shields.io/github/languages/top/utgroup3/Nomad-Nebula)
+  ![bcrypt](https://img.shields.io/github/package-json/dependency-version/utgroup3/Nomad-Nebula/bcrypt)
+  ![sequelize](https://img.shields.io/github/package-json/dependency-version/utgroup3/Nomad-Nebula/sequelize?color=lime)
+  ![mysql2](https://img.shields.io/github/package-json/dependency-version/utgroup3/Nomad-Nebula/mysql2?color=orange)
+  ![dotenv](https://img.shields.io/github/package-json/dependency-version/utgroup3/Nomad-Nebula/dotenv?color=blue)
   ![express](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/express?color=lime)
-    ![express-handlebars](https://img.shields.io/github/package-json/dependency-version/cleclair71/TechTapas/express-handlebars?color=orange)
+    ![express-handlebars](https://img.shields.io/github/package-json/dependency-version/utgroup3/Nomad-Nebula/express-handlebars?color=orange)
     
 
   <a name="readme-top"></a>
@@ -15,7 +15,7 @@
  <div align="center">
  <h1 align="center">Nomad Nebula</h1>
     <a href="https://github.com/utgroup3/Nomad-Nebula">
-     <img src="./public/img/transparentwhite.png" alt="Logo" height="200">
+     <img src="/public/img/transparentwhite.png" alt="Logo" height="200">
    </a>
     <p align="center">
       Connect with the Cosmos
@@ -33,10 +33,8 @@
 * [Usage](#usage) 
 
 * [Contributing](#contributing)
-
-* [Resources](#resources)
  
-* [license](#license)
+* [License](#license)
 
 * [Questions](#questions)
 
@@ -48,10 +46,10 @@
 <a name="description"></a>
 ## :rocket: About The Project
 <p align="center">
-  <img src="assets\Capture.JPG"/>
+  <img src="public/img/readmeim.JPG"/>
 </p>
 
-Welcome to TechTapas, a CMS-style blog site where developers can publish their thoughts and opinions on technical concepts, recent advancements, and new technologies. This site is built using the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+Nomad Nebula is an interactive full-stack web application that serves as a stargazing companion and social platform for stargazers. Users can discover stars and planets visible in the night sky in their area, get daily updates on stargazing and visibility conditions, create and manage their profiles, view and interact with posts from other stargazers on the community page, and access detailed information about their zodiac signs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,11 +58,14 @@ Welcome to TechTapas, a CMS-style blog site where developers can publish their t
 
 ## :star: Added Features
 
- - Styled tables and console logs using Chalk
- - Banner logo using Figlet
- - View, add, delete and update functions
- - Cancel option that sends you to main page
- - .env file that protects password
+<p align="center">
+  <img src="public/img/readme2.JPG"/>
+</p>
+- View stars and planets visible in the night sky based on user's location
+- Stargazing and visibility conditions
+- User profiles with profile pictures, liked posts, and published posts
+- Community page showcasing posts from all users
+- Zodiac information based on user's sign
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,7 +83,7 @@ git clone https://github.com/utgroup3/Nomad-Nebula.git
 ```bash
 cd Nomad-Nebula
 ```
-3. Install [`sequelize`](https://www.npmjs.com/package/inquirer), [`figlet`](https://www.npmjs.com/search?q=figlet), [`dotenv`](https://www.npmjs.com/package/dotenv), [`mysql2`](https://www.npmjs.com/package/mysql2), [`handlebars`](https://www.npmjs.com/package/handlebars) and [`express`](https://www.npmjs.com/package/console.table)
+3. Install [`sequelize`](https://www.npmjs.com/package/inquirer), [`connect-session-sequelize`](https://www.npmjs.com/search?q=figlet), [`dotenv`](https://www.npmjs.com/package/dotenv), [`mysql2`](https://www.npmjs.com/package/mysql2), [`handlebars`](https://www.npmjs.com/package/handlebars), [`multer`](https://www.npmjs.com/package/handlebars), [`sharp`](https://www.npmjs.com/package/handlebars) and [`express`](https://www.npmjs.com/package/console.table)
 
 ```bash
 npm i
@@ -131,51 +132,34 @@ DB_PW='your_mysql_password'
 
 ## :handshake: Contributing
 
-Thank you for your interest in contributing to this project! By contributing, you can help make this project even better for everyone.
+![contributing](https://user-images.githubusercontent.com/76407605/217901296-4c8742f8-b5aa-4587-9517-16888d65200b.JPG)
+### Tasks and Roles 
+[`Cassie LeClair`](https://github.com/cleclair71)
+> Overall CSS design, animations, responsive design, designed MP4s in Canva, handlebars,  media, added bulma, incorporated Readme template front-end javascript, included multer and made updates
+---
+[`Jason Chiu`](https://github.com/jason1chiu)
+> JavaScript Team Lead - backend javascript, debugging,  JavaScript alert, reviewing large conflicts, fixed multer integration errors, displayed map in night sky
+--- 
+[`Calvin Triu`](https://github.com/cntrieu)
+> Javascript, horoscope handlebars, features and functions, debugging
+---
+[`Christina Barberi`](https://github.com/Christinaecb)
+> Slideshow presentation, javascript, 
+---
+Kevin Tran
+> 
 
-### How to Contribute
 
-If you would like to contribute to this project, please follow these steps:
-      
-1. **Fork the Project:** Fork this project to your own GitHub account.
-
-2. **Create your Feature Branch:** Create a branch for your feature using:
-```bash 
-git checkout -b your-branch-name.
-```
-3. **Commit your Changes:** Commit your changes using:
-```bash 
-git commit -m "Your commit message here"
-```
-4. **Push to the Branch:** Push your changes to the branch using:
-```bash 
-git push origin your-branch-name
-```
-5. **Open a Pull Request:** Open a pull request to merge your changes into the main branch of the original project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <a name="license"></a>
 
 ## :clipboard: License
-MIT
+Distributed under the MIT License. See `LICENSE.txt` for more information.
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a name="resources"></a>
-## :mag_right: Resources
-
-* [Creating and Selecting a Database](https://dev.mysql.com/doc/refman/8.0/en/creating-database.html)
-* [Handlebars](https://www.npmjs.com/package/handlebars)
-* [Figlet](https://www.npmjs.com/package/figlet)
-* [How To Create Interactive Command-line Prompts with Inquirer.js](https://www.digitalocean.com/community/tutorials/nodejs-interactive-command-line-prompts)
-* [Canva](https://www.canva.com/)
-* [Everything you should know about ‘module’ & ‘require’ in Node.js](https://www.freecodecamp.org/news/require-module-in-node-js-everything-about-module-require-ccccd3ad383/)
-* [break](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
-* [ShieldsIO](https://shields.io/category/funding)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a name="questions"></a>
 
@@ -189,14 +173,9 @@ If you have any questions about this project, please don't hesitate to reach out
 
 2. **Create a new issue:** If you can't find the answer to your question in the documentation, please create a new issue in the project's issue tracker. Be sure to provide as much detail as possible about your question, including any relevant code snippets or screenshots.
 
-3. **Contact cleclair71 directly:** If you prefer to contact me directly, you can do so by sending me an email at cassieleclair71@gmail.com. Please include "Question about README Generator" in the subject line so that I can quickly identify your message.
-
-   <p align="center"> 
-   <a href="https://github.com/cleclair71/hr-hub">My Repository</a>
-   </p>
    
 ### :pray: Feedback and Suggestions
 
-I welcome feedback and suggestions for this project. If you have ideas for how to improve the project, please feel free to create a new issue or contact me directly. Your input is greatly appreciated!
+We welcome feedback and suggestions for this project. If you have ideas for how to improve the project, please feel free to create a new issue or contact me directly. Your input is greatly appreciated!
  
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
