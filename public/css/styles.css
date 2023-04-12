@@ -1234,7 +1234,7 @@ main {
     margin-top: -20rem !important;
   }
   .post-content {
-    width: 250px;
+    width: auto;
   }
 }
 
