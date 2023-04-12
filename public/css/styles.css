@@ -1141,6 +1141,10 @@ figure .user-uploaded-picture {
   -4px -4px 12px 0 rgba(91, 100, 129, 0.3);
 }
 
+.update-comment {
+  color: #c4ccf4;
+}
+
 .comlabel {
   font-weight: 900;
   text-align: left !important;
