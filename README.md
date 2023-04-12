@@ -15,7 +15,7 @@
  <div align="center">
  <h1 align="center">Nomad Nebula</h1>
     <a href="https://github.com/utgroup3/Nomad-Nebula">
-     <img src="/public/img/transparentwhite.png" alt="Logo" height="200">
+     <img src="./public/img/transparentwhite.png" alt="Logo" height="200">
    </a>
     <p align="center">
       Connect with the Cosmos
@@ -46,7 +46,7 @@
 <a name="description"></a>
 ## :rocket: About The Project
 <p align="center">
-  <img src="/public/img/readmeim.JPG"/>
+  <img src="./public/img/readmeim.JPG"/>
 </p>
 
 Nomad Nebula is an interactive full-stack web application that serves as a stargazing companion and social platform for stargazers. Users can discover stars and planets visible in the night sky in their area, get daily updates on stargazing and visibility conditions, create and manage their profiles, view and interact with posts from other stargazers on the community page, and access detailed information about their zodiac signs.
