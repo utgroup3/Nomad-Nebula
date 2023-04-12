@@ -12,9 +12,9 @@
           <p>{{ user.zodiacSign }}</p>
         </div>
         <div class="username">
-          <figure class="profile-picture">
+          <figure class="image profile-picture">
             {{#if user.profilePicture}}
-            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded profilePic">
+            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
             {{else}}
             <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
             {{/if}}
