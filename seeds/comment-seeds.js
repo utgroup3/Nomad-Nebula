@@ -34,7 +34,7 @@ const commentData = [
     {
         comment: "IM A COMMENT",
         user_id: "1",
-        post_id: "4",
+        post_id: "1",
     },
     {
         comment: "ANYONE LIKE COMMENTS?",
@@ -49,7 +49,7 @@ const commentData = [
     {
         comment: "issa me, comment",
         user_id: "3",
-        post_id: "4",
+        post_id: "1",
     },
     {
         comment: "comments, anyone?",

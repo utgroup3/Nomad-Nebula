@@ -334,6 +334,10 @@ border-radius: 5px;
   margin-top: -5rem;
 }
 
+.bio-container .profile-picture {
+  top: -20%;
+}
+
 .bio-container .profile-picture:hover {
   border-radius: 50%;
   width: 150px;
@@ -429,13 +433,13 @@ border-radius: 5px;
 }
 
 .posts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  /* gap: 1.5rem; */
   background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   font-family: 'Rajdhani', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
@@ -630,11 +634,7 @@ border-radius: 5px;
   flex-direction: column;
 }
 
-.bio-container .profile-picture {
-  top: -20%;
-  width: 100px;
-  height: 100px;
-}
+
 
 .bio-container .bio-left,
 .bio-container .bio-right {
@@ -997,6 +997,27 @@ border-radius: 5px;
   padding-bottom: 20px;
 }
 
+/* .community-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  max-width: 80%;
+  box-shadow: 2px 2px 2px #1cc2de;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 7px;
+  border-style: inset;
+  border-right: none;
+  border-bottom: none;
+  border-color: #fcfcfc3b;
+} */
+
+.profilePic {
+  border-radius: 50%
+}
 
 .profP {
   border-radius: 50%;
@@ -1005,43 +1026,37 @@ border-radius: 5px;
 }
 
 .post-head {
-  position: relative;
+  border-color: #fcfcfc3b;
+  border-style: inset;
+  border-right: none;
+  border-left: none;
+  border-top: none;
   padding-bottom: 8px;
-  background: linear-gradient(to right, #2c4174d7 0%, #0a0f20 100%);
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(31, 31, 31, 0.5);
 
-}
-
-.post-head::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: .5px;
-  width: 100%;
-  background: linear-gradient(90deg, #2c4174d7 0%, #0a0f20 50%, #2c4174d7 100%);
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(31, 31, 31, 0.5);
 }
 
 .upim {
   border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(31, 31, 31, 0.5);
+  box-shadow: 0 4px 20px #1cc2de;
+  display: flex;
+  left: 10%;
+  right: 10%;
   margin: auto;
 }
 
-.user-uploaded-picture {
+figure {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
-  border-radius: 5%;
 }
-.upim:hover {
-  cursor: pointer;
+
+.user-uploaded-picture {
+  border-radius: 6px;
   box-shadow: 0 4px 20px #1cc2de;
+}
+
+.user-uploaded-picture:hover {
+  cursor: pointer;
 }
 
 .profile-picture:hover {
@@ -1059,17 +1074,13 @@ border-radius: 5px;
  
 }
 
-
-
 .community-posts h3 {
   color: white;
   font-family: 'Orbitron', sans-serif;
-  padding-top: 15px;
-  text-shadow: 0 0 10px #ffffff;
-  text-align: center;
+  padding-top: 15px
 }
 
-.post-meta strong {
+.community-posts strong {
   color: #1cc2de;
   font-weight: 900;
   font-size: 17px;
@@ -1133,15 +1144,10 @@ border-radius: 5px;
 }
 
 .comment-container {
-  background-color: #2c40749a;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 9px;
-  /* border: 1px solid #0a0f20;  */
-  box-shadow: 8px 8px 14px 0 rgba(0, 0, 0, 0.25),
-  -4px -4px 12px 0 rgba(91, 100, 129, 0.3);
-  
 }
-
 
 .comlabel {
   font-weight: 900;
@@ -1152,13 +1158,6 @@ border-radius: 5px;
   color: rgba(255, 255, 255, 0.649);
 }
 
-.comsec {
-  background-color:#0a0f2071;
- 
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(31, 31, 31, 0.5);
-}
 .comuser {
   font-weight: 900;
   color: #1cc2de;
@@ -1179,7 +1178,10 @@ border-radius: 5px;
 .hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
+}
 
+.columns.is-multiline {
+  margin: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1205,15 +1207,12 @@ border-radius: 5px;
   }
 
   .explanation h3 {
-
     font-size: 21px;
-
   }
 
   .explanation p {
     font-size: 17px;
   }
-
 }
 
 /* For small screens */
@@ -1234,22 +1233,11 @@ border-radius: 5px;
   .register-form {
     margin-top: 3rem;
   }
-  .column.is-one-third {
 
-  min-width: 90%  !important;
-  }
- 
-  .posts-container {
-    min-width: 263px !important;
-  }
   .horoscope-header {
     font-size: 40px;
   }
   .back-card {
     margin-top: -20rem !important;
   }
-  .post-container {
-    width: 250px;
-  }
 }
-

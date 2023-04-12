@@ -1,7 +1,7 @@
 <div class="post-container">
   <div class="columns is-multiline">
     {{#each posts}}
-    <div class="column is-one-third">
+    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
 
       <div class="post-content">
         <div class="post-link" data-post-id="{{id}}">
@@ -20,7 +20,7 @@
           <br>
           <h3 class="title is-5">{{title}}</h3>
 
-          <figure class="user-uploaded-picture">
+          <figure>
             {{#if image}}
             <img src="{{ image }}" alt="User uploaded image" class="upim is-rounded user-uploaded-picture">
             {{/if}}
