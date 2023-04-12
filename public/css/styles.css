@@ -158,11 +158,11 @@ main {
   cursor: pointer;
 }
 
-.user-uploaded-image {
-
+/* .user-uploaded-picture {
+border-radius: 5px;
   max-height: 150px;
 
-}
+} */
 
 .navbar-item {
   margin-bottom: 1rem;
@@ -1241,4 +1241,3 @@ figure {
     margin-top: -20rem !important;
   }
 }
-

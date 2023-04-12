@@ -16,6 +16,7 @@
               {{format_date createdAt}} in {{user.location}}
             </p>
           </div>
+
           <br>
           <h3 class="title is-5">{{title}}</h3>
 
@@ -49,21 +50,23 @@
               </div>
             </div>
           </div>
+          
+            <div class="comments-container">
+              <div class="comsec">
+              <p class="comlabel">Comments</p>
+              {{#each this.comments}}
+              <div class="comment-container">
+                <p class="comment-meta">
+                <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
+                <p class="com">{{this.comment}}</p>
+              </div>
+              <br>
 
-          <div class="comments-container">
-            <p class="comlabel">Comments</p>
-            {{#each this.comments}}
-            <div class="comment-container">
-              <p class="comment-meta">
-              <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
-              <p class="com">{{this.comment}}</p>
+              {{/each}}
+              <br>
             </div>
-            <br>
 
-            {{/each}}
-            <br>
           </div>
-
         </div>
       </div>
       <div class="post-actions">
