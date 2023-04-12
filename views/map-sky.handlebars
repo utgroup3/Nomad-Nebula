@@ -1,0 +1,47 @@
+{{> navLI }}
+
+<main class="column">
+  <video class="background-video" src="/img/background/background.mp4" autoplay muted loop playsinline></video>
+
+
+ <div>
+    <div class="container register-container">
+      <section class="hero is-dark">
+
+
+        <section class="register-video-container">
+          <video class="register-video" src="/img/headers/MAPSKY.mp4" autoplay muted loop playsinline></video>
+        </section>
+    </div>
+  </div>
+  <div class="container map-container">
+    <section class="mapSection">
+      <h1>Enter a Location</h1>
+      <div class="mapSearch">
+        <input type="text" id="location" placeholder="Enter location">
+        <button class="mapbutton button is-primary" onclick="getLatLong()">GET MAP</button>
+      </div>
+      <br>
+      <br>
+      <div id="mapContainer" class="container">
+        <div class="iframe-container">
+          <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""
+            allowTransparency="true" id="starMap"></iframe>
+        </div>
+
+        <br>
+
+
+
+        <div class="container">
+          <div class="iframe-container">
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""
+              allowTransparency="true" id="planteryMap"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="/js/mapSky.js"></script>

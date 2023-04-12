@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Like } = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 
 // Route to display all posts created by logged in user
 router.get('/', withAuth, (req, res) => {
@@ -11,34 +12,43 @@ router.get('/', withAuth, (req, res) => {
     attributes: [
       'id',
       'content',
+      'image',
       'title',
-      'createdAt'
-      // This code creates a SELECT statement that calls the COUNT SQL function on the post_id column of the vote table. The resulting column is also aliased as vote_count
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      'createdAt',
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: [
+          'id',
+          'comment',
+          'post_id',
+          'user_id',
+          'createdAt'
+        ],
         include: {
-          model: User, 
-          attributes: ['username']
+          model: User,
+          attributes: [
+            'username'
+          ]
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: [
+          'username'
+        ]
       }
     ]
   })
-  .then(dbPostData => {
-    const posts = dbPostData.map(post => post.get({ plain: true }));
-    res.render('dashboard', { posts, loggedIn: true });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('profile', { posts, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // Route to render the edit post page
@@ -49,15 +59,14 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'content',
+      'post_content',
       'title',
-      'createdAt'
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
+      'created_at'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment', 'post_id', 'user_id', 'createdAt'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -79,53 +88,56 @@ router.get('/edit/:id', withAuth, (req, res) => {
   });
 });
 
-// Route to render the new post page
-router.get('/new', withAuth, (req, res) => {
-  res.render('editPost', { loggedIn: true });
-});
+// Route to render the edit post page
+// router.get('/editPost', withAuth, (req, res) => {
+//   res.render('editPost', { loggedIn: true });
+// });
 
 // Route to render the view post page
-router.get('/post/:id', withAuth, (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'content',
-      'title',
-      'createdAt',
-      [sequelize.fn('COUNT', sequelize.col('vote.post_id')), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: [
-          'id',
-          'comment',
-          'post_id',
-          'user_id',
-          'createdAt'
-        ],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-  .then(dbPostData => {
-    const post = dbPostData.get({ plain: true });
-    res.render('singleBlog', { post, loggedIn: true });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
+// router.get('/post/:id', withAuth, (req, res) => {
+//   Post.findOne({
+//     where: {
+//       id: req.params.id
+//     },
+//     attributes: [
+//       'id',
+//       'content',
+//       'title',
+//       'createdAt',
+//     ],
+//     include: [
+//       {
+//         model: Comment,
+//         attributes: [
+//           'id',
+//           'comment',
+//           'post_id',
+//           'user_id',
+//           'createdAt'
+//         ],
+//         include: {
+//           model: User,
+//           attributes: [
+//             'username'
+//           ]
+//         }
+//       },
+//       {
+//         model: User,
+//         attributes: [
+//           'username'
+//         ]
+//       }
+//     ]
+//   })
+//     .then(dbPostData => {
+//       const post = dbPostData.get({ plain: true });
+//       res.render('singleBlog', { post, loggedIn: true });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

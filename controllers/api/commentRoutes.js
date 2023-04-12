@@ -3,12 +3,19 @@ const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all comments
-
 router.get('/', (req, res) => {
   Comment.findAll({
+    attributes: [
+      'id',
+      'comment',
+      'createdAt',
+      'user_id'
+    ],
     include: {
       model: User,
-      attributes: ['username']
+      attributes: [
+        'username'
+      ]
     }
   })
     .then(dbCommentData => res.json(dbCommentData))
@@ -18,14 +25,12 @@ router.get('/', (req, res) => {
     });
 });
 
-// CREATE a new comment
+// POST a new comment with authorization
 router.post('/', withAuth, (req, res) => {
-  // check session
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment,
+      comment: req.body.comment,
       post_id: req.body.post_id,
-      // use the id from the session
       user_id: req.session.user_id,
     })
       .then(dbCommentData => {
@@ -38,10 +43,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-router.get('/me', withAuth, (req, res) => {
-  res.status(200).json(req.session.user_id)
-})
-
+// PUT update a comment by ID with authorization
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);

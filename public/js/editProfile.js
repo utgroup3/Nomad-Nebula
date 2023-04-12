@@ -1,35 +1,44 @@
-const upload = require('./imageUpload');
-const { User } = require('../../models');
+// Select the edit profile form
+const form = document.querySelector('.edit-profile-form form');
 
-function editProfile(req, res) {
-  upload.single('profilePicture')(req, res, (err) => {
-    if (err) {
-      req.flash('error_msg', 'Error uploading file: ' + err);
-      res.redirect('/edit-profile');
-    } else {
-      const { username, location, birthday } = req.body;
-      const profilePicture = req.file ? req.file.filename : req.user.profilePicture;
-      User.update(
-        {
-          username,
-          location,
-          birthday,
-          profilePicture
-        },
-        {
-          where: { id: req.user.id }
+// Check if the form exists
+if (form) {
+    // Prevent the default form submission behavior
+  form.onsubmit = function(event) {
+    event.preventDefault();
+
+    // Create a new FormData object with the form data
+    let data = new FormData(form);
+
+    // Send a POST request to the server to update the user profile
+    axios({
+      method: 'post',
+      url: 'api/users/edit-profile',
+      data: data,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+      .then(response => {
+        // If the update was successful, redirect to the profile page
+        if (response.status === 203) {
+          window.open('/profile', '_self');
         }
-      )
-        .then(() => {
-          req.flash('success_msg', 'Profile updated successfully');
-          res.redirect('/profile');
-        })
-        .catch((err) => {
-          req.flash('error_msg', 'Error updating profile: ' + err);
-          res.redirect('/edit-profile');
-        });
-    }
-});
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 }
 
-module.exports = editProfile;
+// This portion of code is to incorporate a filelist beside image upload
+
+const fileInput = document.querySelector('input[type="file"]');
+const fileUploadLabel = document.querySelector('.file-upload-label');
+
+fileInput.addEventListener('change', (event) => {
+  // Get the selected file name
+  console.log(fileInput.files)
+  const fileName = fileInput.files[0].name;
+
+  // Set the file upload label to the selected file name
+  fileUploadLabel.textContent = fileName;
+});

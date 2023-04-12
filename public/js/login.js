@@ -14,7 +14,11 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      // Store the user who has just logged in's id to localstorage
+      const userData = await response.json();
+      const userId = userData.user.id;
+      localStorage.setItem('userId', userId);
+      window.open('/profile', '_self');
     } else {
       alert(response.statusText);
     }
@@ -23,5 +27,5 @@ const loginFormHandler = async (event) => {
 
 
 document
-  .querySelector('.login-form')
+  .querySelector('.login-form form')
   .addEventListener('submit', loginFormHandler);

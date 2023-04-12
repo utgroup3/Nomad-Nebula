@@ -1,70 +1,38 @@
-async function newFormHandler(event) {
-  console.log('Form submitted');
-  event.preventDefault();
+const form = document.querySelector('.new-post-form');
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const body = document.querySelector('textarea[name="post-body"]').value;
+if (form) {
+  form.onsubmit = function(event) {
+    event.preventDefault();
 
-  console.log(title);
-  console.log(body);
+    let data = new FormData(form);
 
-  try {
-    const response = await fetch(`/api/posts`, {
-      method: 'POST',
-      body: JSON.stringify({
-        title,
-        post_content: body,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    axios({
+      method: 'post',
+      url: 'api/posts',
+      data: data,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+      .then(response => {
 
-    if (response.ok) {
-      console.log('Post created successfully!');
-
-      // Redirect to dashboard
-      document.location.replace('/dashboard');
-    } else {
-      console.log('Failed to create post');
-      alert(response.statusText);
-    }
-  } catch (err) {
-    console.log(err);
-    alert('Failed to create post');
-  }
+        if (response.status === 200) {
+          window.open('/profile', '_self');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 }
 
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+// This portion of code is to incorporate a filelist beside image upload
 
+const fileInput = document.querySelector('input[type="file"]');
+const fileUploadLabel = document.querySelector('.file-upload-label');
 
-// CASSIE - DIDN'T WANT TO OVERRIDE CODE ABOVE - BUT THIS IS THE CODE I WAS TRYING TO USE
-// async function newFormHandler(event) {
-  // console.log('Form submitted');
-  // event.preventDefault();
+fileInput.addEventListener('change', (event) => {
+  // Get the selected file name
+  const fileName = event.target.files[0].name;
 
-  // const form = event.target;
-  // const formData = new FormData(form);
-
-  // try {
-  //   const response = await fetch('/api/posts', {
-  //     method: 'POST',
-  //     body: formData,
-  //   });
-
-  //   if (response.ok) {
-  //     console.log('Post created successfully!');
-
-      // Redirect to dashboard
-//       document.location.replace('/dashboard');
-//     } else {
-//       console.log('Failed to create post');
-//       alert(response.statusText);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//     alert('Failed to create post');
-//   }
-// }
-
-// document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  // Set the file upload label to the selected file name
+  fileUploadLabel.textContent = fileName;
+});

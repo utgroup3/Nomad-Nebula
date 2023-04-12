@@ -1,24 +1,28 @@
 {{> navLI }}
+
 <main class="column">
-    <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
-    <section class="section">
-        <div class="container current-container">
-            <section class="current-video-container">
+  <video class="background-video" src="./img/background/background.mp4" autoplay muted loop playsinline></video>
+  <section class="section">
+    <div class="container current-container">
+      <div>
+        <div class="container register-container">
+          <section class="hero is-dark">
 
-                <section>
-                    <video class="current-video" src="./img/headers/REGISTER.mp4" autoplay muted loop
-                        playsinline></video>
-                </section>
 
+            <section class="register-video-container">
+              <video class="register-video" src="/img/headers/nightsky.mp4" autoplay muted loop playsinline></video>
             </section>
+        </div>
+      </div>
 
-            <section class="section">
-                <div class="container">
-                    <div class="buttons has-addons is-centered">
-                        <button class="button is-dark" onclick="location.href='/map-sky'">View Map</button>
-                        <button class="button is-dark" onclick="location.href='/current-sky'">View Details</button>
-                    </div>
-                </div>
-            </section>
-    </section>
+      <section class="section">
+        <div class="container">
+          <div class="buttons has-addons is-centered">
+            <button class="button is-light" onclick="location.href='/night-sky/map-sky'">View Map</button>
+            <button class="button is-primary" onclick="location.href='/night-sky/current-sky'">Current Sky
+              Conditions</button>
+          </div>
+        </div>
+      </section>
+  </section>
 </main>

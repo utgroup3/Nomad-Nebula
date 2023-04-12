@@ -13,35 +13,29 @@
             </section>
             <section class="section">
                 <div class="container register-form">
-                    <form action="/register" method="post">
+                    <form action="/login" method="post" class="signup-form">
                         <div class="field">
                             <label class="label">USERNAME</label>
                             <div class="control">
-                                <input class="input" type="text" name="username" required>
+                                <input class="input" type="text" name="username" id="username-signup" required>
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">PASSWORD</label>
                             <div class="control">
-                                <input class="input" type="password" name="password" required>
+                                <input class="input" type="password" name="password" id="password-signup" required>
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">LOCATION</label>
                             <div class="control">
-                                <input class="input" type="text" name="location" required>
+                                <input class="input" type="text" name="location" id="location-signup" required>
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">BIRTHDAY</label>
                             <div class="control">
-                                <input class="input" type="date" name="birthday" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">BIRTH CITY</label>
-                            <div class="control">
-                                <input class="input" type="text" name="birthCity" required>
+                                <input class="input" type="date" name="birthday" id="birthday-signup" required>
                             </div>
                         </div>
                         <div class="field is-grouped">
@@ -58,3 +52,5 @@
         </div>
     </section>
 </main>
+
+<script src="/js/signup.js"></script>
