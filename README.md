@@ -133,10 +133,10 @@ DB_PW='your_mysql_password'
 > JavaScript Team Lead - backend javascript, debugging,  JavaScript alert, reviewing large conflicts, fixed multer integration errors, displayed map in night sky
 --- 
 [`Calvin Triu`](https://github.com/cntrieu)
-> Javascript, horoscope handlebars, features and functions, debugging
+> Javascript, horoscope handlebars, features and functions, debugging, main Heroku deployment
 ---
 [`Christina Barberi`](https://github.com/Christinaecb)
-> Slideshow presentation, javascript, 
+> Slideshow presentation, javascript, GitHub Repository Setup, back-up Heroku deployment
 ---
 [`Kevin Tran`]
 > 
