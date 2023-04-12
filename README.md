@@ -130,7 +130,7 @@ DB_PW='your_mysql_password'
 > Overall CSS design, animations, responsive design, designed MP4s in Canva, handlebars,  media, added bulma, incorporated Readme template front-end javascript, included multer and made updates
 ---
 [`Jason Chiu`](https://github.com/jason1chiu)
-> JavaScript Team Lead - backend javascript, debugging,  JavaScript alert, reviewing large conflicts, fixed multer integration errors, displayed map in night sky
+> JavaScript Team Lead - backend javascript, debugging, JavaScript alert, reviewing large conflicts, fixed multer integration errors, displayed map in night sky
 --- 
 [`Calvin Triu`](https://github.com/cntrieu)
 > Javascript, horoscope handlebars, features and functions, debugging, main Heroku deployment
@@ -139,7 +139,7 @@ DB_PW='your_mysql_password'
 > Slideshow presentation, javascript, GitHub Repository Setup, back-up Heroku deployment
 ---
 [`Kevin Tran`]
-> 
+> Brainstorming ideas
 
 
 
