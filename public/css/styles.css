@@ -158,11 +158,10 @@ main {
   cursor: pointer;
 }
 
-.user-uploaded-image {
-
+/* .user-uploaded-picture {
+border-radius: 5px;
   max-height: 150px;
-
-}
+} */
 
 .navbar-item {
   margin-bottom: 1rem;
@@ -439,7 +438,7 @@ main {
   background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   font-family: 'Rajdhani', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
@@ -615,6 +614,7 @@ main {
 }
 
 /* footer */
+
 .footer {
   background-color: #172341;
   padding: 1rem 0;
@@ -625,16 +625,14 @@ main {
   margin-top: 2rem !important;
 }
 
-
 .footer figure {
   align-items: center;
   margin: auto;
 }
+
 .bio-container {
   flex-direction: column;
 }
-
-
 
 .bio-container .bio-left,
 .bio-container .bio-right {
@@ -846,7 +844,6 @@ main {
 .zodiac-section.flip .back-card {
   transform: rotateY(0deg);
 }
-
 
 /* current sky */
 
@@ -1178,7 +1175,10 @@ figure {
 .hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
+}
 
+.columns.is-multiline {
+  margin: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1204,15 +1204,12 @@ figure {
   }
 
   .explanation h3 {
-
     font-size: 21px;
-
   }
 
   .explanation p {
     font-size: 17px;
   }
-
 }
 
 /* For small screens */
@@ -1233,21 +1230,11 @@ figure {
   .register-form {
     margin-top: 3rem;
   }
-  .column.is-one-third {
 
-  min-width: 90%  !important;
-  }
- 
-  .posts-container {
-    min-width: 263px !important;
-  }
   .horoscope-header {
     font-size: 40px;
   }
   .back-card {
     margin-top: -20rem !important;
-  }
-  .post-container {
-    width: 250px;
   }
 }
