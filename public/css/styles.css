@@ -1015,6 +1015,10 @@ main {
   border-color: #fcfcfc3b;
 } */
 
+.profilePic {
+  border-radius: 50%
+}
+
 .profP {
   border-radius: 50%;
   max-height: 40px;
@@ -1034,6 +1038,7 @@ main {
 .upim {
   border-radius: 6px;
   box-shadow: 0 4px 20px #1cc2de;
+  display: flex;
   left: 10%;
   right: 10%;
   margin: auto;
