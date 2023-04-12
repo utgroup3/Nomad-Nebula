@@ -16,19 +16,20 @@
               {{/if}}
               <p class="post-meta"><strong>{{user.username}}</strong><br>
                 {{format_date createdAt}} in {{user.location}}
+
               </p>
             </div>
 
             <h3 class="title is-5">{{title}}</h3>
 
-            <figure>
+            <figure class="user-uploaded-picture">
               {{#if image}}
-              <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture">
+              <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture upim">
               {{/if}}
             </figure>
             <p>{{content}}</p>
 
-            {{!-- --}}
+           
             <div class="post-actions">
               <a class="post-action-item like-btn">
                 {{#if isLiked}}
@@ -92,25 +93,27 @@
             </div>
 
             <div class="comments-container">
-              <p class="comlabel">Comments</p>
-              {{#each comments}}
-              <div class="comment-container">
+              <div class="comsec">
+                <p class="comlabel">Comments</p>
+                <br>
+                {{#each comments}}
+                <div class="comment-container">
 
-                <p class="comment-meta">
-                <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
-                <p class="com">{{comment}}</p>
-                {{#if (equal loggedInUser user_id)}}
-                <a class="update-comment" data-comment-id="{{id}}">Update</a>
-                <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
-                {{/if}}
+                  <p class="comment-meta">
+                  <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
+                  <p class="com">{{comment}}</p>
+                  {{#if (equal loggedInUser user_id)}}
+                  <a class="update-comment" data-comment-id="{{id}}">Update</a>
+                  <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+                  {{/if}}
 
+                </div>
+                <br>
+
+                {{/each}}
+                <br>
               </div>
-              <br>
-
-              {{/each}}
-              <br>
             </div>
-
           </div>
         </div>
       </div>

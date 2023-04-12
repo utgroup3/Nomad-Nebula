@@ -1,4 +1,4 @@
-<div class="post-container">
+{{!-- <div class="post-container">
   <div class="columns is-multiline">
     {{#each posts}}
     <div class="column is-one-third">
@@ -16,10 +16,11 @@
               {{format_date createdAt}} in {{user.location}}
             </p>
           </div>
+
           <br>
           <h3 class="title is-5">{{title}}</h3>
 
-          <figure>
+          <figure class="user-uploaded-picture">
             {{#if image}}
             <img src="{{ image }}" alt="User uploaded image" class="upim is-rounded user-uploaded-picture">
             {{/if}}
@@ -51,21 +52,123 @@
           </div>
 
           <div class="comments-container">
-            <p class="comlabel">Comments</p>
-            {{#each this.comments}}
-            <div class="comment-container">
-              <p class="comment-meta">
-              <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
-              <p class="com">{{this.comment}}</p>
+            <div class="comsec">
+              <p class="comlabel">Comments</p>
+              <br>
+              {{#each this.comments}}
+              <div class="comment-container">
+                <p class="comment-meta">
+                <p class="comuser">{{this.user.username}}</p> {{format_date createdAt}} in {{this.user.location}}</p>
+                <p class="com">{{this.comment}}</p>
+              </div>
+              <br>
+
+              {{/each}}
+              <br>
             </div>
-            <br>
-
-            {{/each}}
-            <br>
           </div>
-
         </div>
       </div>
+    </div>
+    <div class="post-actions">
+      <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
+    </div>
+
+  </div>
+  <br>
+  {{/each}}
+  <br>
+</div>
+</div>
+
+<script src="/js/sharePost.js"></script>
+<script src="/js/displayComments.js"></script> --}}
+
+<div class="post-container">
+  <div class="columns is-multiline">
+    {{#each posts}}
+    <div class="column is-one-third">
+      <div class="community-posts">
+
+
+        <div class="post-container" data-post-id="{{id}}">
+
+          <div class="post-content">
+            <div class="post-head">
+              {{#if user.profilePicture}}
+              <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded profP">
+              {{else}}
+              <img src="img/default.png" alt="Default profile picture" class="is-rounded profP">
+              {{/if}}
+              <p class="post-meta"><strong>{{user.username}}</strong><br>
+                {{format_date createdAt}} in {{user.location}}
+                {{!-- <a href="/community/{{community}}">{{community}}</a> --}}
+              </p>
+            </div>
+
+            <h3 class="title is-5">{{title}}</h3>
+
+            <figure class="user-uploaded-picture">
+              {{#if image}}
+              <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture upim">
+              {{/if}}
+            </figure>
+            <p>{{content}}</p>
+
+
+            <div class="post-actions">
+
+              <a class="post-action-item">Comments</a>
+
+              <br>
+              <a class="post-action-item" href="/editPost/{{id}}">Edit Post</a>
+              <div class="post-action-item dropdown is-hoverable">
+                <a class="dropdown-trigger">
+                  <span>Share</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-content">
+                    <a class="dropdown-item share-facebook" data-post-url="{{../baseUrl}}/post/{{id}}"
+                      data-post-id="{{id}}">Share on Facebook</a>
+                    <a class="dropdown-item share-whatsapp" data-post-url="{{../baseUrl}}/post/{{id}}"
+                      data-post-id="{{id}}">Share on WhatsApp</a>
+                    <a class="dropdown-item share-twitter" data-post-url="{{../baseUrl}}/post/{{id}}"
+                      data-post-id="{{id}}" data-post-title="{{title}}">Share on Twitter</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="comments-container">
+              <div class="comsec">
+                <p class="comlabel">Comments</p>
+                <br>
+                {{#each comments}}
+                <div class="comment-container">
+
+                  <p class="comment-meta">
+                  <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
+                  <p class="com">{{comment}}</p>
+
+
+                </div>
+                <br>
+
+                {{/each}}
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="post-actions">
         <a class="post-action-item unhide-link" data-action="unhide" style="display: none;">Unhide</a>
       </div>
@@ -73,6 +176,7 @@
     </div>
     <br>
     {{/each}}
+    <br>
   </div>
 </div>
 

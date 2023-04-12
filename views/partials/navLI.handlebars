@@ -6,13 +6,15 @@
   </span>
 </div>
 <nav id="navbarMenu" class="navbar">
+ <a href="/profile">
   <figure class="image profile-picture">
     {{#if user.profilePicture}}
-    <img src="{{user.profilePicture}}" alt="Profile picture" class="is-rounded">
+      <img src="{{user.profilePicture}}" alt="Profile picture" class="is-rounded">
     {{ else }}
-    <img src="/img/default.png" alt="Profile picture" class="is-rounded">
+      <img src="/img/default.png" alt="Profile picture" class="is-rounded">
     {{/if}}
   </figure>
+</a>
   <p class="navbar-item">
     Hi, {{user.username}}
   </p>

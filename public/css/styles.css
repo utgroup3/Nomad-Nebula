@@ -1149,6 +1149,10 @@ figure {
   padding: 9px;
 }
 
+.update-comment {
+  color: #bdc7f4!important
+}
+
 .comlabel {
   font-weight: 900;
 }
