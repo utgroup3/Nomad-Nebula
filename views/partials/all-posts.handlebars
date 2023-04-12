@@ -93,25 +93,27 @@
             </div>
 
             <div class="comments-container">
-              <p class="comlabel">Comments</p>
-              {{#each comments}}
-              <div class="comment-container">
+              <div class="comsec">
+                <p class="comlabel">Comments</p>
+                <br>
+                {{#each comments}}
+                <div class="comment-container">
 
-                <p class="comment-meta">
-                <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
-                <p class="com">{{comment}}</p>
-                {{#if (equal loggedInUser user_id)}}
-                <a class="update-comment" data-comment-id="{{id}}">Update</a>
-                <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
-                {{/if}}
+                  <p class="comment-meta">
+                  <p class="comuser">{{user.username}}</p> {{format_date createdAt}}</p>
+                  <p class="com">{{comment}}</p>
+                  {{#if (equal loggedInUser user_id)}}
+                  <a class="update-comment" data-comment-id="{{id}}">Update</a>
+                  <a class="delete-comment" data-comment-id="{{id}}">Delete</a>
+                  {{/if}}
 
+                </div>
+                <br>
+
+                {{/each}}
+                <br>
               </div>
-              <br>
-
-              {{/each}}
-              <br>
             </div>
-
           </div>
         </div>
       </div>
