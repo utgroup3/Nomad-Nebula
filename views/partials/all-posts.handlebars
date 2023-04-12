@@ -1,10 +1,9 @@
 <div class="post-container">
-
   <div class="columns is-multiline">
     {{#each posts}}
-
-    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+    <div class="column is-one-third">
       <div class="community-posts">
+
 
         <div class="post-container" data-post-id="{{id}}">
 
@@ -17,19 +16,20 @@
               {{/if}}
               <p class="post-meta"><strong>{{user.username}}</strong><br>
                 {{format_date createdAt}} in {{user.location}}
+
               </p>
             </div>
 
             <h3 class="title is-5">{{title}}</h3>
 
-            <figure>
+            <figure class="user-uploaded-picture">
               {{#if image}}
-              <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture">
+              <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture upim">
               {{/if}}
             </figure>
             <p>{{content}}</p>
 
-            {{!-- --}}
+           
             <div class="post-actions">
               <a class="post-action-item like-btn">
                 {{#if isLiked}}
