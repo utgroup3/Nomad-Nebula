@@ -38,7 +38,7 @@ function starMap(latitude, longitude) {
   const iframe = document.querySelector("#starMap");
 
   // Construct the new URL with the updated latitude and longitude
-  const newSrc = `http://slowe.github.io/VirtualSky/embed?longitude=${longitude}&latitude=${latitude}&projection=polar&showstarlabels=true&showplanets=false&showplanetlabels=false&gridlines_az=true&gridlines_eq=true&gridlines_gal=true&live=true&az=191.75" allowTransparency="true`;
+  const newSrc = `https://slowe.github.io/VirtualSky/embed?longitude=${longitude}&latitude=${latitude}&projection=polar&showstarlabels=true&showplanets=false&showplanetlabels=false&gridlines_az=true&gridlines_eq=true&gridlines_gal=true&live=true&az=191.75" allowTransparency="true`;
 
   // Update the iframe's src attribute with the new URL
   iframe.src = newSrc;
