@@ -12,15 +12,22 @@
           <p>{{ user.zodiacSign }}</p>
         </div>
         <div class="username">
-          <figure class="image profile-picture">
-            {{#if user.profilePicture}}
-            <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
-            {{else}}
-            <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
-            {{/if}}
-          </figure>
+          <a href="/edit-profile">
+            <figure class="image profile-picture">
+              {{#if user.profilePicture}}
+              <img src="{{ user.profilePicture }}" alt="Profile picture" class="is-rounded">
+              {{else}}
+              <img src="/img/default.png" alt="Default profile picture" class="is-rounded">
+              {{/if}}
+            </figure>
+            <div class="edit-brand">
+              <a href="/edit-profile">
+                <i class="fas fa-user-edit edit-icon"></i>
+              </a>
+            </div>
+          </a>
           <h2 style="margin-top: 15px;">{{user.username}}</h2>
-          <a href="/edit-profile"><i class="fas fa-user-edit edit-icon"></i></a>
+
         </div>
         <div class="bio-right">
           <p>Posts: {{ posts.length }}</p>
