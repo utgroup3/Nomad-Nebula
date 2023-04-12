@@ -433,13 +433,13 @@ main {
 }
 
 .posts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  /* gap: 1.5rem; */
   background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   font-family: 'Rajdhani', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
@@ -1178,7 +1178,10 @@ figure {
 .hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
+}
 
+.columns.is-multiline {
+  margin: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1204,15 +1207,12 @@ figure {
   }
 
   .explanation h3 {
-
     font-size: 21px;
-
   }
 
   .explanation p {
     font-size: 17px;
   }
-
 }
 
 /* For small screens */
@@ -1233,22 +1233,12 @@ figure {
   .register-form {
     margin-top: 3rem;
   }
-  .column.is-one-third {
 
-  min-width: 90%  !important;
-  }
- 
-  .posts-container {
-    min-width: 263px !important;
-  }
   .horoscope-header {
     font-size: 40px;
   }
   .back-card {
     margin-top: -20rem !important;
-  }
-  .post-container {
-    width: 250px;
   }
 }
 
