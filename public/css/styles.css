@@ -1233,8 +1233,8 @@ main {
   .back-card {
     margin-top: -20rem !important;
   }
-  .post-content {
-    width: auto;
+  .post-container {
+    width: 250px;
   }
 }
 
