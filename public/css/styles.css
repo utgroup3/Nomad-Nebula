@@ -158,6 +158,12 @@ main {
   cursor: pointer;
 }
 
+.user-uploaded-image {
+
+  max-height: 150px;
+
+}
+
 .navbar-item {
   margin-bottom: 1rem;
   color: #ffffff;
@@ -319,13 +325,17 @@ main {
 .bio-container .profile-picture {
   margin-bottom: 2rem;
   position: absolute;
-  top: -20%;
+  top: -75px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   width: 150px !important;
   height: 150px;
   margin-top: -5rem;
+}
+
+.bio-container .profile-picture {
+  top: -20%;
 }
 
 .bio-container .profile-picture:hover {
@@ -371,40 +381,23 @@ main {
   text-shadow: 0 4px 20px #1cc2de;
 }
 
-.username .edit-brand {
-  position: absolute;
-  top: -20%;
-  left: 60%;
-  transform: translateX(-50%);
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #121c33;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
-  z-index: 1;
-  margin-top: 1rem;
-  }
-  
-  .username .edit-brand:hover {
-    box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 4px 30px #1cc2de;
-    transition: ease-in-out 0.3s;
-}
 .edit-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  color:#536996;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%);
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(140, 161, 216);
+  font-size: 2em;
+  /* Adjust the font size for the edit icon */
 }
 
 .edit-icon:hover {
-  color: white;
+  background-color: #1cc2de;
+  cursor: pointer;
+  box-shadow: 0 4px 30px #1cc2de;
+  transition: ease-in-out 0.3s;
 }
 
 .iconContainer {
@@ -446,7 +439,7 @@ main {
   background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
   font-family: 'Rajdhani', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
@@ -622,7 +615,6 @@ main {
 }
 
 /* footer */
-
 .footer {
   background-color: #172341;
   padding: 1rem 0;
@@ -633,14 +625,16 @@ main {
   margin-top: 2rem !important;
 }
 
+
 .footer figure {
   align-items: center;
   margin: auto;
 }
-
 .bio-container {
   flex-direction: column;
 }
+
+
 
 .bio-container .bio-left,
 .bio-container .bio-right {
@@ -853,6 +847,7 @@ main {
   transform: rotateY(0deg);
 }
 
+
 /* current sky */
 
 .explanation-container {
@@ -982,14 +977,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  align-content: center;
-  justify-content: center;
 }
 
 .post-action-item {
   display: inline-block;
-
-
+  margin-right: 10px;
 }
 
 /* community */
@@ -1005,6 +997,24 @@ main {
   padding-bottom: 20px;
 }
 
+/* .community-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: rgba(23, 35, 65, 0.753);
+  max-width: 80%;
+  box-shadow: 2px 2px 2px #1cc2de;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 7px;
+  border-style: inset;
+  border-right: none;
+  border-bottom: none;
+  border-color: #fcfcfc3b;
+} */
+
 .profilePic {
   border-radius: 50%
 }
@@ -1016,35 +1026,39 @@ main {
 }
 
 .post-head {
-  position: relative;
+  border-color: #fcfcfc3b;
+  border-style: inset;
+  border-right: none;
+  border-left: none;
+  border-top: none;
   padding-bottom: 8px;
-  background: linear-gradient(to right, #2c4074a8 0%, #0a0f20c2 100%);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(31, 31, 31, 0.5);
 
 }
 
 .upim {
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(31, 31, 31, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px #1cc2de;
+  display: flex;
+  left: 10%;
+  right: 10%;
   margin: auto;
 }
 
-
-figure .user-uploaded-picture {
+figure {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: .4rem;
-  padding: 10px;
 }
 
-.post-content p {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  text-align: center;
+.user-uploaded-picture {
+  border-radius: 6px;
+  box-shadow: 0 4px 20px #1cc2de;
 }
+
+.user-uploaded-picture:hover {
+  cursor: pointer;
+}
+
 .profile-picture:hover {
   box-shadow: 0 4px 20px #1cc2de;
   cursor: pointer;
@@ -1054,32 +1068,29 @@ figure .user-uploaded-picture {
   box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
   -8px -8px 12px 0 rgba(91, 100, 129, 0.3);
   font-family: 'Rajdhani', sans-serif;
-  border-radius: 8px;
-  padding:2px;
+  border-radius: 10px;
+  padding: 10px;
   background-color: #172341c4;
+ 
 }
 
 .community-posts h3 {
   color: white;
   font-family: 'Orbitron', sans-serif;
-  padding-top: 15px;
-  margin: auto;
-  text-align: center;
+  padding-top: 15px
 }
 
-.post-meta strong {
+.community-posts strong {
   color: #1cc2de;
   font-weight: 900;
   font-size: 17px;
-
 }
 
 .post-action-item, .dropdown-trigger {
   color: #1cc2de;
   font-weight: 900;
-  padding-left: 8px;
+  padding-right: 8px;
   padding-bottom: 8px;
-
 }
 
 .post-action-item:hover {
@@ -1133,34 +1144,28 @@ figure .user-uploaded-picture {
 }
 
 .comment-container {
-  background-color: #2c40749a;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 9px;
-  /* border: 1px solid #0a0f20;  */
-  box-shadow: 8px 8px 14px 0 rgba(0, 0, 0, 0.25),
-  -4px -4px 12px 0 rgba(91, 100, 129, 0.3);
+}
+
+.update-comment {
+  color: #bdc7f4!important
 }
 
 .comlabel {
   font-weight: 900;
-  text-align: left !important;
 }
 
 .comment-meta {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.649);
 }
-.comsec {
-  background-color:#0a0f2071;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(31, 31, 31, 0.5);
-}
+
 .comuser {
   font-weight: 900;
   color: #1cc2de;
   font-size: 16px !important;
-  text-align: left !important;
 }
 
 .com {
@@ -1173,18 +1178,11 @@ figure .user-uploaded-picture {
   padding-top: 8px;
 }
 
-.comment-container .com {
-  text-align: left !important;
-}
-
 .delete-comment,
 .hide-comment {
   font-weight: 900;
   color: rgb(222, 39, 39);
-}
 
-.columns.is-multiline {
-  margin: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1210,12 +1208,15 @@ figure .user-uploaded-picture {
   }
 
   .explanation h3 {
+
     font-size: 21px;
+
   }
 
   .explanation p {
     font-size: 17px;
   }
+
 }
 
 /* For small screens */
@@ -1236,21 +1237,22 @@ figure .user-uploaded-picture {
   .register-form {
     margin-top: 3rem;
   }
+  .column.is-one-third {
 
+  min-width: 90%  !important;
+  }
+ 
+  .posts-container {
+    min-width: 263px !important;
+  }
   .horoscope-header {
     font-size: 40px;
   }
   .back-card {
     margin-top: -20rem !important;
   }
-  .username .edit-brand {
-    position: absolute;
-    top: -20%;
-    left: 70%;
-    transform: translateX(-50%);
-    }
-    .bio-container .profile-picture {
-      width: 140px !important;
-      height: 140px;
-    }
+  .post-container {
+    width: 250px;
+  }
 }
+
