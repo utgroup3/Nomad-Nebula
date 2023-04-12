@@ -125,7 +125,6 @@ DB_PW='your_mysql_password'
 
 ## :handshake: Contributing
 
-![contributing](https://user-images.githubusercontent.com/76407605/217901296-4c8742f8-b5aa-4587-9517-16888d65200b.JPG)
 ### Tasks and Roles 
 [`Cassie LeClair`](https://github.com/cleclair71)
 > Overall CSS design, animations, responsive design, designed MP4s in Canva, handlebars,  media, added bulma, incorporated Readme template front-end javascript, included multer and made updates
@@ -139,7 +138,7 @@ DB_PW='your_mysql_password'
 [`Christina Barberi`](https://github.com/Christinaecb)
 > Slideshow presentation, javascript, 
 ---
-Kevin Tran
+[`Kevin Tran`]
 > 
 
 
