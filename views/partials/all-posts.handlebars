@@ -16,13 +16,12 @@
               {{/if}}
               <p class="post-meta"><strong>{{user.username}}</strong><br>
                 {{format_date createdAt}} in {{user.location}}
-                {{!-- <a href="/community/{{community}}">{{community}}</a> --}}
               </p>
             </div>
 
             <h3 class="title is-5">{{title}}</h3>
 
-            <figure class="user-uploaded-picture">
+            <figure>
               {{#if image}}
               <img src="{{ image }}" alt="User uploaded image" class="is-rounded user-uploaded-picture">
               {{/if}}

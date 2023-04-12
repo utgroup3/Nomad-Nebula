@@ -1044,6 +1044,17 @@ main {
   margin: auto;
 }
 
+figure {
+  display: flex;
+  justify-content: center;
+  align-item: center;
+}
+
+.user-uploaded-picture {
+  border-radius: 6px;
+  box-shadow: 0 4px 20px #1cc2de;
+}
+
 .user-uploaded-picture:hover {
   cursor: pointer;
 }
@@ -1062,8 +1073,6 @@ main {
   background-color: #172341c4;
  
 }
-
-
 
 .community-posts h3 {
   color: white;
