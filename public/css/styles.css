@@ -49,16 +49,16 @@ main {
 }
 
 .hero-video-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .hero-video {
-  position: absolute;
+  position: fixed;
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -898,8 +898,7 @@ main {
 }
 
 .explanation img {
-  max-width: 200px;
-  margin-right: 20px;
+  width: 33%;
 }
 
 .explanation-content {
@@ -930,6 +929,7 @@ main {
 
 .arrow-icon {
   padding: 1rem;
+  font-size: 1.5vw;
 }
 
 .skyChart-container {
@@ -939,6 +939,7 @@ main {
   border-radius: 6px;
   background-color: rgba(23, 35, 65, 0.753);
   box-shadow: 0 4px 6px #1cc2de;
+  margin-top: 2rem;
 }
 
 .arrow-icon:before {
@@ -1052,10 +1053,9 @@ main {
   -8px -8px 12px 0 rgba(91, 100, 129, 0.3);
   font-family: 'Rajdhani', sans-serif;
   border-radius: 10px;
-
   padding: 10px;
   background-color: #172341c4;
-
+ 
 }
 
 
@@ -1171,6 +1171,9 @@ main {
   .register-form {
     margin-top: 1rem;
   }
+  .hero-video {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1183,7 +1186,7 @@ main {
   }
 
   .posts-container {
-    max-width: 2000px;
+    max-width: 1250px;
   }
 
   .explanation h3 {
@@ -1206,6 +1209,9 @@ main {
   .back-card {
     margin-top: -10rem !important;
   }
+  .hero-video {
+    display: block;
+  }
 }
 
 /* For extra-small screens */
@@ -1226,6 +1232,9 @@ main {
   }
   .back-card {
     margin-top: -20rem !important;
+  }
+  .post-content {
+    width: 250px;
   }
 }
 
