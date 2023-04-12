@@ -39,6 +39,7 @@ likeBtns.forEach(function (likeBtn) {
       const pageContainer = document.querySelector('.community-posts');
       if (!isLiked && pageContainer.classList.contains('user-likes-page')) {
         postContainer.remove();
+        location.reload();
       }
     } else {
       // If the like request fails, show an error alert
