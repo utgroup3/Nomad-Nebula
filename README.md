@@ -45,9 +45,8 @@
 
 <a name="description"></a>
 ## :rocket: About The Project
-<p align="center">
-  <img src="./public/img/readme2.JPG"/>
-</p>
+
+![readmeim](https://user-images.githubusercontent.com/76407605/231326542-2a88d494-1c42-4213-90a7-9bb97ad577b8.JPG)
 
 Nomad Nebula is an interactive full-stack web application that serves as a stargazing companion and social platform for stargazers. Users can discover stars and planets visible in the night sky in their area, get daily updates on stargazing and visibility conditions, create and manage their profiles, view and interact with posts from other stargazers on the community page, and access detailed information about their zodiac signs.
 
@@ -57,10 +56,6 @@ Nomad Nebula is an interactive full-stack web application that serves as a starg
 <a name="features"></a>
 
 ## :star: Added Features
-
-<p align="center">
-  <img src="./public/img/readme2.JPG"/>
-</p>
 - View stars and planets visible in the night sky based on user's location
 - Stargazing and visibility conditions
 - User profiles with profile pictures, liked posts, and published posts
@@ -117,12 +112,10 @@ DB_PW='your_mysql_password'
 
 ## :computer: Usage
 
-<div align="center">
-     <img src="assets\app.gif">
-   </div>
+![readme2](https://user-images.githubusercontent.com/76407605/231326612-35cef874-1446-416e-a450-e99dbfd86b17.JPG)
    <br />
    <p align="center"> The deployed site can be found on
-   <a href="https://drive.google.com/file/d/1oZJElx4QXzcGZlfQwMoUEVd9D6Ld_YKO/view?usp=sharing">Heroku</a>
+   <a href="https://the-nomad-nebula.herokuapp.com/">Heroku</a>
    </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
