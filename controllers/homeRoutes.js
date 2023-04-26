@@ -137,7 +137,9 @@ router.get('/community', async (req, res) => {
 
     // Retrieve all posts that the current user has liked
     const likedPosts = await Like.findAll({
-      where: { user_id: req.session.user_id },
+      where: {
+        user_id: req.session.user_id
+      },
       attributes: [
         'post_id'
       ],
@@ -152,7 +154,7 @@ router.get('/community', async (req, res) => {
       postObj.comments.forEach(comment => comment.loggedInUser = req.session.user_id);
       return postObj;
     });
-    console.log(posts);
+    
     const baseURL = `${req.protocol}://${req.get('host')}`;
 
     res.render('community', {
@@ -207,7 +209,10 @@ router.get('/user-likes', async (req, res) => {
 
     // Retrieve all posts that are currently liked
     const likedPosts = await Like.findAll({
-      where: { isLiked: true },
+      where: {
+        user_id: req.session.user_id, 
+        isLiked: true 
+      },
       include: [{
         model: Post, include: [User,
           {

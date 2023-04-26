@@ -487,13 +487,10 @@ border-radius: 5px;
 }
 
 .posts-container {
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-  /* gap: 1.5rem; */
   background-color: #172341c4;
   max-width: 700px;
   margin: 0 auto;
-  /* padding: 2rem; */
+  padding: 1rem 0;
   font-family: 'Rajdhani', sans-serif;
   border-radius: 15px;
   box-shadow: 0 4px 20px #1cc2de;
