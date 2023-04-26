@@ -154,7 +154,7 @@ router.get('/community', async (req, res) => {
       postObj.comments.forEach(comment => comment.loggedInUser = req.session.user_id);
       return postObj;
     });
-    console.log(posts);
+    
     const baseURL = `${req.protocol}://${req.get('host')}`;
 
     res.render('community', {
