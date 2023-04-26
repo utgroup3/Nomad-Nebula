@@ -3,7 +3,6 @@ const { Post, User, Comment, Like } = require('../../models');
 const withAuth = require('../../utils/auth');
 const postUpload = require('../../utils/postPicture.js');
 const sequelize = require('../../config/connection');
-const cloudinary = require('../../cloudinary');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -106,15 +105,10 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
       user_id: req.session.user_id,
     };
 
-    // If an image was uploaded, upload it to Cloudinary and add its URL to the newPost object
+    console.log(req.file);
+    // If an image was uploaded, add its path to the newPost object
     if (req.file) {
-      try {
-        const result = await cloudinary.uploader.upload(req.file.path);
-        newPost.image = result.secure_url;
-      } catch (err) {
-        console.error(err);
-        return res.status(500).json({ error: 'Error uploading image to Cloudinary' });
-      }
+      newPost.image = `/uploads/postPicture/${req.file.filename}`;
     }
 
     const postData = await Post.create(newPost);
@@ -125,37 +119,24 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
   }
 });
 
-// // CREATE a new post
-// router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
-//   try {
-//     const newPost = {
-//       title: req.body.title,
-//       content: req.body.content,
-//       user_id: req.session.user_id,
-//     };
-
-//     // If an image was uploaded, add its path to the newPost object
-//     if (req.file) {
-//       newPost.image = `https://the-nomad-nebula.herokuapp.com/uploads/postPicture/${req.file.filename}`;
-//     }
-
-//     const postData = await Post.create(newPost);
-
-//     res.status(200).json(postData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+const cloudinary = require('../../cloudinary');
 
 // UPDATE a post by ID
-router.put('/:id', withAuth, postUpload.single('image'), (req, res) => {
+router.put('/:id', withAuth, postUpload.single('image'), async (req, res) => {
   const updateData = {
     title: req.body.title,
     content: req.body.content,
   };
 
+  // If an image was uploaded, upload it to Cloudinary and add its URL to the updateData object
   if (req.file) {
-    updateData.image = `https://the-nomad-nebula.herokuapp.com/uploads/postPicture/${req.file.filename}`;
+    try {
+      const result = await cloudinary.uploader.upload(req.file.path);
+      updateData.image = result.secure_url;
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Error uploading image to Cloudinary' });
+    }
   }
 
   Post.update(updateData, {
@@ -175,6 +156,35 @@ router.put('/:id', withAuth, postUpload.single('image'), (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// UPDATE a post by ID
+// router.put('/:id', withAuth, postUpload.single('image'), (req, res) => {
+//   const updateData = {
+//     title: req.body.title,
+//     content: req.body.content,
+//   };
+
+//   if (req.file) {
+//     updateData.image = `/uploads/postPicture/${req.file.filename}`;
+//   }
+
+//   Post.update(updateData, {
+//     where: {
+//       id: req.params.id
+//     },
+//   })
+//     .then(dbPostData => {
+//       if (!dbPostData) {
+//         res.status(404).json({ message: 'No post found with this id' });
+//         return;
+//       }
+//       res.json(dbPostData);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // DELETE a post by ID
 router.delete('/:id', withAuth, (req, res) => {
