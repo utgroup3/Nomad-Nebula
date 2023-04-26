@@ -118,7 +118,7 @@ router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), a
   if (req.file) {
     try {
       const resizedImage = await resizeAndSaveProfilePicture(req.file);
-      profilePicture = '/uploads/profilePicture/' + resizedImage.filename;
+      profilePicture = 'https://the-nomad-nebula.herokuapp.com/uploads/profilePicture/' + resizedImage.filename;
     } catch (error) {
       console.log(error);
       return res.status(500).send("Error resizing the image");
