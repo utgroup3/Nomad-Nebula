@@ -3,6 +3,7 @@ const { Post, User, Comment, Like } = require('../../models');
 const withAuth = require('../../utils/auth');
 const postUpload = require('../../utils/postPicture.js');
 const sequelize = require('../../config/connection');
+const cloudinary = require('../../cloudinary');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -105,12 +106,11 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
       user_id: req.session.user_id,
     };
 
-    console.log(req.file);
     // If an image was uploaded, add its path to the newPost object
     if (req.file) {
-      newPost.image = `/uploads/postPicture/${req.file.filename}`;
+      const result = await cloudinary.uploader.upload(req.file.path);
+      newPost.image = result.secure_url;
     }
-
     const postData = await Post.create(newPost);
 
     res.status(200).json(postData);
@@ -119,7 +119,6 @@ router.post('/', withAuth, postUpload.single('image'), async (req, res) => {
   }
 });
 
-const cloudinary = require('../../cloudinary');
 
 // UPDATE a post by ID
 router.put('/:id', withAuth, postUpload.single('image'), async (req, res) => {

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const { profileUpload, resizeAndSaveProfilePicture } = require('../../utils/profilePicture.js');
+const cloudinary = require('../../cloudinary')
 
 // GET a single user by ID
 router.get('/:id', (req, res) => {
@@ -112,13 +113,15 @@ router.get('/edit-profile', withAuth, (req, res) => {
 
 // POST request for updating the profile
 router.post('/edit-profile', withAuth, profileUpload.single('profilePicture'), async (req, res) => {
-  let {username, location, birthday} = req.body;
+  let { username, location, birthday } = req.body;
   let profilePicture;
 
   if (req.file) {
     try {
       const resizedImage = await resizeAndSaveProfilePicture(req.file);
-      profilePicture = 'https://the-nomad-nebula.herokuapp.com/uploads/profilePicture/' + resizedImage.filename;
+      // profilePicture = 'https://the-nomad-nebula.herokuapp.com/uploads/profilePicture/' + resizedImage.filename;
+      const result = await cloudinary.uploader.upload(resizedImage.path);
+      profilePicture = result.secure_url;
     } catch (error) {
       console.log(error);
       return res.status(500).send("Error resizing the image");
